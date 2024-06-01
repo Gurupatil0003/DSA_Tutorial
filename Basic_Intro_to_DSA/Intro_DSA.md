@@ -112,8 +112,12 @@ CB[3] = 9
 CB[4] = 11
 ```
 
-Searching: it is Finding the location of data within the data structure that satisfies the searching condition or the criteria.
-Inserting: Adding new data in the data structure is referred to as insertion.
-Deleting: in this operation Removing data from the data structure is referred to as deletion.
-Sorting: Arranging the data in some logical order, for example, is numerical increasing order or alphabetically.
-Merging: Combining the data of two different sorted files into a single sorted file.
+- Searching: it is Finding the location of data within the data structure that satisfies the searching condition or the criteria.
+
+- Inserting: Adding new data in the data structure is referred to as insertion.
+- 
+- Deleting: in this operation Removing data from the data structure is referred to as deletion.
+
+- Sorting: Arranging the data in some logical order, for example, is numerical increasing order or alphabetically.
+
+- Merging: Combining the data of two different sorted files into a single sorted file.
