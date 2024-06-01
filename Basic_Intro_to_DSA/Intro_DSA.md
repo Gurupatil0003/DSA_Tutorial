@@ -75,3 +75,45 @@
  here represents a value. The root node is the uppermost node of the tree and the leaf node is the node at the bottom of the tree. This data structure imposes a 
  rule that nodes of a tree do not create loops in the data structure. A tree is used for indexing databases, scanning, parsing, and generating code in compiler 
  design, in routers in computer networks, social networking sites, etc. 
+
+
+# Data structure Operations
+Data structure operations are the data that is stored in our data structures that are processed by a certain set of operations.
+therefore, while selecting a particular data structure for the application then we choose a given data structure largely on the frequency with which specific operations are performed.
+there are the following Data structure operations we can perform on the data structures:
+
+Traversing:
+ Accessing each data exactly once in the data structure so that each data item in traversed or visited.
+ In data structure operation, traversing operation of an array, every element of an array is accessed exactly for once for processing.
+ it is also called the visiting of an array.
+ 
+```c
+For Example:
+Let CB is a Linear Array (unordered) with N elements.
+
+//Write a Program which performs traversing operation.
+#include <stdio.h>
+void main()
+{
+   int CB[] = {3,5,7,9,11};
+   int i, n = 5;
+   printf("The array elements are:\n");
+   for(i = 0; i < n; i++)
+   {
+      printf("CB[%d] = %d \n", i, CB[i]);
+   }
+}
+
+The array elements are:
+CB[0] = 3 
+CB[1] = 5 
+CB[2] = 7 
+CB[3] = 9 
+CB[4] = 11
+```
+
+Searching: it is Finding the location of data within the data structure that satisfies the searching condition or the criteria.
+Inserting: Adding new data in the data structure is referred to as insertion.
+Deleting: in this operation Removing data from the data structure is referred to as deletion.
+Sorting: Arranging the data in some logical order, for example, is numerical increasing order or alphabetically.
+Merging: Combining the data of two different sorted files into a single sorted file.
