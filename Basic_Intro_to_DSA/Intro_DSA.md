@@ -254,14 +254,12 @@ Percentage : 99.500000
 | Structure allocates storage space for all its members separately. | Union allocates one common storage space for all its members. |
 | Structure occupies higher memory space. | Union occupies lower memory space over structure. |
 | We can access all members of structure at a time. | We can access only one member of union at a time. |
-| **Structure example:** | **Union example:** |
-| ```c | ```c |
-| struct student { | union student { |
-|     int mark; |     int mark; |
-|     char name[6]; |     char name[6]; |
-|     double average; |     double average; |
-| }; | }; |
-| ``` | ``` |
+| **Example:**              | **Example:**               |
+| `struct student{`         | `union student {`          |
+| `    int mark;`           | `    int mark;`            |
+| `    char name[10];`      | `    char name[10];`       |
+| `    double average;`      | `    double average;`       |
+| `};`                      | `};`                       |
 | For above structure, memory allocation will be like below. | For above union, memory allocation will be like below. |
 | `int mark – 4B` | The largest member (`double average`) needs 8 bytes, so the total memory allocation for the union will be 8 bytes. |
 | `char name[6] – 6B` | |
