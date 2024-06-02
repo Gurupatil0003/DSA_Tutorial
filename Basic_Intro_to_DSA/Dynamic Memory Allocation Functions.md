@@ -1,5 +1,19 @@
 # Implementing malloc(), calloc(), realloc(), free() in c
-Dynamic memory allocation is the process of assigning the memory space during runtime of the program. This is implemented in C as the functions malloc, calloc, realloc, and free from stdlib. malloc allocates a single block of memory of specified size and returns the pointer to the allocated block. calloc works similarly to malloc but initializes the allocated memory to zero. realloc is used to change the size of an allocated block of memory. Free deallocates memory associated with a pointer.
+- Dynamic memory allocation is the process of assigning the memory space during runtime of the program. This is implemented in C as the functions malloc, calloc, 
+ realloc, and free from stdlib. malloc allocates a single block of memory of specified size and returns the pointer to the allocated block. calloc works similarly 
+ to malloc but initializes the allocated memory to zero. realloc is used to change the size of an allocated block of memory. Free deallocates memory associated 
+ with a pointer.
+
+- In case of static memory allocation there are some drawbacks like: wastage of memory, less flexibility, permanent allocation of variables etc. To overcome 
+ these situations the concept of Dynamic Memory Allocation has been introduced. In dynamic memory allocation the memories can be allocated dynamically at run time.
+
+- There 4 library functions that are described under <stdlib.h> (Standard Library Functions)
+
+1. malloc()
+2. calloc()
+3. realloc()
+4. free()
+
 
 ### Contents
 * [Approach](#approach-explained)
@@ -25,7 +39,24 @@ Dynamic memory allocation is the process of assigning the memory space during ru
 * The system calls `sbrk()` and `brk()` are used to move the break of the heap.  
 
 ### Malloc.c
+- To allocate memory dynamically we use the function which is called as malloc() function. malloc() function on success returns the base address of the allocated 
+ memory on failure it returns the NULL value. Every memory location will be initialized with a garbage value.
 
+- Memory allocation fails if sufficient memory is not provided. Unsuccessful memory allocation returns a NULL pointer (nullptr) to the pointer.
+```c
+Syntax:
+
+ptr = (datatype *)malloc((byte_size)*(number of elements))
+```
+
+```c
+For example:-
+ptr = (int *)malloc(sizeof(int)*10)
+
+It will create an array of 10 elements and will return the base address of the array. Every memory location will be initialized with a garbage value. This above statement will allocate 40 bytes of memory.
+
+
+```
 ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/77280eb6-7a31-4a80-af10-2083d1a48be5)
 
 * Allocates a Block of Memory of a Specified Size
@@ -84,10 +115,24 @@ int main() {
 ```
 
 ### Free.c
+
+- In dynamic memory allocation the memory have to be deallocated explicitly. It releases all the used memory spaces previously allocated by calloc(), malloc() or 
+ realloc() functions. If we no longer need the data stored in a particular block of memory, then we should have a practice to release that memory for future use. 
+ After freeing the memory blocks the memories are returned to heap.
+
+```c
+Syntax:-
+free(ptr);
+
+```
+
+free() is used to save unused memory by freeing it. Dynamic allocation have this advantage which static allocation lacks.
 * The function `free()` first checks if the pointer passed as argument is a valid pointer or not (i.e., created using malloc()) using `is_addr_valid()`.
 * Then using `get_block_addr()` the address of the `meta_block` of that corresponding memory location can be found.
 * The block to be freed is merged with the previous or the next memory block it any of it is free using `merge_block()`.
 * If the block to be freed is at the end of the linked list, then it is removed from the linkedlist and the break of the heap is modified using `brk()`.
+
+
 ```c
 /* C code to execute free() in DMA */
  
@@ -144,13 +189,155 @@ Previously allocated memory was 5 * 4[no. of elements * sizeof(int)] = 20 bytes 
 
 ### Calloc.c
 
+- Calloc stands for Contiguous Allocation. To allocate memory dynamically we also use the function which is called as calloc() function. calloc() function on 
+ success returns the base address of the array and every memory location will be initialized to 0. Whereas in malloc() it was initialized by a garbage value.
+
+- Like malloc(), memory allocation fails if sufficient memory is not provided. Unsuccessful memory allocation returns a NULL pointer (nullptr) to the pointer.
+```c
+Syntax:-
+ptr = (data_type *)calloc(number_of_elements, element_size);
+```
+
+```c
+For example, ptr=(int *)calloc(10, sizeof(int))
+will create an array of 10 elements dynamically and will return the base address of the array to ptr.
+Every memory location will be initialized to 0.
+
+This above statement will allocate 40 bytes of memory. If space is insufficient then the allocation fails and NULL value is returned.
+```
+
 ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/d52544d1-4a15-4905-ac14-3cda695ea6de)
 
 * First `malloc()` is used to allocate the required amount of space.
 * Then by iterating through every byte the value is set to 0.
+```c
+#include <stdio.h>
+#include <stdlib.h>
+  
+// Driver code
+int main() {
+    int n, i;  
+    int *p;   // Integer pointer is declared
+      
+    printf("Enter a valid range: ");
+    scanf("%d", &n);
+      
+    p=(int *)calloc(10, sizeof(int))   // An int array of n elements has been assigned to the pointer
+      
+    if(p == NULL) {                  // Checking if memory allocation is successful or not
+        printf("\nMemory allocation unsuccessful");
+        exit(0);
+    }
+    else {                          // Else memory allocation is successful
+        printf("\nMemory allocation successful");
+        printf("\nEnter the elements of array: ");
+      
+        for(i=0; i<n; ++i)
+            scanf("%d", p+i);   // Array elements are taken as input
+      
+        printf("\nElements of the array are: ");
+        for(i=0; i<n; i++)
+            printf("%d ", *(p+i));  // Print element of the array
+    }
+    return 0;
+}
 
+```
+```c
+Input:-
+Enter a valid range: 10
+Enter the elements of array: 1 2 3 4 5 6 7 8 9 10
+```
+```c
+Output:-
+Memory allocation successful
+Elements of the array are: 1 2 3 4 5 6 7 8 9 10
+```
 ### Realloc.c
+- Realloc stand for Reallocation. At the time of memory allocation using calloc() or malloc(), it may be possible memory is excess or insufficient. So for that 
+ reason we need to reallocate memory at the run time. realloc() is used to dynamically reallocate those memory without losing the data.
 
+- Like malloc() and calloc(), memory allocation fails if sufficient memory is not provided. Unsuccessful memory allocation returns a NULL pointer (nullptr) to the 
+ pointer.
+
+```c
+Syntax
+ptr = realloc(ptr, (new_size)*(size_of_datatype));
+```
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+  
+// Driver code
+int main() {
+    int *p, i , d1, d2;      //pointer and the variables are initialized
+    printf("Enter size: ");
+    scanf("%d", &d1);
+      
+    p=(int *)calloc(d1, sizeof(int));   // An int array of n elements has been assigned to the pointer
+      
+    if(p == NULL) {                  // Checking if memory allocation is successful or not
+        printf("\nMemory allocation unsuccessful");
+        exit(0);
+    }
+    else {                          // Else memory allocation is successful
+        printf("\nMemory allocation successful");
+        printf("\nEnter the elements of array: ");
+      
+        for(i=0; i<d1; ++i)
+            scanf("%d", p+i);   // Array elements are taken as input
+      
+        printf("\nElements of the array are: ");
+        for(i=0; i<d1; ++i)
+            printf("%d ", *(p+i));  // Print element of the array
+             
+        printf("\nEnter the new size: ");
+        scanf("%d", &d2);
+         
+        p=realloc(p, d2*sizeof(int)); // Reallocation of memory 
+         
+        if(p == NULL) {                  // Checking if memory allocation is successful or not
+            printf("\nMemory allocation unsuccessful using realloc");
+            exit(0);
+        }
+        else {
+            printf("\nMemory allocation successful using realloc");
+            printf("\nEnter %d new elements of the array: ", d2-d1);
+             
+            for(i=d1; i<d2; ++i)    // Input new d2-d1 elements
+                scanf("%d", p+i);  
+             
+            printf("\nThe final array is: ");   // Print the final array
+             
+            for(i=0; i<d2; ++i)
+                printf("%d ", *(p+i));
+        }
+        free(p);
+    }
+    return 0;
+}
+```
+```c
+Input:-
+Enter size: 5
+Enter the elements of array: 1 2 3 4 5
+Enter the new size: 10
+Enter 5 new elements of the array: 10 20 30 40 50
+```
+
+```c
+Output:-
+Memory allocation successful
+Elements of the array are: 1 2 3 4 5
+Memory allocation successful using realloc
+The final array is: 1 2 3 4 5 10 20 30 40 50
+```
+```c
+Explanation
+
+As per the program at first the size of the previously allocated memory block was 5. So size was = [5 * sizeof(int)]=20 bytes. Thereafter, by using the realloc() the size has been reallocated to [10 * sizeof(int)]=40 bytes.
+```
 ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/904379e9-9781-4036-9b2f-dc5aa81c2b35)
 
 * If the pointer to the old address(passed as argument) is `NULL`, then malloc is used to allocate the required memory.
