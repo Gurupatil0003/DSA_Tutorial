@@ -169,7 +169,13 @@ int main() {
 
 |Using normal variable|Using pointer variable
 |-----|-------|
-|1|[Boston Housing](https://www.kaggle.com/c/boston-housing)||
+|Syntax:
+union tag_name
+{
+data type var_name1;
+data type var_name2;
+data type var_name3;
+};|[Boston Housing](https://www.kaggle.com/c/boston-housing)||
 | 2 | [U.S. International Air Traffic 1990-2020 dataset ](https://www.kaggle.com/datasets/parulpandey/us-international-air-traffic-data)| | 
 | 3 | [Forbes Highest Paid Athletes 1990-2019 dataset](https://www.kaggle.com/datasets/parulpandey/forbes-highest-paid-athletes-19902019) | | 
 | 4 | [Covid-19 Clinical Trials dataset](https://www.kaggle.com/datasets/parulpandey/covid19-clinical-trials-dataset) | | 
