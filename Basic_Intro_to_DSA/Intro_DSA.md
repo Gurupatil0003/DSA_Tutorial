@@ -247,15 +247,25 @@ Subject : Physics
 Percentage : 99.500000
 ```
 **DIFFERENCE BETWEEN STRUCTURE AND UNION IN C**
-
 **DIFFERENCE BETWEEN STRUCTURE AND UNION IN C**
 
 | **C Structure** | **C Union** |
-| --- | --- |
+|-----------------|-------------|
 | Structure allocates storage space for all its members separately. | Union allocates one common storage space for all its members. |
 | Structure occupies higher memory space. | Union occupies lower memory space over structure. |
 | We can access all members of structure at a time. | We can access only one member of union at a time. |
 | **Structure example:** | **Union example:** |
-| `<br>struct student {<br>    int mark;<br>    char name[6];<br>    double average;<br>};<br>` | ```c<br>union student {<br>    int mark;<br>    char name[6];<br>    double average;<br>};<br>``` |
+| ```c | ```c |
+| struct student { | union student { |
+|     int mark; |     int mark; |
+|     char name[6]; |     char name[6]; |
+|     double average; |     double average; |
+| }; | }; |
+| ``` | ``` |
 | For above structure, memory allocation will be like below. | For above union, memory allocation will be like below. |
-| `int mark – 4B`<br>`char name[6] – 6B`<br>`double average – 8B`<br>`Total memory allocation = 4 + 6 + 8 = 18 Bytes` | The largest member (`double average`) needs 8 bytes, so the total memory allocation for the union will be 8 bytes. |
+| `int mark – 4B` | The largest member (`double average`) needs 8 bytes, so the total memory allocation for the union will be 8 bytes. |
+| `char name[6] – 6B` | |
+| `double average – 8B` | |
+| `Total memory allocation = 4 + 6 + 8 = 18 Bytes` | |
+
+
