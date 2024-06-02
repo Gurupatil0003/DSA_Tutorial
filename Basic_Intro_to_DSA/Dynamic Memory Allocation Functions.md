@@ -25,6 +25,10 @@ Dynamic memory allocation is the process of assigning the memory space during ru
 * The system calls `sbrk()` and `brk()` are used to move the break of the heap.  
 
 ### Malloc.c
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/77280eb6-7a31-4a80-af10-2083d1a48be5)
+
+* Allocates a Block of Memory of a Specified Size
 * ```malloc.c``` contains the structure ```meta_block``` which stores information about the memory block.
 * Every ```meta_block``` is a node in the doubly linked list. The head of the doubly linked list in maintained globally in the variable ```base```.
 * It stores information such as:
@@ -42,18 +46,113 @@ Dynamic memory allocation is the process of assigning the memory space during ru
   * If a suitable block is found, it is returned.
   * Else it extends the heap and returns the newly created block.
   * It also check if the block found in the linkedlist has enough extra space to be splited. In this case, ```split_space()``` is invoked.
+ 
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int *ptr;
+    int n = 5;
+
+    // Allocate memory for n integers
+    ptr = (int*)malloc(n * sizeof(int));
+
+    if (ptr == NULL) {
+        fprintf(stderr, "Memory allocation failed\n");
+        return 1;
+    }
+
+    // Initialize the array
+    for (int i = 0; i < n; i++) {
+        ptr[i] = i + 1;
+    }
+
+    // Print the array
+    printf("Array allocated using malloc(): ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", ptr[i]);
+    }
+    printf("\n");
+
+    // Free the allocated memory
+    free(ptr);
+
+    return 0;
+}
+
+```
 
 ### Free.c
 * The function `free()` first checks if the pointer passed as argument is a valid pointer or not (i.e., created using malloc()) using `is_addr_valid()`.
 * Then using `get_block_addr()` the address of the `meta_block` of that corresponding memory location can be found.
 * The block to be freed is merged with the previous or the next memory block it any of it is free using `merge_block()`.
 * If the block to be freed is at the end of the linked list, then it is removed from the linkedlist and the break of the heap is modified using `brk()`.
+```c
+/* C code to execute free() in DMA */
+ 
+#include <stdio.h>
+#include <stdlib.h>
+ 
+// Driver code
+int main() {
+    int *p, n;     // Pointer and the variables are initialized
+    printf("Enter the size of array: ");
+    scanf("%d", &n);
+ 
+    p = (int*) calloc(n, sizeof(int));  // An int array of n elements has been assigned to the pointer
+     
+    if(p==NULL) {
+        printf("\nMemory allocation unsuccessful using calloc");
+        exit(0);
+    }
+    else {
+        printf("\nMemory allocation successful using calloc");
+         
+        printf("\nEnter the elements of the array: ");
+        for(int i=0; i<n; ++i)
+            scanf("%d", p+i);   // Array elements are taken as input
+         
+        printf("\nThe elements of the array: ");
+        for(int i=0; i<n; ++i)
+             printf("%d ", *(p + i));   // Print element of the array
+       
+        free(p);     //frees the space allocated in the memory
+         
+        printf("\nMemory has been freed successfully using free");
+    }
+     
+    return 0;
+}
+```
+```c
+Input
+Enter the size of array: 5
+Enter the elements of the array: 1 2 3 4 5
+```
+```
+Output
+Memory allocation successful using calloc
+The elements of the array: 1 2 3 4 5 
+Memory has been freed successfully using free
+```
+```c
+Explanation
+
+Previously allocated memory was 5 * 4[no. of elements * sizeof(int)] = 20 bytes using calloc. By using the function “free()”, the space allocated to the memory has been deleted thereafter.
+```
 
 ### Calloc.c
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/d52544d1-4a15-4905-ac14-3cda695ea6de)
+
 * First `malloc()` is used to allocate the required amount of space.
 * Then by iterating through every byte the value is set to 0.
 
 ### Realloc.c
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/904379e9-9781-4036-9b2f-dc5aa81c2b35)
+
 * If the pointer to the old address(passed as argument) is `NULL`, then malloc is used to allocate the required memory.
 * If the memory block of the old address has at least the required size then it is returned as it is.
 * Then the next block is checked if it free and merged using `merge_block()`.
