@@ -115,9 +115,64 @@ CB[4] = 11
 - Searching: it is Finding the location of data within the data structure that satisfies the searching condition or the criteria.
 
 - Inserting: Adding new data in the data structure is referred to as insertion.
-- 
+
 - Deleting: in this operation Removing data from the data structure is referred to as deletion.
 
 - Sorting: Arranging the data in some logical order, for example, is numerical increasing order or alphabetically.
 
 - Merging: Combining the data of two different sorted files into a single sorted file.
+
+# Union
+- Unions in C allow you to store different data types in the same memory location. You can only store one type of data at a time in a union. Unions are useful 
+ when you need to manage different types of data but only one type at a time.
+
+- Example: Union to Store Different Data Types
+- Here’s an example of how a union can be used to store different data types:
+```c
+#include <stdio.h>
+
+// Define a union to store different types of data
+union Data {
+    int i;
+    float f;
+    char str[20];
+};
+
+int main() {
+    union Data data;
+
+    // Store an integer
+    data.i = 10;
+    printf("data.i: %d\n", data.i);
+
+    // Store a float
+    data.f = 220.5;
+    printf("data.f: %f\n", data.f);
+
+    // Store a string
+    strcpy(data.str, "Hello, World!");
+    printf("data.str: %s\n", data.str);
+
+    return 0;
+}
+
+```
+# Union and structure
+- Union and structure in C  are same in concepts, except allocating memory for their members.
+- Structure allocates storage space for all its members separately.
+ Whereas, Union allocates one common storage space for all its members
+- We can access only one member of union at a time. We can’t access all member values at the same time in union. But, structure can access all member values at 
+ the same time. This is because, Union allocates one common storage space for all its members. Where as Structure allocates storage space for all its members 
+ separately.
+- Many union variables can be created in a program and memory will be allocated for each union variable separately.
+- Below table will help you how to form a C union, declare a union, initializing and accessing the members of the union.
+
+|Using normal variable|Using pointer variable
+|-----|-------|
+|1|[Boston Housing](https://www.kaggle.com/c/boston-housing)||
+| 2 | [U.S. International Air Traffic 1990-2020 dataset ](https://www.kaggle.com/datasets/parulpandey/us-international-air-traffic-data)| | 
+| 3 | [Forbes Highest Paid Athletes 1990-2019 dataset](https://www.kaggle.com/datasets/parulpandey/forbes-highest-paid-athletes-19902019) | | 
+| 4 | [Covid-19 Clinical Trials dataset](https://www.kaggle.com/datasets/parulpandey/covid19-clinical-trials-dataset) | | 
+| 5 | [Palmer Archipelago dataset](https://www.kaggle.com/datasets/parulpandey/palmer-archipelago-antarctica-penguin-data)| | 
+| 6 |[PIMA Indians Diabetes](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database)||
+| 7 |[Amazon Review for Sentiment Analysis](https://www.kaggle.com/datasets/bittlingmayer/amazonreviews)||
