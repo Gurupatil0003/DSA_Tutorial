@@ -249,11 +249,11 @@ Percentage : 99.500000
 **DIFFERENCE BETWEEN STRUCTURE AND UNION IN C**
 **DIFFERENCE BETWEEN STRUCTURE AND UNION IN C**
 
-|s.No|| **C Structure** | **C Union** |
-|||-----------------|-------------|
-||1| Structure allocates storage space for all its members separately. | Union allocates one common storage space for all its members. |
-|2|| Structure occupies higher memory space. | Union occupies lower memory space over structure. |
-|3|| We can access all members of structure at a time. | We can access only one member of union at a time. |
+| **C Structure** | **C Union** |
+|-----------------|-------------|
+| Structure allocates storage space for all its members separately. | Union allocates one common storage space for all its members. |
+| Structure occupies higher memory space. | Union occupies lower memory space over structure. |
+| We can access all members of structure at a time. | We can access only one member of union at a time. |
 | **Example:**              | **Example:**               |
 | `struct student{`         | `union student {`          |
 | `    int mark;`           | `    int mark;`            |
