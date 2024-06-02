@@ -246,6 +246,12 @@ Name : Mani
 Subject : Physics
 Percentage : 99.500000
 ```
+
+
+# Structure
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/8bc04054-d747-4ce8-b3c0-baba3147ff54)
+
 **DIFFERENCE BETWEEN STRUCTURE AND UNION IN C**
 **DIFFERENCE BETWEEN STRUCTURE AND UNION IN C**
 
