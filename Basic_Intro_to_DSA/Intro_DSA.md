@@ -167,18 +167,37 @@ int main() {
 - Many union variables can be created in a program and memory will be allocated for each union variable separately.
 - Below table will help you how to form a C union, declare a union, initializing and accessing the members of the union.
 
-|Using normal variable|Using pointer variable
-|-----|-------|
-|Syntax:
-union tag_name
-{
-data type var_name1;
-data type var_name2;
-data type var_name3;
-};|[Boston Housing](https://www.kaggle.com/c/boston-housing)||
-| 2 | [U.S. International Air Traffic 1990-2020 dataset ](https://www.kaggle.com/datasets/parulpandey/us-international-air-traffic-data)| | 
-| 3 | [Forbes Highest Paid Athletes 1990-2019 dataset](https://www.kaggle.com/datasets/parulpandey/forbes-highest-paid-athletes-19902019) | | 
-| 4 | [Covid-19 Clinical Trials dataset](https://www.kaggle.com/datasets/parulpandey/covid19-clinical-trials-dataset) | | 
-| 5 | [Palmer Archipelago dataset](https://www.kaggle.com/datasets/parulpandey/palmer-archipelago-antarctica-penguin-data)| | 
-| 6 |[PIMA Indians Diabetes](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database)||
-| 7 |[Amazon Review for Sentiment Analysis](https://www.kaggle.com/datasets/bittlingmayer/amazonreviews)||
+| **Using Normal Variable** | **Using Pointer Variable** |
+|---------------------------|----------------------------|
+| **Syntax:**               | **Syntax:**                |
+| ```c                      | ```c                       |
+| union tag_name {          | union tag_name {           |
+|     data type var_name1;  |     data type var_name1;   |
+|     data type var_name2;  |     data type var_name2;   |
+|     data type var_name3;  |     data type var_name3;   |
+| };                        | };                         |
+| ```                       | ```                        |
+| **Example:**              | **Example:**               |
+| ```c                      | ```c                       |
+| union student {           | union student {            |
+|     int mark;             |     int mark;              |
+|     char name[10];        |     char name[10];         |
+|     float average;        |     float average;         |
+| };                        | };                         |
+| ```                       | ```                        |
+| **Declaring Union:**      | **Declaring Union:**       |
+| ```c                      | ```c                       |
+| union student report;     | union student *report, rep;|
+| ```                       | ```                        |
+| **Initializing Union:**   | **Initializing Union:**    |
+| ```c                      | ```c                       |
+| union student report = {100, "Mani", 99.5}; | union student rep = {100, "Mani", 99.5}; |
+|                           | report = &rep;             |
+| ```                       | ```                        |
+| **Accessing Union Members:** | **Accessing Union Members:** |
+| ```c                      | ```c                       |
+| report.mark;              | report->mark;              |
+| report.name;              | report->name;              |
+| report.average;           | report->average;           |
+| ```                       | ```                        |
+
