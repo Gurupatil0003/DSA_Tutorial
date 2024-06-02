@@ -170,34 +170,25 @@ int main() {
 | **Using Normal Variable** | **Using Pointer Variable** |
 |---------------------------|----------------------------|
 | **Syntax:**               | **Syntax:**                |
-| ```c                      | ```c                       |
-| union tag_name {          | union tag_name {           |
-|     data type var_name1;  |     data type var_name1;   |
-|     data type var_name2;  |     data type var_name2;   |
-|     data type var_name3;  |     data type var_name3;   |
-| };                        | };                         |
-| ```                       | ```                        |
+| `union tag_name {`        | `union tag_name {`         |
+| `    data type var_name1;`| `    data type var_name1;` |
+| `    data type var_name2;`| `    data type var_name2;` |
+| `    data type var_name3;`| `    data type var_name3;` |
+| `};`                      | `};`                       |
 | **Example:**              | **Example:**               |
-| ```c                      | ```c                       |
-| union student {           | union student {            |
-|     int mark;             |     int mark;              |
-|     char name[10];        |     char name[10];         |
-|     float average;        |     float average;         |
-| };                        | };                         |
-| ```                       | ```                        |
+| `union student {`         | `union student {`          |
+| `    int mark;`           | `    int mark;`            |
+| `    char name[10];`      | `    char name[10];`       |
+| `    float average;`      | `    float average;`       |
+| `};`                      | `};`                       |
 | **Declaring Union:**      | **Declaring Union:**       |
-| ```c                      | ```c                       |
-| union student report;     | union student *report, rep;|
-| ```                       | ```                        |
+| `union student report;`   | `union student *report, rep;` |
 | **Initializing Union:**   | **Initializing Union:**    |
-| ```c                      | ```c                       |
-| union student report = {100, "Mani", 99.5}; | union student rep = {100, "Mani", 99.5}; |
-|                           | report = &rep;             |
-| ```                       | ```                        |
+| `union student report = {100, "Mani", 99.5};` | `union student rep = {100, "Mani", 99.5};` |
+|                           | `report = &rep;`           |
 | **Accessing Union Members:** | **Accessing Union Members:** |
-| ```c                      | ```c                       |
-| report.mark;              | report->mark;              |
-| report.name;              | report->name;              |
-| report.average;           | report->average;           |
-| ```                       | ```                        |
+| `report.mark;`            | `report->mark;`            |
+| `report.name;`            | `report->name;`            |
+| `report.average;`         | `report->average;`         |
+
 
