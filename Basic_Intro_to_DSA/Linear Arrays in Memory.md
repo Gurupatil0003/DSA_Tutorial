@@ -1,0 +1,1 @@
+In Data Structures and Algorithms (DSA), a linear array (or simply an array) is a collection of elements stored in contiguous memory locations. Arrays are a fundamental data structure in C programming due to their simplicity and efficiency in accessing elements. Here's a detailed explanation of how linear arrays are represented in memory in C:
