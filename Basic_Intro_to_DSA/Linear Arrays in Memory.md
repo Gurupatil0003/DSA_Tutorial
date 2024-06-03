@@ -22,12 +22,15 @@ int arr[5] = {1, 2, 3, 4, 5};
 
 For the above array arr, the memory representation might look like this:
 ```c
+------------------------------------------------------------------------------------------------
 Memory Address   Value
 0x1000           1
 0x1004           2
 0x1008           3
 0x100C           4
 0x1010           5
+------------------------------------------------------------------------------------------------
+
 ```
 - Here, 0x1000 is the starting address of the array, and each subsequent element is stored 4 bytes apart.
 
@@ -41,7 +44,10 @@ Address(arr[i]) = BaseAddress + (i * SizeOfElement)
 ```
 - For example, to access the third element (arr[2]):
 ```c
+------------------------------------------------------------------------------------------------
 Address(arr[2]) = 0x1000 + (2 * 4) = 0x1008
+------------------------------------------------------------------------------------------------
+
 ```
 ### 4. Example Code
 - Here is a complete example in C that demonstrates the declaration, initialization, and accessing of an array:
@@ -92,11 +98,14 @@ Address of arr[4]: 0x7ffe03e4c200
 
 Declaration and Initialization
 ```c
+------------------------------------------------------------------------------------------------
 int arr[3][4] = {
     {1, 2, 3, 4},
     {5, 6, 7, 8},
     {9, 10, 11, 12}
 };
+------------------------------------------------------------------------------------------------
+
 ```
 
 - This creates a 3x4 matrix.
@@ -105,6 +114,8 @@ int arr[3][4] = {
 - In memory, a two-dimensional array is stored in row-major order, meaning all elements of the first row are stored first, followed by the elements of the second 
  row, and so on.
 ```c
+------------------------------------------------------------------------------------------------
+
 Address      Value
 0x1000       1
 0x1004       2
@@ -118,6 +129,8 @@ Address      Value
 0x1024       10
 0x1028       11
 0x102C       12
+------------------------------------------------------------------------------------------------
+
 ```
 
 ### Accessing Elements
@@ -159,6 +172,7 @@ int main() {
 
 - Declaration and Initialization
 ```c
+------------------------------------------------------------------------------------------------
 int arr[2][3][4] = {
     {
         {1, 2, 3, 4},
@@ -171,6 +185,8 @@ int arr[2][3][4] = {
         {21, 22, 23, 24}
     }
 };
+------------------------------------------------------------------------------------------------
+
 ```
 - This creates a 2x3x4 array.
 
@@ -179,6 +195,7 @@ int arr[2][3][4] = {
 
 - For the array arr, the memory representation might look like this:
 ```c
+------------------------------------------------------------------------------------------------
 Address      Value
 0x1000       1
 0x1004       2
@@ -188,6 +205,8 @@ Address      Value
 0x1030       13
 ...
 0x1068       24
+------------------------------------------------------------------------------------------------
+
 ```
 
 ### Accessing Elements
@@ -203,7 +222,7 @@ Address(arr[1][2][3]) = 0x1000 + ((1 * 3 * 4) + (2 * 4) + 3) * 4 = 0x1068
 Address(arr[1][2][3]) = 0x1000 + ((1 * 3 * 4) + (2 * 4) + 3) * 4 = 0x1068
 ```
 ## Example code
-```
+```c
 #include <stdio.h>
 
 int main() {
