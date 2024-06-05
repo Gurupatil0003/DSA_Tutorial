@@ -302,7 +302,7 @@ int main()
 
 ## Factorial
 - Factorial of a non-negative integer n, denoted as n!, is the product of all positive integers less than or equal to n.
-```
+```c
 #include <stdio.h>
 
 // Recursive function to calculate factorial
@@ -337,7 +337,7 @@ int main() {
     printf("GCD of %d and %d is %d\n", a, b, gcd(a, b));
     return 0;
 }
-```c
+```
 # Fibonacci Sequence
 - The Fibonacci sequence is a series of numbers in which each number is the sum of the two preceding ones, usually starting with 0 and 1.
 ```c
