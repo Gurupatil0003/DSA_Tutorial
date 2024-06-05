@@ -22,7 +22,14 @@
 
 
 
-### Structure to represent the stack
+### Stack Array Implementation:
+- A Stack is a Data Structure that implements the LIFO (last in first out) way of getting the data in and out. So, we insert on top and get from top. Exactly the same way as we would stack books. We can’t get a 
+ book that is not on the top, without getting the others on top of it before. We define a stack again as a struct that has to have:
+
+- an static Array that contains the Stack Data the top index of the Stack Array, where the last Item sits We could also include capacity, if we make it pseudodynamic.
+
+-To keep it simple I will only talk about Integer Arrays. So, an struct of an Stack will look like this:
+
 ```c
 #define MAX_SIZE 100 // Maximum size of the stack
 
@@ -33,7 +40,7 @@ typedef struct {
 } Stack;
 ```
 
-### Operation Operation
+### Operation Operation 
 
 | Operation      | Description                                          |
 |----------------|------------------------------------------------------|
@@ -43,7 +50,20 @@ typedef struct {
 | isEmpty        | Check if the stack is empty.                         |
 | isFull         | Check if the stack is full (for fixed-size stacks).  |
 | Initialize     | Initialize the stack to make it ready for use.       |
-code 
+
+### Array Representation of a Stack
+- 1.Define the Maximum Size: Set a maximum size for the stack.
+ Initialize the Stack: Create a structure to hold the stack elements and the top index.
+2.Operations:
+ Push: Add an element to the top of the stack.
+ Pop: Remove and return the top element of the stack.
+ Peek: Return the top element without removing it.
+ isEmpty: Check if the stack is empty.
+ isFull: Check if the stack is full.
+3.Display: Print all elements in the stack
+
+
+### Opertation and Array represntation in stack
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -131,4 +151,16 @@ int main() {
 }
 
 ```
+## Stacks using Dynamic Arrays
+- Array in C is static in nature, so its size should be known at compile time and we can’t change the size of the array after its declaration. Due to this, we may encounter situations where our array doesn’t 
+ have enough space left for required elements or we allotted more than the required memory leading to memory wastage. To solve this problem, dynamic arrays come into the picture.
 
+- A Dynamic Array is allocated memory at runtime and its size can be changed later in the program.
+
+- We can create a dynamic array in C by using the following methods:
+- 1.Using malloc() Function
+- 2.Using calloc() Function
+- 3.Resizing Array Using realloc() Function
+- 4.Using Variable Length Arrays(VLAs)
+- 5.Using Flexible Array Members
+- 6.free
