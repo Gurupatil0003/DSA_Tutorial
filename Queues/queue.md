@@ -150,7 +150,105 @@ Limited by the size of the array.
 May lead to memory wastage if the array is larger than necessary.
 Resizing the array (if dynamic) can be expensive (O(n)).
 ```
+### Implementation
+```c
+#include <stdio.h>
+#include <stdlib.h>
 
+#define MAX_SIZE 100
+
+// Structure to represent a queue
+struct Queue {
+    int items[MAX_SIZE];
+    int front;
+    int rear;
+};
+
+// Function to create a new queue
+struct Queue* createQueue() {
+    struct Queue* queue = (struct Queue*)malloc(sizeof(struct Queue));
+    queue->front = -1;
+    queue->rear = -1;
+    return queue;
+}
+
+// Function to check if the queue is full
+int isFull(struct Queue* queue) {
+    return queue->rear == MAX_SIZE - 1;
+}
+
+// Function to check if the queue is empty
+int isEmpty(struct Queue* queue) {
+    return queue->front == -1;
+}
+
+// Function to add an element to the queue
+void enqueue(struct Queue* queue, int value) {
+    if (isFull(queue)) {
+        printf("Queue is full\n");
+        return;
+    }
+    if (isEmpty(queue)) {
+        queue->front = 0;
+    }
+    queue->rear++;
+    queue->items[queue->rear] = value;
+}
+
+// Function to remove an element from the queue
+int dequeue(struct Queue* queue) {
+    int item;
+    if (isEmpty(queue)) {
+        printf("Queue is empty\n");
+        return -1;
+    }
+    item = queue->items[queue->front];
+    if (queue->front >= queue->rear) {
+        queue->front = -1;
+        queue->rear = -1;
+    } else {
+        queue->front++;
+    }
+    return item;
+}
+
+// Function to display the elements of the queue
+void display(struct Queue* queue) {
+    int i;
+    if (isEmpty(queue)) {
+        printf("Queue is empty\n");
+        return;
+    }
+    printf("Queue elements are:\n");
+    for (i = queue->front; i <= queue->rear; i++) {
+        printf("%d ", queue->items[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    struct Queue* queue = createQueue();
+
+    enqueue(queue, 1);
+    enqueue(queue, 2);
+    enqueue(queue, 3);
+    enqueue(queue, 4);
+
+    display(queue);
+
+    printf("Dequeuing element: %d\n", dequeue(queue));
+    printf("Dequeuing element: %d\n", dequeue(queue));
+
+    display(queue);
+
+    enqueue(queue, 5);
+    enqueue(queue, 6);
+
+    display(queue);
+
+    return 0;
+}
+```
 ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/1d0eed57-169f-40eb-84f6-79c877c53def)
 
 # circular queue
