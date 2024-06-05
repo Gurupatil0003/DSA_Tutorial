@@ -95,3 +95,12 @@ Element found at index 1
 
 
 ```
+
+## Performance
+- Each iteration of the above code requires between five and six comparisons. On average, the interpolation search makes about log(log(n)) comparisons if the elements are uniformly distributed, where n is the 
+ total number of elements to be searched. In the worst case, it can make up to O(n) comparisons. The worst-case might happen when the numerical values of the targets increase exponentially.
+
+### Complexity:
+- Runtime: The average runtime complexity of interpolation search is O(log log N) and has a worst case of O(N), which happens when the keys increase exponentially.
+
+- Space: O(1) for initializing variables high, low, mid.
