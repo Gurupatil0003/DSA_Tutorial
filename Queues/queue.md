@@ -576,7 +576,202 @@ Queue is empty !!
 - 2.Memory management
 - 3.Traffic Management
 
+# Priority Queue
+- 1.A priority queue is a special type of queue in which each element is associated with a priority value. And, elements are served on the basis of their priority. That is, higher priority elements are served first.
 
+- 2.However, if elements with the same priority occur, they are served according to their order in the queue.
+
+## Assigning Priority Value
+
+- 1.Generally, the value of the element itself is considered for assigning the priority. For example,
+
+- 2.The element with the highest value is considered the highest priority element. However, in other cases, we can assume the element with the lowest value as the 
+  highest priority element.
+
+- 3.We can also set priorities according to our needs.
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/9f9e12f9-6c0a-4807-940b-30c6b7bae2c1)
+
+## Difference between Priority Queue and Normal Queue
+- In a queue, the first-in-first-out rule is implemented whereas, in a priority queue, the values are removed on the basis of priority. The element with the 
+ highest priority is removed first.
+
+## Implementation of Priority Queue
+- Priority queue can be implemented using an array, a linked list, a heap data structure, or a binary search tree. Among these data structures, heap data 
+ structure provides an efficient implementation of priority queues.
+
+- Hence, we will be using the heap data structure to implement the priority queue in this tutorial. A max-heap is implemented in the following operations. If you 
+ want to learn more about it, please visit max-heap and min-heap.
+
+- A comparative analysis of different implementations of priority queue is given below.
+
+| Data Structure      | Peek     | Insert      | Delete      |
+|---------------------|----------|-------------|-------------|
+| Linked List         | O(1)     | O(n)        | O(1)        |
+| Binary Heap         | O(1)     | O(log n)    | O(log n)    |
+| Binary Search Tree  | O(1)     | O(log n)    | O(log n)    |
+
+## Priority Queue Operations
+- Basic operations of a priority queue are inserting, removing, and peeking elements.
+```c
+Note:-
+Before studying the priority queue, please refer to the heap data structure for a better understanding of binary heap as it is used to implement the priority 
+queue in this article.
+```
+## 1. Inserting an Element into the Priority Queue
+- Inserting an element into a priority queue (max-heap) is done by the following steps.
+
+- Insert the new element at the end of the tree
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/eedb392e-3157-4a54-a408-89da05ec94c6)
+
+- heapify the tree
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/46c29357-58b1-4d8b-b834-40272381dca5)
+
+- Algorithm for insertion of an element into priority queue (max-heap)
+```c
+If there is no node, 
+create a newNode.
+else (a node is already present)
+insert the newNode at the end (last node from left to right.)
+```
+
+- heapify the array
+- For Min Heap, the above algorithm is modified so that parentNode is always smaller than newNode.
+
+## 2. Deleting an Element from the Priority Queue
+- Deleting an element from a priority queue (max-heap) is done as follows:
+
+- Select the element to be deleted.
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/088537d9-3c0f-4419-b9dc-9719a200fb8f)
+
+-  it with the last element.
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/d3518a00-714f-4de5-bb2b-cd5006b05d7d)
+
+- Remove the last element.
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/e8c9bc61-e6f3-4ec2-ae0d-cc3413a16a81)
+
+- Heapify the tree.
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/454acae1-cd4e-4ab8-8866-5cf0ca3afdcb)
+
+
+- Algorithm for deletion of an element in the priority queue (max-heap)
+```c
+If nodeToBeDeleted is the leafNode
+remove the node
+Else swap nodeToBeDeleted with the lastLeafNode
+remove noteToBeDeleted
+
+heapify the array
+```
+- For Min Heap, the above algorithm is modified so that the both childNodes are smaller than currentNode.
+
+## 3. Peeking from the Priority Queue (Find max/min)
+- Peek operation returns the maximum element from Max Heap or minimum element from Min Heap without deleting the node.
+
+- For both Max heap and Min Heap
+```c
+return rootNode
+```
+## 4. Extract-Max/Min from the Priority Queue
+  Extract-Max returns the node with maximum value after removing it from a Max Heap whereas Extract-Min returns the node with minimum value after removing it from 
+  Min Heap
+
+## Priority Queue implementation in C
+```c
+  // Priority Queue implementation in C
+
+#include <stdio.h>
+int size = 0;
+void swap(int *a, int *b) {
+int temp = *b;
+*b = *a;
+*a = temp;
+}
+
+// Function to heapify the tree
+void heapify(int array[], int size, int i) {
+if (size == 1) {
+printf("Single element in the heap");
+} else {
+// Find the largest among root, left child and right child
+int largest = i;
+int l = 2 * i + 1;
+int r = 2 * i + 2;
+if (l < size && array[l] > array[largest])
+largest = l;
+if (r < size && array[r] > array[largest])
+largest = r;
+
+// Swap and continue heapifying if root is not largest
+if (largest != i) {
+swap(&array[i], &array[largest]);
+heapify(array, size, largest);
+}
+}
+}
+
+// Function to insert an element into the tree
+void insert(int array[], int newNum) {
+if (size == 0) {
+array[0] = newNum;
+size += 1;
+} else {
+array[size] = newNum;
+size += 1;
+for (int i = size / 2 - 1; i >= 0; i--) {
+heapify(array, size, i);
+}
+}
+}
+
+// Function to delete an element from the tree
+void deleteRoot(int array[], int num) {
+int i;
+for (i = 0; i < size; i++) {
+if (num == array[i])
+break;
+}
+
+swap(&array[i], &array[size - 1]);
+size -= 1;
+for (int i = size / 2 - 1; i >= 0; i--) {
+heapify(array, size, i);
+}
+}
+
+// Print the array
+void printArray(int array[], int size) {
+for (int i = 0; i < size; ++i)
+printf("%d ", array[i]);
+printf("\n");
+}
+
+// Driver code
+int main() {
+int array[10];
+
+insert(array, 3);
+insert(array, 4);
+insert(array, 9);
+insert(array, 5);
+insert(array, 2);
+
+printf("Max-Heap array: ");
+printArray(array, size);
+
+deleteRoot(array, 4);
+
+printf("After deleting an element: ");
+
+printArray(array, size);
+}
+```
 # Deque Data Structure
 
 - Deque or Double Ended Queue is a type of queue in which insertion and removal of elements can either be performed from the front or the rear. Thus, it does not 
@@ -590,6 +785,13 @@ Queue is empty !!
 - 3.Output Restricted Deque
 - 4.In this deque, output is restricted at a single end but allows insertion at both the ends.
 
+## Priority Queue Applications
+- Some of the applications of a priority queue are:
+
+- 1.Dijkstra's algorithm
+- 2.for implementing stack
+- 3.for load balancing and interrupt handling in an operating system
+- 4.for data compression in Huffman code
 ## Operations on a Deque
 - Below is the circular array implementation of deque. In a circular array, if the array is full, we start from the beginning.
 
@@ -623,5 +825,222 @@ Queue is empty !!
 
 - Check if the array is full
 
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/8581a281-5350-4f60-a484-2220e8806d05)
 
+- 2.If the deque is full, reinitialize rear = 0.
+- 3.Else, increase rear by 1.
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/f16d433d-7067-43a4-9b10-90e5082a4b79)
 
+- 4.Add the new key 5 into array[rear]
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/19704d9c-c874-40ab-870d-3472efe35a02)
+
+## 3. Delete from the Front
+- The operation deletes an element from the front.
+
+- 1.Check if the deque is empty.
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/21635786-aaf6-4c17-8983-1969d93d26e5)
+
+- 2.If the deque is empty (i.e. front = -1), deletion cannot be performed (underflow condition).
+- 3.If the deque has only one element (i.e. front = rear), set front = -1 and rear = -1.
+- 4.Else if front is at the end (i.e. front = n - 1), set go to the front front = 0.
+- 5.Else, front = front + 1
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/50baf933-6579-4f16-957a-40ba4aac9aec)
+
+## 4. Delete from the Rear
+- This operation deletes an element from the rear.
+
+- 1.Check if the deque is empty.
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/8392ce7f-f813-43a5-85af-38423b302c7a)
+
+- 2.If the deque is empty (i.e. front = -1), deletion cannot be performed (underflow condition).
+- 3.If the deque has only one element (i.e. front = rear), set front = -1 and rear = -1, else follow the steps below.
+- 4.If rear is at the front (i.e. rear = 0), set go to the front rear = n - 1.
+- 5.Else, rear = rear - 1.
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/c9fb9f28-c0cf-41b2-8d67-f4524dc4513e)
+
+## 5. Check Empty
+- This operation checks if the deque is empty. If front = -1, the deque is empty.
+
+## 6. Check Full
+- This operation checks if the deque is full. If front = 0 and rear = n - 1 OR front = rear + 1, the deque is full.
+
+##  Deque implementation in c
+```c
+// Deque implementation in C
+
+#include <stdio.h>
+
+#define MAX 10
+
+void addFront(int *, int, int *, int *);
+void addRear(int *, int, int *, int *);
+int delFront(int *, int *, int *);
+int delRear(int *, int *, int *);
+void display(int *);
+int count(int *);
+
+int main() {
+int arr[MAX];
+int front, rear, i, n;
+
+front = rear = -1;
+for (i = 0; i < MAX; i++)
+arr[i] = 0;
+
+addRear(arr, 5, &front, &rear);
+addFront(arr, 12, &front, &rear);
+addRear(arr, 11, &front, &rear);
+addFront(arr, 5, &front, &rear);
+addRear(arr, 6, &front, &rear);
+addFront(arr, 8, &front, &rear);
+
+printf("\nElements in a deque: ");
+display(arr);
+
+i = delFront(arr, &front, &rear);
+printf("\nremoved item: %d", i);
+
+printf("\nElements in a deque after deletion: ");
+display(arr);
+
+addRear(arr, 16, &front, &rear);
+addRear(arr, 7, &front, &rear);
+
+printf("\nElements in a deque after addition: ");
+display(arr);
+
+i = delRear(arr, &front, &rear);
+printf("\nremoved item: %d", i);
+
+printf("\nElements in a deque after deletion: ");
+display(arr);
+
+n = count(arr);
+printf("\nTotal number of elements in deque: %d", n);
+}
+
+void addFront(int *arr, int item, int *pfront, int *prear) {
+int i, k, c;
+
+if (*pfront == 0 && *prear == MAX - 1) {
+printf("\nDeque is full.\n");
+return;
+}
+
+if (*pfront == -1) {
+*pfront = *prear = 0;
+arr[*pfront] = item;
+return;
+}
+
+if (*prear != MAX - 1) {
+c = count(arr);
+k = *prear + 1;
+for (i = 1; i <= c; i++) {
+arr[k] = arr[k - 1];
+k--;
+}
+arr[k] = item;
+*pfront = k;
+(*prear)++;
+} else {
+(*pfront)--;
+arr[*pfront] = item;
+}
+}
+
+void addRear(int *arr, int item, int *pfront, int *prear) {
+int i, k;
+
+if (*pfront == 0 && *prear == MAX - 1) {
+printf("\nDeque is full.\n");
+return;
+}
+
+if (*pfront == -1) {
+*prear = *pfront = 0;
+arr[*prear] = item;
+return;
+}
+
+if (*prear == MAX - 1) {
+k = *pfront - 1;
+for (i = *pfront - 1; i < *prear; i++) {
+k = i;
+if (k == MAX - 1)
+arr[k] = 0;
+else
+arr[k] = arr[i + 1];
+}
+(*prear)--;
+(*pfront)--;
+}
+(*prear)++;
+arr[*prear] = item;
+}
+
+int delFront(int *arr, int *pfront, int *prear) {
+int item;
+
+if (*pfront == -1) {
+printf("\nDeque is empty.\n");
+return 0;
+}
+
+item = arr[*pfront];
+arr[*pfront] = 0;
+
+if (*pfront == *prear)
+*pfront = *prear = -1;
+else
+(*pfront)++;
+
+return item;
+}
+
+int delRear(int *arr, int *pfront, int *prear) {
+int item;
+
+if (*pfront == -1) {
+printf("\nDeque is empty.\n");
+return 0;
+}
+
+item = arr[*prear];
+arr[*prear] = 0;
+(*prear)--;
+if (*prear == -1)
+*pfront = -1;
+return item;
+}
+
+void display(int *arr) {
+int i;
+
+printf("\n front:  ");
+for (i = 0; i < MAX; i++)
+printf("  %d", arr[i]);
+printf("  :rear");
+}
+
+int count(int *arr) {
+int c = 0, i;
+
+for (i = 0; i < MAX; i++) {
+if (arr[i] != 0)
+c++;
+}
+return c;
+}
+```
+
+## Time Complexity
+- The time complexity of all the above operations is constant i.e. O(1).
+
+## Applications of Deque Data Structure
+- In undo operations on software.
+- To store history in browsers.
+- For implementing both stacks and queues.
