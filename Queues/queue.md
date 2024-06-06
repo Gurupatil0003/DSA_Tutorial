@@ -120,7 +120,7 @@ printf("\n");
 ```
 ## Limitations of Queue
 - As you can see in the image below, after a bit of enqueuing and dequeuing, the size of the queue has been reduced.
-- ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/c7f8e7c9-5511-429b-9ed4-9a22a8134a24)
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/c7f8e7c9-5511-429b-9ed4-9a22a8134a24)
 - And we can only add indexes 0 and 1 only when the queue is reset (when all the elements have been dequeued).
 - After REAR reaches the last index, if we can store extra elements in the empty spaces (0 and 1), we can make use of the empty spaces. This is implemented by a 
  modified queue called the circular queue.
@@ -220,7 +220,8 @@ int main() {
 ```
 
 ### Array Representation:
-- Using an array to represent a queue is one of the simplest ways to implement it. In this approach, we use a fixed-size array to store the elements of the queue. Two pointers, front and rear, are used to keep 
+- Using an array to represent a queue is one of the simplest ways to implement it. In this approach, we use a fixed-size array to store the elements of the queue. 
+ Two pointers, front and rear, are used to keep 
  track of the front and rear of the queue, respectively.
 
 ##Operations:
@@ -253,19 +254,6 @@ isFull checks if the queue is full by inspecting the value of rear in relation t
 - isEmpty and isFull check if the queue is empty or full, respectively.
 - If the rear pointer reaches the end of the array, it can either wrap around (circular queue) or resize the array.
 
-### Advantages and Disadvantages:
-- Advantages:
-```c
-Simple and easy to implement.
-Constant time complexity for enqueue and dequeue operations (O(1)).
-```
-
-- Disadvantages:
-```c
-Limited by the size of the array.
-May lead to memory wastage if the array is larger than necessary.
-Resizing the array (if dynamic) can be expensive (O(n)).
-```
 ### Implementation
 ```c
 #include <stdio.h>
@@ -365,6 +353,41 @@ int main() {
     return 0;
 }
 ```
+- A queue is a useful data structure in programming. It is similar to the ticket queue outside a cinema hall, where the first person entering the queue is the 
+ first person who gets the ticket.
+
+### There are four different types of queues:
+
+- 1.Simple Queue
+- 2.Circular Queue
+- 3.Priority Queue
+- 4.Double Ended Queue
+
+## Simple Queue
+- In a simple queue, insertion takes place at the rear and removal occurs at the front. It strictly follows the FIFO (First in First out) rule.
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/a1f6e08f-12e6-49bc-9bee-46504eb34939)
+
+## Circular Queue
+- In a circular queue, the last element points to the first element making a circular link.
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/93b6c4ea-25ec-4212-970e-502b7fcbb9d3)
+
+- The main advantage of a circular queue over a simple queue is better memory utilization. If the last position is full and the first position is empty, we can 
+ insert an element in the first position. This action is not possible in a simple queue.
+
+## Priority Queue
+- A priority queue is a special type of queue in which each element is associated with a priority and is served according to its priority. If elements with the 
+ same priority occur, they are served according to their order in the queue.
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/dfda1f41-4028-4426-ae68-bc131fa4b4c7)
+- Insertion occurs based on the arrival of the values and removal occurs based on priority.
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/f35689ed-44ed-4550-8e2b-f9f5c2a6a967)
+ 
+## Deque (Double Ended Queue)
+- In a double ended queue, insertion and removal of elements can be performed from either from the front or rear. Thus, it does not follow the FIFO (First In 
+ First Out) rule.
+
+
 ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/1d0eed57-169f-40eb-84f6-79c877c53def)
 
 # circular queue
