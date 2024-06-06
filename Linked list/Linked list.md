@@ -28,3 +28,184 @@ So, instead of you remembering where everyone sat, if everyone kept track of the
 - So either we find another larger empty row of consecutive seats so that all friends can sit together (much like dynamic array), or we rely on an approach similar to the linked list, in that we simply insert new friends in vacant spots but still have references to them should we require to pass popcorn and drinks.
 
 - You see, arrays are suitable when we need fast access. Like who's seating at seat no. 13 can be answered in constant time! But arrays require you to declare a fixed size at the compile-time, due to which memory can be either wasted or fell short.
+
+# linked list
+- A linked list is a linear data structure that includes a series of connected nodes. Here, each node stores the data and the address of the next node. For example,
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/b59452f5-41d1-4e90-8c27-722d090c329a)
+
+- You have to start somewhere, so we give the address of the first node a special name called HEAD. Also, the last node in the linked list can be identified 
+ because its next portion points to NULL.
+
+- Linked lists can be of multiple types: singly, doubly, and circular linked list. In this article, we will focus on the singly linked list. To learn about other - - types, visit Types of Linked List.
+```c
+Note: You might have played the game Treasure Hunt, where each clue includes the information about the next clue. That is how the linked list operates.
+```
+
+## Representation of Linked List
+- Let's see how each node of the linked list is represented. Each node consists:
+
+- 1.A data item
+- 2.An address of another node
+- We wrap both the data item and the next node reference in a struct as:
+```c
+struct node
+{
+int data;
+struct node *next;
+};
+```
+- Understanding the structure of a linked list node is the key to having a grasp on it.
+
+- Each struct node has a data item and a pointer to another struct node. Let us create a simple Linked List with three items to understand how this works.
+```c
+/* Initialize nodes */
+struct node *head;
+struct node *one = NULL;
+struct node *two = NULL;
+struct node *three = NULL;
+
+/* Allocate memory */
+one = malloc(sizeof(struct node));
+two = malloc(sizeof(struct node));
+three = malloc(sizeof(struct node));
+
+/* Assign data values */
+one->data = 1;
+two->data = 2;
+three->data=3;
+
+/* Connect nodes */
+one->next = two;
+two->next = three;
+three->next = NULL;
+
+/* Save address of first node in head */
+head = one;
+```
+
+- If you didn't understand any of the lines above, all you need is a refresher on pointers and structs.
+
+- In just a few steps, we have created a simple linked list with three nodes
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/52e897ef-d251-4486-bf2e-0c7c246b4cf4)
+
+- The power of a linked list comes from the ability to break the chain and rejoin it. E.g. if you wanted to put an element 4 between 1 and 2, the steps would be:
+
+- 1.Create a new struct node and allocate memory to it.
+- 2.Add its data value as 4
+- 3.Point its next pointer to the struct node containing 2 as the data value
+- 4.Change the next pointer of "1" to the node we just created.
+- 5.Doing something similar in an array would have required shifting the positions of all the subsequent elements.
+
+- In python and Java, the linked list can be implemented using classes as shown in the codes below.
+
+## Linked list implementation in C
+```c
+// Linked list implementation in C
+
+#include <stdio.h>
+#include <stdlib.h>
+
+// Creating a node
+struct node {
+int value;
+struct node *next;
+};
+
+// print the linked list value
+void printLinkedlist(struct node *p) {
+while (p != NULL) {
+printf("%d ", p->value);
+p = p->next;
+}
+}
+
+int main() {
+// Initialize nodes
+struct node *head;
+struct node *one = NULL;
+struct node *two = NULL;
+struct node *three = NULL;
+
+// Allocate memory
+one = malloc(sizeof(struct node));
+two = malloc(sizeof(struct node));
+three = malloc(sizeof(struct node));
+
+// Assign value values
+one->value = 1;
+two->value = 2;
+three->value = 3;
+
+// Connect nodes
+one->next = two;
+two->next = three;
+three->next = NULL;
+
+// printing node-value
+head = one;
+printLinkedlist(head);
+}
+```
+# Example 2
+```c
+// Linked list implementation in C
+
+#include <stdio.h>
+#include <stdlib.h>
+
+// Creating a node
+struct node {
+    int value;
+    struct node *next;
+};
+
+// Print the linked list values
+void printLinkedlist(struct node *p) {
+    while (p != NULL) {
+        printf("%d ", p->value);
+        p = p->next;
+    }
+}
+
+int main() {
+    // Initialize nodes
+    struct node *head;
+    struct node *one = NULL;
+    struct node *two = NULL;
+    struct node *three = NULL;
+    struct node *newNode = NULL;
+
+    // Allocate memory
+    one = malloc(sizeof(struct node));
+    two = malloc(sizeof(struct node));
+    three = malloc(sizeof(struct node));
+    newNode = malloc(sizeof(struct node));
+
+    // Assign values
+    one->value = 7;
+    two->value = 4;
+    three->value = 3;
+    newNode->value = 4;
+
+    // Connect nodes
+    one->next = newNode;  // Connect one to newNode
+    newNode->next = two;  // Connect newNode to two
+    two->next = three;    // Connect two to three
+    three->next = NULL;   // Last node points to NULL
+
+    // Printing node values
+    head = one;
+    printLinkedlist(head);
+
+    // Free allocated memory
+    free(one);
+    free(newNode);
+    free(two);
+    free(three);
+
+    return 0;
+}
+
+```
