@@ -381,61 +381,247 @@ int main() {
 
 ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/dfda1f41-4028-4426-ae68-bc131fa4b4c7)
 - Insertion occurs based on the arrival of the values and removal occurs based on priority.
-![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/f35689ed-44ed-4550-8e2b-f9f5c2a6a967)
  
 ## Deque (Double Ended Queue)
 - In a double ended queue, insertion and removal of elements can be performed from either from the front or rear. Thus, it does not follow the FIFO (First In 
  First Out) rule.
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/f35689ed-44ed-4550-8e2b-f9f5c2a6a967)
 
 
 ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/1d0eed57-169f-40eb-84f6-79c877c53def)
 
 # circular queue
-- A circular queue, also known as a circular buffer or ring buffer, is a data structure that uses a single, fixed-size buffer as if it were connected end-to-end. This structure supports efficient addition and removal of elements in a FIFO (First-In-First-Out) manner. It overcomes the limitations of a simple linear queue by reusing the empty space when elements are removed from the front.
-- Circular Queue is a linear data structure in which the operations are performed based on FIFO (First In
- First Out) principle and the last position is connected back to the first position to make a circle. It is also 
- called ‘Ring Buffer’.
-- ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/531dbd36-9107-4c47-a268-11c983d1df75)
+- A circular queue is the extended version of a regular queue where the last element is connected to the first element. Thus forming a circle-like structure.
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/eba731f6-bd0b-4ab3-8759-8529dbadf2cd)
 
-- In a normal Queue, we can insert elements until queue becomes full. But once queue becomes full, we 
- can not insert the next element even if there is a space in front of queue.
+- The circular queue solves the major limitation of the normal queue. In a normal queue, after a bit of insertion and deletion, there will be non-usable empty 
+ space.
 
-- ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/c1f67fed-f46b-4cb7-802e-f3514b45cd71)
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/b718bb30-d724-4443-bdad-c6b196d481bc)
+- Here, indexes 0 and 1 can only be used after resetting the queue (deletion of all elements). This reduces the actual size of the queue.
 
-- The Queue shown in above figure is completely filled and there can't be inserted any more element due to the 
- condition rear == max - 1 becomes true.
-- However, if we delete 2 elements at the front end of the queue, we still can not insert any element since the 
- condition rear = max -1 still holds.
-- This is the main problem with the linear queue, although we have space available in the array, but we can not 
-  insert any more element in the queue. This is simply the memory wastage and we need to overcome this problem
+### How Circular Queue Works
+- Circular Queue works by the process of circular increment i.e. when we try to increment the pointer and we reach the end of the queue, we start from the 
+ beginning of the queue.
 
-  ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/ae8d452a-46f8-4e9b-a74a-4ff9f392ddc1)
-One of the solution of this problem is circular queue. In the circular queue, the first index comes right after the last 
-index. You can think of a circular queue as shown in the following figure.
+- Here, the circular increment is performed by modulo division with the queue size. That is,
+
+```c
+if REAR + 1 == 5 (overflow!), REAR = (REAR + 1)%5 = 0 (start of queue)
+```
+
+## Circular Queue Operations
+- The circular queue work as follows:
+
+- 1.two pointers FRONT and REAR
+- 2.FRONT track the first element of the queue
+- 3.REAR track the last elements of the queue
+- 4.initially, set value of FRONT and REAR to -1
+
+## 1. Enqueue Operation
+- 1.check if the queue is full
+- 2.for the first element, set value of FRONT to 0
+- 3.circularly increase the REAR index by 1 (i.e. if the rear reaches the end, next it would be at the start of the queue)
+- 4.add the new element in the position pointed to by REAR
+
+## 2. Dequeue Operation
+- 1.check if the queue is empty
+- 2.return the value pointed by FRONT
+- 3.circularly increase the FRONT index by 1
+- 4.for the last element, reset the values of FRONT and REAR to -1
+
+- However, the check for full queue has a new additional case:
+
+- 1. Case 1: FRONT = 0 && REAR == SIZE - 1
+- 2.Case 2: FRONT = REAR + 1
+- The second case happens when REAR starts from 0 due to circular increment and when its value is just 1 less than FRONT, the queue is full.
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/41e1f663-d225-4262-9676-cb6e18cab136)
+
+```c
+// Circular Queue implementation in C
+
+#include <stdio.h>
+
+#define SIZE 5
+
+int items[SIZE];
+int front = -1, rear = -1;
+
+// Check if the queue is full
+int isFull() {
+if ((front == rear + 1) || (front == 0 && rear == SIZE - 1)) return 1;
+return 0;
+}
+
+// Check if the queue is empty
+int isEmpty() {
+if (front == -1) return 1;
+return 0;
+}
+
+// Adding an element
+void enQueue(int element) {
+if (isFull())
+printf("\n Queue is full!! \n");
+else {
+if (front == -1) front = 0;
+rear = (rear + 1) % SIZE;
+items[rear] = element;
+printf("\n Inserted -> %d", element);
+}
+}
+
+// Removing an element
+int deQueue() {
+int element;
+if (isEmpty()) {
+printf("\n Queue is empty !! \n");
+return (-1);
+} else {
+element = items[front];
+if (front == rear) {
+front = -1;
+rear = -1;
+} 
+// Q has only one element, so we reset the 
+// queue after dequeing it. ?
+else {
+front = (front + 1) % SIZE;
+}
+printf("\n Deleted element -> %d \n", element);
+return (element);
+}
+}
+
+// Display the queue
+void display() {
+int i;
+if (isEmpty())
+printf(" \n Empty Queue\n");
+else {
+printf("\n Front -> %d ", front);
+printf("\n Items -> ");
+for (i = front; i != rear; i = (i + 1) % SIZE) {
+printf("%d ", items[i]);
+}
+printf("%d ", items[i]);
+printf("\n Rear -> %d \n", rear);
+}
+}
+
+int main() {
+// Fails because front = -1
+deQueue();
+
+enQueue(1);
+enQueue(2);
+enQueue(3);
+enQueue(4);
+enQueue(5);
+
+// Fails to enqueue because front == 0 && rear == SIZE - 1
+enQueue(6);
+
+display();
+deQueue();
+
+display();
+
+enQueue(7);
+display();
+
+// Fails to enqueue because front == rear + 1
+enQueue(8);
+
+return 0;
+}
+
+```
+
+output:-
+```c
+Queue is empty !! 
+
+ Inserted -> 1
+ Inserted -> 2
+ Inserted -> 3
+ Inserted -> 4
+ Inserted -> 5
+ Queue is full!! 
+
+ Front -> 0 
+ Items -> 1 2 3 4 5 
+ Rear -> 4 
+
+ Deleted element -> 1 
+
+ Front -> 1 
+ Items -> 2 3 4 5 
+ Rear -> 4 
+
+ Inserted -> 7
+ Front -> 1 
+ Items -> 2 3 4 5 7 
+ Rear -> 0 
+
+ Queue is full!! 
+
+```
+### Circular Queue Complexity Analysis
+- The complexity of the enqueue and dequeue operations of a circular queue is O(1) for (array implementations).
+
+### Applications of Circular Queue
+- 1.CPU scheduling
+- 2.Memory management
+- 3.Traffic Management
 
 
-![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/0f593f51-c651-47ca-bc7d-14680e27bfa9)
-- Circular queue will be full when front = -1 and rear = max-1. Implementation of circular queue is similar to that 
- of a linear queue. Only the logic part that is implemented in the case of insertion and deletion is different from that 
- in a linear queue.
+# Deque Data Structure
+
+- Deque or Double Ended Queue is a type of queue in which insertion and removal of elements can either be performed from the front or the rear. Thus, it does not 
+ follow FIFO rule (First In First Out).
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/2d6f0cee-e303-4f9e-b53f-4e048e6891ad)
+
+## Types of Deque
+- 1.Input Restricted Deque
+- 2.In this deque, input is restricted at a single end but allows deletion at both the ends.
+- 3.Output Restricted Deque
+- 4.In this deque, output is restricted at a single end but allows insertion at both the ends.
+
+## Operations on a Deque
+- Below is the circular array implementation of deque. In a circular array, if the array is full, we start from the beginning.
+
+- But in a linear array implementation, if the array is full, no more elements can be inserted. In each of the operations below, if the array is full, "overflow 
+ message" is thrown.
+
+- Before performing the following operations, these steps are followed.
+
+- Take an array (deque) of size n.
+ Set two pointers at the first position and set front = -1 and rear = 0.
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/b43093c1-a99d-4b13-aebc-aa94bf994ee1)
+
+## 1. Insert at the Front
+- This operation adds an element at the front.
+
+- Check the position of front.
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/0194abc9-6062-4c2f-9c03-ec6e7ca6c706)
+
+- 2.If front < 1, reinitialize front = n-1 (last index).
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/5c0258b1-7872-4130-88b8-a551781d288f)
+
+- 3.Else, decrease front by 1.
+- 4.Add the new key 5 into array[front].
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/06a1a446-26d8-4ae5-9655-f5fbd5a26d19)
+
+## 2. Insert at the Rear
+- This operation adds an element to the rear.
+
+- Check if the array is full
 
 
-- Circular queues using dynamic arrays in C can be an efficient way to manage queues where elements are enqueued and dequeued frequently. The idea behind a circular queue is that the end of the queue wraps around 
- to the beginning, allowing efficient use of space.
 
-- Here's an explanation with a basic implementation of a circular queue using dynamic arrays in C:
-
-### Concepts
-- Circular Queue: A circular queue is a linear data structure that follows the FIFO (First In First Out) principle but connects the end of the queue back to the front, forming a circle.
-
-- Dynamic Array: An array that can resize itself automatically when more elements are added than its current capacity. This involves creating a new array of larger size and copying the elements from the old array 
- to the new array.
-
-### Basic Operations
-- Enqueue: Add an element to the end of the queue.
-- Dequeue: Remove an element from the front of the queue.
-- Resize: Increase the capacity of the array when it's full.
-
-### Implementation
-- Here's a simple implementation of a circular queue using dynamic arrays in C:
-  
