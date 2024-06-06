@@ -1,13 +1,16 @@
+# Queue
+- A queue is a useful data structure in programming. It is similar to the ticket queue outside a cinema hall, where the first person entering the queue is the 
+ first person who gets the ticket.
 
-- Queues are another Abstract Data Type (ADT), that might be implemented using concrete structures like arrays and linked lists. We refer to Queue behaviour by FIFO (first in, first out).
+- Queue follows the First In First Out (FIFO) rule - the item that goes in first is the item that comes out first.
 
-- The ADT Queue should satisfy the following requirements (from wikipedia):
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/f2877ada-21e4-4634-9071-9135e932432e)
 
-- enqueue, which adds an element to the collection end (back), and.
-- dequeue, which removes the first element added (front) that was not yet removed.
+- In the above image, since 1 was kept in the queue before 2, it is the first to be removed from the queue as well. It follows the FIFO rule.
 
-- This makes the queue a First-In-First-Out (FIFO) data structure. In a FIFO data structure, the first element added to the queue will be the first one to be removed. Additionally, a peek operation may give 
- access to the front element without dequeuing it. – Queue (Abstract Data Type)
+- In programming terms, putting items in the queue is called enqueue, and removing items from the queue is called dequeue.
+
+- We can implement the queue in any programming language like C, C++, Java, Python or C#, but the specification is pretty much the same.
 
 ### Queue Operations
 
@@ -18,6 +21,119 @@
 | Peek      | Allows viewing the element at the front of the queue without removing it.                         |
 | isEmpty   | Checks if the queue is empty. Returns true if the queue contains no elements, false otherwise.    |
 | isFull    | Checks if the queue is full. Returns true if the queue is at maximum capacity, false otherwise.  |
+
+
+## Working of Queue
+### Queue operations work as follows:
+
+- 1.two pointers FRONT and REAR
+- 2.FRONT track the first element of the queue
+- 3.REAR track the last element of the queue
+- 4.initially, set value of FRONT and REAR to -1
+
+## Enqueue Operation
+- 1.check if the queue is full
+- 2.for the first element, set the value of FRONT to 0
+- 3.increase the REAR index by 1
+- 4.add the new element in the position pointed to by REAR
+## Dequeue Operation
+- 1.check if the queue is empty
+- 2.return the value pointed by FRONT
+- 3.increase the FRONT index by 1
+- 4.for the last element, reset the values of FRONT and REAR to -1
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/35e1637d-0dcf-440c-953a-be572fdbcd32)
+
+## Example
+```c
+// Queue implementation in C
+
+#include <stdio.h>
+#define SIZE 5
+
+void enQueue(int);
+void deQueue();
+void display();
+
+int items[SIZE], front = -1, rear = -1;
+
+int main() {
+//deQueue is not possible on empty queue
+deQueue();
+
+//enQueue 5 elements
+enQueue(1);
+enQueue(2);
+enQueue(3);
+enQueue(4);
+enQueue(5);
+
+// 6th element can't be added to because the queue is full
+enQueue(6);
+
+display();
+
+//deQueue removes element entered first i.e. 1
+deQueue();
+
+//Now we have just 4 elements
+display();
+
+return 0;
+}
+
+void enQueue(int value) {
+if (rear == SIZE - 1)
+printf("\nQueue is Full!!");
+else {
+if (front == -1)
+front = 0;
+rear++;
+items[rear] = value;
+printf("\nInserted -> %d", value);
+}
+}
+
+void deQueue() {
+if (front == -1)
+printf("\nQueue is Empty!!");
+else {
+printf("\nDeleted : %d", items[front]);
+front++;
+if (front > rear)
+front = rear = -1;
+}
+}
+
+// Function to print the queue
+void display() {
+if (rear == -1)
+printf("\nQueue is Empty!!!");
+else {
+int i;
+printf("\nQueue elements are:\n");
+for (i = front; i <= rear; i++)
+printf("%d  ", items[i]);
+}
+printf("\n");
+}
+```
+## Limitations of Queue
+- As you can see in the image below, after a bit of enqueuing and dequeuing, the size of the queue has been reduced.
+- ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/c7f8e7c9-5511-429b-9ed4-9a22a8134a24)
+- And we can only add indexes 0 and 1 only when the queue is reset (when all the elements have been dequeued).
+- After REAR reaches the last index, if we can store extra elements in the empty spaces (0 and 1), we can make use of the empty spaces. This is implemented by a 
+ modified queue called the circular queue.
+
+## Complexity Analysis
+- The complexity of enqueue and dequeue operations in a queue using an array is O(1). If you use pop(N) in python code, then the complexity might be O(n) 
+ depending on the position of the item to be popped.
+
+## Applications of Queue
+- CPU scheduling, Disk Scheduling
+- When data is transferred asynchronously between two processes.The queue is used for synchronization. For example: IO Buffers, pipes, file IO, etc
+  Handling of interrupts in real-time systems.
+- Call Center phone systems use Queues to hold people calling them in order.
 
 ```c
 #include <stdio.h>
