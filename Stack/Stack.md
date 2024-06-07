@@ -1,18 +1,47 @@
 # Stack
 - In fact, Stack is more of behaviour of structure than being a structure itself. We can turn a regular array (either static or dynamic) into a stack with simple modification. Stack is an Abstract Data Type (ADT) they may have different implementations:
 
-- 1.Using arrays.
-- 2.Using linked lists (later on this note).
- For both implementations, the following requirements should be satisfied in order to hava an ADT Stack (from wikipedia):
+- A stack is a linear data structure that follows the principle of Last In First Out (LIFO). This means the last element inserted inside the stack is removed first.
 
-- push, which adds an element to the collection,
-- pop, which removes the most recently added element that was not yet removed,
-- front, which returns the most recent element in the stack.
-- The order in which elements come off a stack gives rise to its alternative name, LIFO (last in, first out). Additionally, a peek operation may give access to the top without modifying the stack. – Stack (Abstract Data Type).
+- You can think of the stack data structure as the pile of plates on top of another.
 
-- ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/2aecda2b-20b8-49ad-a8fc-7c63f2b1ccce)
+- ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/44ee27db-25df-486a-92ec-c16b7ed7ff8c)
 
 - This table should draw the boundaries between Abstract Data Types (ADT) and Concrete Data Types, and keep in mind that Abstract Data Types are built upon Concrete Data Types.
+ Here, you can:
+
+- Put a new plate on top
+- Remove the top plate
+- And, if you want the plate at the bottom, you must first remove all the plates on top. This is exactly how the stack data structure works.
+
+## LIFO Principle of Stack
+- In programming terms, putting an item on top of the stack is called push and removing an item is called pop.
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/2398ab90-c65d-440d-a1c9-2ee940b4b5a2)
+
+- In the above image, although item 3 was kept last, it was removed first. This is exactly how the LIFO (Last In First Out) Principle works.
+
+- We can implement a stack in any programming language like C, C++, Java, Python or C#, but the specification is pretty much the same.
+## Basic Operations of Stack
+- There are some basic operations that allow us to perform different actions on a stack.
+
+- Push: Add an element to the top of a stack
+- Pop: Remove an element from the top of a stack
+- IsEmpty: Check if the stack is empty
+- IsFull: Check if the stack is full
+- Peek: Get the value of the top element without removing it
+
+## Working of Stack Data Structure
+- The operations work as follows:
+
+- A pointer called TOP is used to keep track of the top element in the stack.
+- When initializing the stack, we set its value to -1 so that we can check if the stack is empty by comparing TOP == -1.
+- On pushing an element, we increase the value of TOP and place the new element in the position pointed to by TOP.
+- On popping an element, we return the element pointed to by TOP and reduce its value.
+- Before pushing, we check if the stack is already full
+- Before popping, we check if the stack is already empty
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/8a4ff325-fb71-411a-8597-92917bc3f4b1)
 
 
 | Abstract Data Type (ADT) | Possible Implementations |
@@ -20,7 +49,104 @@
 | Stack                    | Array or Linked List     |
 | Queue                    | Array or Linked List     |
 
+```c
+// Stack implementation in C
 
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX 10
+
+int count = 0;
+
+// Creating a stack
+struct stack {
+int items[MAX];
+int top;
+};
+typedef struct stack st;
+
+void createEmptyStack(st *s) {
+s->top = -1;
+}
+
+// Check if the stack is full
+int isfull(st *s) {
+if (s->top == MAX - 1)
+return 1;
+else
+return 0;
+}
+
+// Check if the stack is empty
+int isempty(st *s) {
+if (s->top == -1)
+return 1;
+else
+return 0;
+}
+
+// Add elements into stack
+void push(st *s, int newitem) {
+if (isfull(s)) {
+printf("STACK FULL");
+} else {
+s->top++;
+s->items[s->top] = newitem;
+}
+count++;
+}
+
+// Remove element from stack
+void pop(st *s) {
+if (isempty(s)) {
+printf("\n STACK EMPTY \n");
+} else {
+printf("Item popped= %d", s->items[s->top]);
+s->top--;
+}
+count--;
+printf("\n");
+}
+
+// Print elements of stack
+void printStack(st *s) {
+printf("Stack: ");
+for (int i = 0; i < count; i++) {
+printf("%d ", s->items[i]);
+}
+printf("\n");
+}
+
+// Driver code
+int main() {
+int ch;
+st *s = (st *)malloc(sizeof(st));
+
+createEmptyStack(s);
+
+push(s, 1);
+push(s, 2);
+push(s, 3);
+push(s, 4);
+
+printStack(s);
+
+pop(s);
+
+printf("\nAfter popping out\n");
+printStack(s);
+}
+
+```
+Output:-
+```c
+Stack: 1 2 3 4 
+Item popped= 4
+
+After popping out
+Stack: 1 2 3
+```
 
 ### Stack Array Implementation:
 - A Stack is a Data Structure that implements the LIFO (last in first out) way of getting the data in and out. So, we insert on top and get from top. Exactly the same way as we would stack books. We can’t get a 
@@ -277,6 +403,20 @@ int main() {
     return 0;
 }
 ```
+
+## Stack Time Complexity
+- For the array-based implementation of a stack, the push and pop operations take constant time, i.e. O(1).
+
+## Applications of Stack Data Structure
+- Although stack is a simple data structure to implement, it is very powerful. The most common uses of a stack are:
+
+- To reverse a word - Put all the letters in a stack and pop them out. Because of the LIFO order of stack, you will get the letters in reverse order.
+ 
+- In compilers - Compilers use the stack to calculate the value of expressions like 2 + 4 / 5 * (7 - 9) by converting the expression to prefix or postfix form.
+ In browsers - The back button in a browser saves all the URLs you have visited previously in a stack. Each time you visit a new page, it is added on top of the stack. When you press the back button, the current 
+ URL is removed from the stack, and the previous URL is accessed.
+
+
 ### recursive
 - A function that calls itself is known as a recursive function. And, this technique is known as recursion.
 - Recursion is a powerful programming technique where a function calls itself to solve smaller instances of a problem until it reaches a base case. Here are 
