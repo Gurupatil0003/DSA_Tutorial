@@ -209,3 +209,26 @@ int main() {
 }
 
 ```
+
+## Linked List Operations: Traverse, Insert and Delete
+- There are various linked list operations that allow us to perform different actions on linked lists. For example, the insertion operation adds a new element to 
+ the linked list.
+
+- Here's a list of basic linked list operations that we will cover in this article.
+
+- 1.Traversal - access each element of the linked list
+- 2.Insertion - adds a new element to the linked list
+- 3.Deletion - removes the existing elements
+- 4.Search - find a node in the linked list
+- 5.Sort - sort the nodes of the linked list
+
+## Things to Remember about Linked List
+- head points to the first node of the linked list
+- next pointer of the last node is NULL, so if the next current node is NULL, we have reached the end of the linked list.
+- In all of the examples, we will assume that the linked list has three nodes 1 --->2 --->3 with node structure as below:
+```c
+struct node {
+int data;
+struct node *next;
+};
+```
