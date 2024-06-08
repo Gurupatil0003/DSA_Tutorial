@@ -119,6 +119,110 @@ struct student
 // Declare student variable
 struct student student1;
 ```
+
+## How to access structure members (data)?
+- You created structure and its variable. But since structure is a complex data type, you cannot assign any value directly to it using assignment operator. You 
+ must assign data to individual structure members separately.
+
+## C supports two operators to access structure members, using a structure variable.
+
+- 1.Dot/period operator .
+- 2.Arrow operator ->
+- 3.Dot/period operator (.) in C
+- 4.Dot/period operator also known as member access operator. We use dot operator to access members of simple structure variable.
+
+- Syntax:
+```c
+structure_variable.member_name;
+```
+```
+Example:-
+
+// Assign age of student1
+student1.age = 26;
+
+```
+## Arrow operator (->) in C
+- Since structure is a user defined type and you can have pointers to any type. Hence, you may also create pointers to structure.
+
+- In C language it is illegal to access a structure member from a pointer to structure variable using dot operator. We use arrow operator -> to access structure 
+ member from pointer to structure.
+
+- Syntax:
+```c
+pointer_to_structure->member_name;
+```
+- Example:
+```c
+// Student2 is a pointer to student type
+student2->age = 29;
+```
+## Example
+```c
+#include <stdio.h>
+#include <string.h>
+
+// create struct with person1 variable
+struct Person {
+  char name[50];
+  int citNo;
+  float salary;
+} person1;
+
+int main() {
+
+  // assign value to name of person1
+  strcpy(person1.name, "George Orwell");
+
+  // assign values to other person1 variables
+  person1.citNo = 1984;
+  person1. salary = 2500;
+
+  // print struct variables
+  printf("Name: %s\n", person1.name);
+  printf("Citizenship No.: %d\n", person1.citNo);
+  printf("Salary: %.2f", person1.salary);
+
+  return 0;
+}
+```
+
+## Example 2
+
+```
+#include <stdio.h>
+#include <string.h>
+
+// Define struct Person
+struct Person {
+  char name[50];
+  int citNo;
+  float salary;
+};
+
+int main() {
+  // Declare struct variable person1
+  struct Person person1;
+
+  // Assign values to person1 variables
+  strcpy(person1.name, "George Orwell");
+  person1.citNo = 1984;
+  person1.salary = 2500.00;
+
+  // Print struct variables
+  printf("Name: %s\n", person1.name);
+  printf("Citizenship No.: %d\n", person1.citNo);
+  printf("Salary: %.2f\n", person1.salary);
+
+  return 0;
+}
+
+
+```
+
+
+
+
 ```c
 struct date 
 {
@@ -145,6 +249,8 @@ The statement above states that a variable of type struct date today.
 
 In defining a structure, the elements contained in them can also be a structure. Example:
 ```c
+
+
 struct date 
 {
 	int month, day, year;
