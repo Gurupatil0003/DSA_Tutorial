@@ -5,9 +5,120 @@ There are two kinds of data types, namely:
 - User defined data type
   That data types defined by the user according to his needs. The first step is to define or create the desired data type first, then declare variables with these data types. Examples like `struct` and `union`.
 
-Structure (`struct`) is a set of data which may be different data types that use the same name and is distinguished through its field name. Thus it is possible a structure contains elements of different data types such as `char`, `int`, `float`, `double`, and others.
+## Need of structures in C?
+- C has built in primitive and derrived data types. Still not all real world problems can be solved using those types. You need custom data type for different 
+ situations.
 
-Structure is defined using the `struct` keyword. Here's an example of defining a data type structure:
+- For example, if you need to store 100 student record that consist of name, age and mobile number. To code that you will create 3 array variables each of size 
+ 100 i.e. name[100], age[100], mobile[100]. For three fields in student record it say seem feasible to you. But, think how cumbersome it would be to manage 
+ student record with more than 10 fields, in separate variables for single student.
+
+- To overcome this we need a user defined data type. In this tutorial I am going to explain how easily we will deal with these situations using structures in C 
+ programming language.
+
+## What is structure in C?
+- Structure is a user defined data type. It is a collection of different data type, to create a new data type.
+
+- For example, You can define your custom type for storing student record containing name, age and mobile. Creating structure type will allow you to handle all 
+ properties (fields) of student with single variable, instead of handling it separately.
+
+## How to declare, define and access structure members?
+- To declare or define a structure, we use struct keyword. It is a reserved word in the C compiler. You must only use it for structure or its object declaration 
+ or definition.
+
+## Syntax to define a structure
+```c
+struct structure_name
+{
+    member1_declaration;
+    member2_declaration;
+    ...
+    ...
+    memberN_declaration;
+};
+```
+
+- Here, structure_name is name of our custom type. memberN_declaration is structure member i.e. variable declaration that structure will have.
+
+- Example to define a structure
+- Let us use our student example and define a structure to store student object.
+```c
+struct student
+{
+    char name[40];        // Student name
+    int  age;             // Student age
+    unsigned long mobile; // Student mobile number
+};
+```
+## Points to remember while structure definition
+- You must terminate structure definition with semicolon ;.
+- You cannot assign value to members inside the structure definition, it will cause compilation error. Since you are defining type you aren’t associating data.
+- For example, following is an invalid structure definition.
+```c
+struct student
+{
+    char name[40] = "Raj";
+    int  age      = 26;
+    unsigned long mobile = 9891000033;
+};
+```
+- You can define a structure anywhere like global scope (accessible by all functions) or local scope (accessible by particular function).
+ Structure member definition may contain other structure type.
+
+## How to create structure object (structure variable)?
+- A data type is useless without variables. A data type defines various properties about data stored in memory. To use any type we must declare its variable. - -- 
+ Hence, let us learn how to create our custom structure type objects also known as structure variable.
+
+- In C programming, there are two ways to declare a structure variable:
+```c
+1.Along with structure definition
+2.After structure definition
+```
+## Declaration along with the structure definition
+- Out of two ways to declare structure variable. You can declare a structure variable along with structure before terminating the structure definition.
+
+- Syntax:
+```c
+struct structure_name
+{
+    member1_declaration;
+    member2_declaration;
+    ...
+    ...
+    memberN_declaration;
+}structure_variable;
+```
+
+- So, if you want to declare student type object along with student structure definition you can use this approach.
+
+```c
+struct student
+{
+    char name[40];        // Student name
+    int  age;             // Student age
+    unsigned long mobile; // Student mobile number
+}student1;
+```
+## Declaration after structure definition
+- The other way to declare, gives you luxury to declare structure variable anywhere in program based on the structure scope. If structure is defined in global 
+ scope, we can declare its variable in main() function, any other functions and in the global section too.
+
+Syntax:
+```c
+struct structure_name structure_variable;
+```
+- For above example, if we want to declare its variable with name student1, it will be declared as given below:
+```c
+struct student
+{
+    char name[40];        // Student name
+    int  age;             // Student age
+    unsigned long mobile; // Student mobile number
+};
+
+// Declare student variable
+struct student student1;
+```
 ```c
 struct date 
 {
