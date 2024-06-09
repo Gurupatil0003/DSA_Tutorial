@@ -33,7 +33,7 @@ This repository covers the roadmap for mastering Data Structures and Algorithms 
 
 <div>
 
-   <img src="./DSA-Roadmap/dsa-roadmap.png" title="DSA Roadmap" alt="DSA Roadmap"/>
+   <img src="https://github.com/Gurupatil0003/DSA_Tutorial/blob/master/Img/dsa-roadmap.png" title="DSA Roadmap" alt="DSA Roadmap"/>
 
 </div>
 
