@@ -13,6 +13,62 @@ int arr[5] = {1, 2, 3, 4, 5};
 - This declaration creates an array arr of size 5, and initializes it with the values 1, 2, 3, 4, 5.
 
 ```
+## Sizeof() in array
+```c
+#include <stdio.h>
+
+int main() {
+    int myArray[] = {10, 20, 30, 40, 50};  // Declare and initialize an array
+
+    // Calculate the total size of the array in bytes
+    size_t totalSize = sizeof(myArray);
+
+    // Calculate the size of one element in bytes
+    size_t elementSize = sizeof(myArray[0]);
+
+    // Calculate the total number of elements
+    size_t totalElements = totalSize / elementSize;
+
+    // Print the results
+    printf("Total size of the array in bytes: %zu\n", totalSize);
+    printf("Size of one element in bytes: %zu\n", elementSize);
+    printf("Total number of elements: %zu\n", totalElements);
+
+    return 0;
+}
+
+```
+## Modify
+```c
+#include <stdio.h>
+
+int main() {
+    int myArray[5];  // Declare an array of 5 integers
+
+    // Initialize the array elements
+    myArray[0] = 10;
+    myArray[1] = 20;
+    myArray[2] = 30;
+    myArray[3] = 40;
+    myArray[4] = 50;
+
+    // Access and print the array elements
+    for (int i = 0; i < 5; i++) {
+        printf("Element at index %d: %d\n", i, myArray[i]);
+    }
+
+    // Modify the array elements
+    myArray[2] = 35; // Change the third element
+
+    // Print the modified array
+    printf("\nAfter modification:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("Element at index %d: %d\n", i, myArray[i]);
+    }
+
+    return 0;
+}
+```
 
 ### 2. Memory Representation
 
@@ -142,6 +198,60 @@ Address      Value
 - For example, to access arr[1][2] (element 7):
 ```
 Address(arr[1][2]) = 0x1000 + (1 * 4 + 2) * 4 = 0x1018
+```
+### Example for Acesss
+```c
+#include <stdio.h>
+
+int main() {
+
+    int myArray[3][4] = {
+        {1, 2, 3, 4},
+        {5, 6, 7, 8},
+        {9, 10, 11, 12}
+    };
+
+    // Access and print elements in the array
+    printf("Element at (0, 0): %d\n", myArray[0][1]); // Output: 1
+    printf("Element at (1, 2): %d\n", myArray[2][2]); // Output: 7
+
+    return 0;
+}
+ 
+ //Address(arr[i][j]) = BaseAddress + (i * NumberOfColumns + j) * SizeOfElement
+
+```
+### Modify the array
+```c
+#include <stdio.h>
+
+int main() {
+    // Declare and initialize a 3x4 array
+    int myArray[3][4] = {
+        {1, 2, 3, 4},
+        {5, 6, 7, 8},
+        {9, 10, 11, 12}
+    };
+
+    // Access and print specific elements
+    printf("Element at (0, 0): %d\n", myArray[0][0]); // Output: 1
+    printf("Element at (1, 2): %d\n", myArray[1][2]); // Output: 7
+
+    // Modify an element
+    myArray[2][3] = 15;
+
+    // Print the modified array
+    printf("\nAfter modification:\n");
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 4; j++) {
+            printf("Element at (%d, %d): %d\n", i, j, myArray[i][j]);
+        }
+    }
+
+    return 0;
+}
+
+
 ```
 ### Example Code
 ```c
