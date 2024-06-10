@@ -15,6 +15,8 @@
  classifications which we will discuss in subsequent sections. 
 
 ### - 1. Primitive Data Structure
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/36a2e9b8-6559-4a4f-a56d-53cd414ae619)
+
 - The primitive data structures are also known as built-in data structures as they are basic data structures in many high-level programming languages. They operate 
   directly according to the machine’s instructions. The following are the various types of data structures that are primitive. 
 
@@ -28,6 +30,9 @@
  inverted commas. 
 - Pointer: The pointer data structure stores the memory address of another variable as its value. 
 ### 2. Non-Primitive Data Structure
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/6a271fa2-85f6-4aae-9643-862dd4e7cbe5)
+
 - Non-primitive data structures are complex data structures that use primitive data structures to form a structure of their own. This is why they are also known as 
  derived types. Though in-built support is provided for these data structures by many programming languages, they are mostly user-defined. Non-primitive data 
  structures can be further classified into linear and non-linear data structures. 
