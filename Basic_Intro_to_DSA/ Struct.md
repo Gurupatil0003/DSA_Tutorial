@@ -220,6 +220,39 @@ int main() {
 
 ```
 
+```c
+#include <stdio.h>
+#include <string.h>
+
+// Define a structure to store car details
+struct Car {
+    int id;
+    char color[20];
+    char model[20];
+    char name[20];
+};
+
+int main() {
+    // Create an instance of the Car structure
+    struct Car car1;
+    
+    // Assign values to the car1 instance
+    car1.id = 1;
+    strcpy(car1.color, "Red");
+    strcpy(car1.model, "Sedan");
+    strcpy(car1.name, "Toyota");
+
+    // Display the car details
+    printf("Car Details:\n");
+    printf("ID: %d\n", car1.id);
+    printf("Color: %s\n", car1.color);
+    printf("Model: %s\n", car1.model);
+    printf("Name: %s\n", car1.name);
+
+    return 0;
+}
+```
+
 ## Keyword typedef
 - We use the typedef keyword to create an alias name for data types. It is commonly used with structures to simplify the syntax of declaring variables.
 
