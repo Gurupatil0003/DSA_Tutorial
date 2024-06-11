@@ -1,5 +1,7 @@
-In this tutorial we will study what is a [union in c programming](https://usemynotes.com/what-is-union-in-c-programming/), defining a union, accessing union members variables with the help of a suitable example. So let’s go start.
-## What is the Major Difference between Structure and Union
+# Union
+Unions are conceptually similar to structures in C. The syntax to declare/define a union is also similar to that of a structure. The only differences is in terms of storage. In structure each member has its own storage location, whereas all members of union uses a single shared memory location which is equal to the size of its largest data member
+
+### What is the Major Difference between Structure and Union
 ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/499ed234-f0bb-4154-99f3-2d35d2174a87)
 
 ## Union in C Programming
