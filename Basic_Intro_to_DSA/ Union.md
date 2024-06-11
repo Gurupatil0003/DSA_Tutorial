@@ -1,4 +1,6 @@
 In this tutorial we will study what is a [union in c programming](https://usemynotes.com/what-is-union-in-c-programming/), defining a union, accessing union members variables with the help of a suitable example. So let’s go start.
+## What is the Major Difference between Structure and Union
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/499ed234-f0bb-4154-99f3-2d35d2174a87)
 
 ## Union in C Programming
 A union is a data type. C Language provides us a special type of data type called union by which it can store many types of data types in the same memory location but it has the same value in the variable of data types at the same time. But the Union can use the same memory location in many types through Union All members of the Union use only one memory location and their size can be as much as the member with the largest size.
@@ -7,7 +9,7 @@ A union is a data type. C Language provides us a special type of data type calle
 Let's use the union keyword to define unions. This is similar to defining the structure.
 
 **The basic syntax of Unions:-**
-```
+```c
 union union_name
 {
   data_type var1;
@@ -36,7 +38,7 @@ If we want to print this union member then we can do with these types.
 printf(“%d”,in.a);
 
 ### For Example:-
-```
+```c
 #include<stdio.h>
 
 /* Declaring input union */
