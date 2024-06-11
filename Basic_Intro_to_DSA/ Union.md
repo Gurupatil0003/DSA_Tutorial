@@ -37,6 +37,7 @@ union in-put
 ```
 Now it is of in variable input type and it can store an integer value or it can store a float value. We cannot store value in both its variables simultaneously.
 
+
 ## Sizeof Union
 ```c
 #include <stdio.h>
@@ -120,6 +121,54 @@ int main() {
    return 0;
 }
 ```
+```c
+#include <stdio.h>
+#include <string.h>
+
+// Define a union to store different types of car information
+union CarInfo {
+    int id;
+    char color[20];
+    char model[20];
+    char name[20];
+};
+
+int main() {
+    // Create an instance of the CarInfo union
+    union CarInfo carInfo;
+
+    // Assign and access values using the union
+    carInfo.id = 1;
+
+    strcpy(carInfo.color, "Blue");
+
+    strcpy(carInfo.model, "SUV");
+
+    strcpy(carInfo.name, "Honda");
+    
+    printf("Union - ID: %d\n", carInfo.id);
+    printf("Union - Color: %s\n", carInfo.color);
+    printf("Union - Model: %s\n", carInfo.model);
+
+    printf("Union - Name: %s\n", carInfo.name);
+
+    // Note: Accessing a different member of the union will overwrite the previous value.
+    // Only one member of the union can store a value at any given time.
+
+    return 0;
+}
+
+
+```
+- output:-
+```c
+Union - ID: 1684959048
+Union - Color: Honda
+Union - Model: Honda
+Union - Name: Honda
+
+```
+		
 
 I hope that you all liked this tutorial, if you want to read these tutorials more then stay connected with me.
 
