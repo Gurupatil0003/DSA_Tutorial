@@ -387,16 +387,32 @@ int main() {
 
 int main() {
     int arr[10] = {1, 2, 3, 4, 5};  // Array with 10 capacity but 5 elements
-    int n = 5;  // Number of elements
+    int n = 5; // Number of elements
     int pos = 2;
     int elem = 10;
+
+    printf("Array before insertion: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    // Insertion
     for (int i = n; i > pos; i--) {
         arr[i] = arr[i - 1]; // Shift elements to the right
     }
     arr[pos] = elem; // Insert element at pos
     n++; // Increment number of elements
+
+    printf("Array after insertion of %d at position %d: ", elem, pos);
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
     return 0;
 }
+
 ```
 
 ### Deletion
@@ -406,13 +422,29 @@ int main() {
 int main() {
     int arr[5] = {1, 2, 3, 4, 5};
     int n = 5; // Number of elements
-    int pos = 2;
-    for (int i = pos; i < n - 1; i++) {
+    int del_pos = 3;
+
+    printf("Array before deletion: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    // Deleting elements
+    for (int i = del_pos; i < n - 1; i++) {
         arr[i] = arr[i + 1]; // Shift elements to the left
     }
     n--; // Decrement number of elements
+
+    printf("Array after deletion at position %d: ", del_pos);
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
     return 0;
 }
+
 ```
 ### Searching
 ```c
