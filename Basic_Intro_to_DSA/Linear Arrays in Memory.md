@@ -3,6 +3,8 @@
  fundamental data structure in C programming due to their simplicity and efficiency in accessing elements. Here's a detailed explanation of how linear arrays are 
  represented in memory in C
 
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/f5a8fba6-4ece-421b-b866-830698082c06)
+
 ### 1. Declaration and Initialization
 - In C, an array can be declared and initialized as follows:
 ```c
