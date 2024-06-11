@@ -1,6 +1,10 @@
 # Union
-- Unions are conceptually similar to structures in C. The syntax to declare/define a union is also similar to that of a structure. **The only differences is in terms of storage**. In structure each member has its own storage location, whereas all members of union uses a single shared memory location which is equal to the size of 
- its largest data member
+![Uploading image.png…]()
+
+
+# Union
+
+- Unions are conceptually similar to structures in C. The syntax to declare/define a union is also similar to that of a structure. **The only differences is in terms of storage**. In structure each member has its own storage location, whereas all members of union uses a single shared memory location which is equal to the size of its largest data member
 
 
 ### What is the Major Difference between Structure and Union
