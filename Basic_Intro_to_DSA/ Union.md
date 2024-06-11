@@ -33,6 +33,22 @@ union in-put
 ```
 Now it is of in variable input type and it can store an integer value or it can store a float value. We cannot store value in both its variables simultaneously.
 
+## Sizeof Union
+```c
+#include <stdio.h>
+union letter{  
+int a;  
+char b;  
+float c;  
+double d;  
+};  
+
+int main()  
+{  
+  printf("The size of union letter is %d", sizeof(union letter));  
+  return 0;  
+}
+```
 ## Accessing Union Member Variables
 Union members also access the same way structure members access. First of all, we write the name of the union. Then before dot (.) An operator is written and the member's name is written. We can assign the value of union members with this type.
 ```
