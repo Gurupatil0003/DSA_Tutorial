@@ -363,3 +363,77 @@ int main() {
 }
 ```
 
+
+## Array Opearion
+
+### Traversal
+```c
+#include <stdio.h>
+
+int main() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    printf("Array elements: ");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", arr[i]); // Printing all elements
+    }
+    printf("\n");
+    return 0;
+}
+```
+
+### Insertion
+```c
+#include <stdio.h>
+
+int main() {
+    int arr[10] = {1, 2, 3, 4, 5};  // Array with 10 capacity but 5 elements
+    int n = 5;  // Number of elements
+    int pos = 2;
+    int elem = 10;
+    for (int i = n; i > pos; i--) {
+        arr[i] = arr[i - 1]; // Shift elements to the right
+    }
+    arr[pos] = elem; // Insert element at pos
+    n++; // Increment number of elements
+    return 0;
+}
+```
+
+### Deletion
+```
+#include <stdio.h>
+
+int main() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    int n = 5; // Number of elements
+    int pos = 2;
+    for (int i = pos; i < n - 1; i++) {
+        arr[i] = arr[i + 1]; // Shift elements to the left
+    }
+    n--; // Decrement number of elements
+    return 0;
+}
+```
+### Searching
+```c
+#include <stdio.h>
+
+int main() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    int n = 5; // Number of elements
+    int target = 3;
+    int found = 0;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == target) {
+            found = 1;
+            break;
+        }
+    }
+    if (found) {
+        printf("Element %d found\n", target);
+    } else {
+        printf("Element %d not found\n", target);
+    }
+    return 0;
+}
+```
