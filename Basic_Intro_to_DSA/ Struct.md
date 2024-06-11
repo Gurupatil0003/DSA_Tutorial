@@ -332,3 +332,33 @@ Imaginary Part: 11
 Real Part: 5.25
 Integer: 6
 ```
+## Array and Structure in c
+```c
+#include <stdio.h>
+
+// Define the structure
+struct Student {
+  int rollNumber;
+  char studentName[20];
+  float percentage;
+};
+
+int main() {
+  // Declare and initialize an array of structs
+  struct Student studentRecord[5] = {{1, "John", 78.5},
+                                     {2, "Alice", 89.2},
+                                     {3, "Bob", 76.8},
+                                     {4, "Eva", 91.7},
+                                     {5, "Mike", 85.0}};
+
+  // Display student information
+  printf("Student Information:\n");
+  for (int i = 0; i < 5; ++i) {
+    printf("Roll Number: %d\tName: %s\tPercentage: %.2f\n",
+           studentRecord[i].rollNumber, studentRecord[i].studentName,
+           studentRecord[i].percentage);
+  }
+
+  return 0;
+}
+```
