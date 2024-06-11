@@ -49,6 +49,16 @@ int main()
   return 0;  
 }
 ```
+```c
+We already know that the size of:
+
+int data type is 4
+char data type is 1
+float data type is 4
+double data type is 8
+Since the double variable d requires the largest memory space among the four variables, a total of 8 bytes is allocated in the memory for the union letter.
+```
+
 ## Accessing Union Member Variables
 Union members also access the same way structure members access. First of all, we write the name of the union. Then before dot (.) An operator is written and the member's name is written. We can assign the value of union members with this type.
 ```
@@ -83,6 +93,28 @@ return 0;
 ```
 Value of a is: 1101345
 Value of b is: 20.00000
+```
+# Example Of Union
+```c
+
+#include <stdio.h>
+
+union Data {
+   int i;
+   float f;
+};
+
+int main() {
+   union Data data;
+
+   data.i = 10;
+   printf("data.i : %d\n", data.i);
+
+   data.f = 220.5;
+   printf("data.f : %f\n", data.f);
+
+   return 0;
+}
 ```
 
 I hope that you all liked this tutorial, if you want to read these tutorials more then stay connected with me.
