@@ -416,7 +416,7 @@ int main() {
 ```
 
 ### Deletion
-```
+```c
 #include <stdio.h>
 
 int main() {
