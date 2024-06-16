@@ -14,6 +14,8 @@
 3. realloc()
 4. free()
 
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/207a1555-8068-4a66-9354-6f7627237290)
+
 
 ### Contents
 * [Approach](#approach-explained)
