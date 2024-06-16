@@ -344,6 +344,36 @@ int main() {
  In browsers - The back button in a browser saves all the URLs you have visited previously in a stack. Each time you visit a new page, it is added on top of the stack. When you press the back button, the current 
  URL is removed from the stack, and the previous URL is accessed.
 
+### stack overflow
+- A stack is a type of data structure that operates on the Last-In-First-Out (LIFO) principle. It’s usually done with an array or linked list. Elements are added 
+ or taken from one end of a stack, which is generally referred to as the “top” of the stack.
+- The maximum number of items that can be stored in static memory allocation in a stack is predetermined. Assume we have a stack with a capacity of 100 items.
+ A stack overflow problem, often known as “stack full,” happens when the stack has reached its limit and no more components may be added. This signifies that 
+ there is no room on the stack for additional components.
+- In other words, attempting to push (insert) an element onto an already full stack would result in a stack overflow. The stack cannot accommodate the additional 
+ element since it has surpassed its capacity.
+- When a stack overflow occurs, it signals that the stack has reached its limit and that any further additions would result in an error. It is critical to handle 
+ this scenario correctly to avoid data loss or program failures.
+
+
+### This is the stack overflow😂
+
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/3f490d8a-eae0-42b1-a89c-d5f266b8ef85)
+
+
+### stack unoverflow
+- A stack is a data structure that adheres to the Last-In-First-Out (LIFO) principle, in which components are added or deleted from one end of the stack, which is 
+ generally referred to as the “top” of the stack.
+- In the instance of stack underflow, it refers to the situation in which we attempt to conduct an action on the stack, such as displaying or deleting elements, 
+ but there are no elements in the stack.
+- Assume we have an empty stack and attempt to conduct a pop operation to remove an element from the stack. We cannot remove any components from the stack since 
+ there are none, resulting in a stack underflow scenario.
+- Similarly, attempting to display the items of an empty stack with no elements introduced results in a stack underflow condition.
+- Stack underflow is so named because it implies that the stack lacks enough components to accomplish the intended action. It is critical to handle this 
+- circumstance correctly in order to avoid mistakes or unexpected behaviour in the program.
+### It’s like a boy is trying to drink an empty glass😂
+ ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/7ce0fb6f-5b68-4790-812f-bca9d33c903e)
 
 ### recursive
 - A function that calls itself is known as a recursive function. And, this technique is known as recursion.
