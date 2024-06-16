@@ -5,13 +5,13 @@
 
 - You can think of the stack data structure as the pile of plates on top of another.
 
-- ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/44ee27db-25df-486a-92ec-c16b7ed7ff8c)
-
 - Let’s take an exmaple
 
 - Let’s say you have a stack of plates in this order: purple, red, orange, blue, pink. So the purple plate in the bottom and the pink on the top.
  You have to start from the top if you want to remove a plate. so if you need to remove the purple plate, you have to remove the pink, blue, orange, red then the 
  purple.
+
+- ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/44ee27db-25df-486a-92ec-c16b7ed7ff8c)
 
 - So finally, we can say. A stack is a way to store data where the last item added is the first one that can be removed. You can only add or remove items from the 
  top of the stack.
@@ -20,11 +20,44 @@
 - As a result, in a stack, element insertion and deletion always occur at the top. You can add new components to the top of the stack and delete elements from the 
  top of the stack. The remainder of the components under the top are unaffected.
 - A stack data structure is distinguished by its Last In First Out behaviour and the ability to insert and delete components only from the top.
-![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/1f877f13-411b-44f6-82eb-178b8a2ce2c4)
+
+## There are two common ways to implement a stack
+### 1. Statically using an array
+
+- You allocate a fixed-size array to contain the stack components in this procedure.
+- The array acts as the stack’s underlying data structure.
+- To keep track of the top element and the number of elements in the stack, you use the variable “top.”
+- By incrementing the top variable and saving the new element at that position, you may push (add) elements to the stack.
+- Similarly, you may pop (remove) elements from the stack by accessing the top element and decrementing the top variable.
+- The stack size is constant and cannot be adjusted dynamically, which is one disadvantage of this strategy.
+
+### 2. Dynamically using a linked list.
+
+- To implement the stack in this approach, you utilise a linked list.
+- Each node in the linked list represents a stack element and contains the actual data as well as a reference to the next node.
+- The linked list’s head represents the top of the stack.
+- To push an element, you build a new node, assign it a data value, and make it the linked list’s new head.
+- Popping an element involves removing the head node and updating the head pointer to the next node in the list.
+- The advantage of this strategy is that the stack may dynamically increase or decrease depending on the number of items.
+
+### Array implementation
+- Determining the size of the stack prior to the program run is very important.
+- In the array implementation of a stack, inserting an element is known as “pushing” an element onto the stack. When you push an element, it gets added to the 
+ stack’s top. This signifies that the element will be placed at the index indicated by the “top” variable at the time.
+- Assume we have an array-based stack with the entries [5, 8, 12, 3]. The variable “top” originally points to index 3, which has the value 3. Now we want to add 
+ element 10 to the stack. We raise the “top” variable and add the new element to the freshly updated index. After pushing 10, the stack looks like this: [5, 8, 
+ 12, 3, 10]. The variable “top” now points to index 4, which has a value of 10.
+- When you push an element into the stack, all of the current elements retain their places, but the “top” variable is modified to reflect the new topmost element.
 
 
-- This table should draw the boundaries between Abstract Data Types (ADT) and Concrete Data Types, and keep in mind that Abstract Data Types are built upon Concrete Data Types.
- Here, you can:
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/28e6d1da-1853-43e3-ab11-23fb14a793a4)
+
+## Algorithm for pushing
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/98c8a408-fa99-4d9c-916c-36d0f3a2d405)
+
+- This table should draw the boundaries between Abstract Data Types (ADT) and Concrete Data Types, and keep in mind that Abstract Data Types are built upon 
+ Concrete Data Types.Here, you can:
 
 - Put a new plate on top
 - Remove the top plate
