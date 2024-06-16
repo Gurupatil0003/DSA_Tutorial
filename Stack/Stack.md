@@ -5,7 +5,7 @@
 
 - You can think of the stack data structure as the pile of plates on top of another.
 
-// - ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/44ee27db-25df-486a-92ec-c16b7ed7ff8c)
+- ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/44ee27db-25df-486a-92ec-c16b7ed7ff8c)
 
 - Let’s take an exmaple
 
@@ -58,6 +58,7 @@
 - Before popping, we check if the stack is already empty
 
 ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/8a4ff325-fb71-411a-8597-92917bc3f4b1)
+
 
 
 | Abstract Data Type (ADT) | Possible Implementations |
