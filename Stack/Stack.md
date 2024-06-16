@@ -120,89 +120,108 @@ typedef struct {
 ### Opertation and Array represntation in stack
 ```c
 #include <stdio.h>
-#include <stdlib.h>
 
-#define MAX 100  // Maximum size of the stack
+void push();
+void pop();
+void peek();
+void search();
+void display();
 
-typedef struct {
-    int data[MAX];
-    int top;
-} Stack;
-
-// Function to initialize the stack
-void initStack(Stack *s) {
-    s->top = -1;
-}
-
-// Function to check if the stack is empty
-int isEmpty(Stack *s) {
-    return s->top == -1;
-}
-
-// Function to check if the stack is full
-int isFull(Stack *s) {
-    return s->top == MAX - 1;
-}
-
-// Function to push an element onto the stack
-void push(Stack *s, int value) {
-    if (isFull(s)) {
-        printf("Stack overflow\n");
-        return;
-    }
-    s->data[++(s->top)] = value;
-}
-
-// Function to pop an element from the stack
-int pop(Stack *s) {
-    if (isEmpty(s)) {
-        printf("Stack underflow\n");
-        return -1;
-    }
-    return s->data[(s->top)--];
-}
-
-// Function to peek the top element of the stack
-int peek(Stack *s) {
-    if (isEmpty(s)) {
-        printf("Stack is empty\n");
-        return -1;
-    }
-    return s->data[s->top];
-}
-
-// Function to display the elements of the stack
-void display(Stack *s) {
-    if (isEmpty(s)) {
-        printf("Stack is empty\n");
-        return;
-    }
-    for (int i = 0; i <= s->top; i++) {
-        printf("%d ", s->data[i]);
-    }
-    printf("\n");
-}
+int a[100], top = -1;
 
 int main() {
-    Stack stack;
-    initStack(&stack);
-
-    push(&stack, 10);
-    push(&stack, 20);
-    push(&stack, 30);
-
-    printf("Stack elements: ");
-    display(&stack);
-
-    printf("Top element: %d\n", peek(&stack));
-
-    printf("Popped element: %d\n", pop(&stack));
-
-    printf("Stack elements after pop: ");
-    display(&stack);
-
+    int x;
+    while (1) {
+        printf("\n0 or CTRL-C to Exit ");
+        printf("\n1. Push");
+        printf("\n2. Pop");
+        printf("\n3. Peek");
+        printf("\n4. Search");
+        printf("\n5. Display");
+        printf("\nEnter your choice? \n");
+        scanf("%d", &x);
+        switch (x) {
+            case 0:
+                return 0;
+            case 1:
+                push();
+                break;
+            case 2:
+                pop();
+                break;
+            case 3:
+                peek();
+                break;
+            case 4:
+                search();
+                break;
+            case 5:
+                display();
+                break;
+            default:
+                printf("\nInvalid choice,\nPlease try again.\n");
+        }
+    }
     return 0;
 }
+
+// function for pushing the element
+void push() {
+    int n = 0;
+    printf("\nEnter the value to be inserted: ");
+    scanf("%d", &n);
+    top += 1;
+    a[top] = n;
+}
+
+// function for popping the element out
+void pop() {
+    if (top == -1) {
+        printf("\nStack is empty");
+    } else {
+        int item;
+        item = a[top];
+        top -= 1;
+        printf("\nPopped item is %d ", item);
+    }
+}
+
+// function for peeking the element from top of the stack
+void peek() {
+    if (top >= 0)
+        printf("\nThe top element is %d", a[top]);
+    else
+        printf("\nStack is empty");
+}
+
+// function to search for an element in the stack
+void search() {
+    int key, found = 0;
+    printf("\nEnter the element to search: ");
+    scanf("%d", &key);
+    for (int i = top; i >= 0; i--) {
+        if (a[i] == key) {
+            printf("\nElement %d found at position %d from top.", key, top - i + 1);
+            found = 1;
+            break;
+        }
+    }
+    if (!found)
+        printf("\nElement %d not found in the stack.", key);
+}
+
+// function to view entire stack
+void display() {
+    if (top == -1) {
+        printf("\nStack is empty");
+    } else {
+        printf("\nStack elements:\n");
+        for (int i = top; i >= 0; i--) {
+            printf("%d\n", a[i]);
+        }
+    }
+}
+
 
 ```
 ## Stacks using Dynamic Arrays
@@ -218,7 +237,146 @@ int main() {
 - 4.Using Variable Length Arrays(VLAs)
 - 5.Using Flexible Array Members
 - 6.free
+
+# Example for Stack using Dynamic Arrays
 ```c
+
+#include <stdio.h>
+#include <stdlib.h> // for dynamic memory allocation functions
+
+void push();
+void pop();
+void peek();
+void search();
+void display();
+
+int *a; // pointer to dynamically allocated array
+int top = -1;
+int capacity = 1; // initial capacity of the stack
+
+int main() {
+    int x;
+    a = (int *)malloc(capacity * sizeof(int)); // allocate memory for stack
+    
+    if (a == NULL) {
+        printf("Memory allocation failed.");
+        return 1; // indicate failure
+    }
+    
+    while (1) {
+        printf("\n0 or CTRL-C to Exit ");
+        printf("\n1. Push");
+        printf("\n2. Pop");
+        printf("\n3. Peek");
+        printf("\n4. Search");
+        printf("\n5. Display");
+        printf("\nEnter your choice? \n");
+        scanf("%d", &x);
+        switch (x) {
+            case 0:
+                free(a); // free dynamically allocated memory
+                return 0;
+            case 1:
+                push();
+                break;
+            case 2:
+                pop();
+                break;
+            case 3:
+                peek();
+                break;
+            case 4:
+                search();
+                break;
+            case 5:
+                display();
+                break;
+            default:
+                printf("\nInvalid choice,\nPlease try again.\n");
+        }
+    }
+    
+    free(a); // free dynamically allocated memory
+    return 0;
+}
+
+// function for pushing the element
+void push() {
+    int n = 0;
+    printf("\nEnter the value to be inserted: ");
+    scanf("%d", &n);
+    top += 1;
+    
+    // check if stack is full, if yes, reallocate memory
+    if (top == capacity) {
+        capacity *= 2; // double the capacity
+        a = (int *)realloc(a, capacity * sizeof(int));
+        if (a == NULL) {
+            printf("Memory reallocation failed.");
+            exit(1); // exit the program
+        }
+    }
+    
+    a[top] = n;
+}
+
+// function for popping the element out
+void pop() {
+    if (top == -1) {
+        printf("\nStack is empty");
+    } else {
+        int item;
+        item = a[top];
+        top -= 1;
+        printf("\nPopped item is %d ", item);
+        
+        // check if stack size is too large, reduce capacity if necessary
+        if (top + 1 <= capacity / 2) {
+            capacity /= 2; // halve the capacity
+            a = (int *)realloc(a, capacity * sizeof(int));
+            if (a == NULL) {
+                printf("Memory reallocation failed.");
+                exit(1); // exit the program
+            }
+        }
+    }
+}
+
+// function for peeking the element from top of the stack
+void peek() {
+    if (top >= 0)
+        printf("\nThe top element is %d", a[top]);
+    else
+        printf("\nStack is empty");
+}
+
+// function to search for an element in the stack
+void search() {
+    int key, found = 0;
+    printf("\nEnter the element to search: ");
+    scanf("%d", &key);
+    for (int i = top; i >= 0; i--) {
+        if (a[i] == key) {
+            printf("\nElement %d found at position %d from top.", key, top - i + 1);
+            found = 1;
+            break;
+        }
+    }
+    if (!found)
+        printf("\nElement %d not found in the stack.", key);
+}
+
+// function to view entire stack
+void display() {
+    if (top == -1) {
+        printf("\nStack is empty");
+    } else {
+        printf("\nStack elements:\n");
+        for (int i = top; i >= 0; i--) {
+            printf("%d\n", a[i]);
+        }
+    }
+}
 
 
 ```
