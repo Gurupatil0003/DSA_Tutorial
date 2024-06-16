@@ -40,22 +40,6 @@
 - Popping an element involves removing the head node and updating the head pointer to the next node in the list.
 - The advantage of this strategy is that the stack may dynamically increase or decrease depending on the number of items.
 
-### Array implementation
-- Determining the size of the stack prior to the program run is very important.
-- In the array implementation of a stack, inserting an element is known as “pushing” an element onto the stack. When you push an element, it gets added to the 
- stack’s top. This signifies that the element will be placed at the index indicated by the “top” variable at the time.
-- Assume we have an array-based stack with the entries [5, 8, 12, 3]. The variable “top” originally points to index 3, which has the value 3. Now we want to add 
- element 10 to the stack. We raise the “top” variable and add the new element to the freshly updated index. After pushing 10, the stack looks like this: [5, 8, 
- 12, 3, 10]. The variable “top” now points to index 4, which has a value of 10.
-- When you push an element into the stack, all of the current elements retain their places, but the “top” variable is modified to reflect the new topmost element.
-
-
-![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/28e6d1da-1853-43e3-ab11-23fb14a793a4)
-
-## Algorithm for pushing
-
-![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/98c8a408-fa99-4d9c-916c-36d0f3a2d405)
-
 - This table should draw the boundaries between Abstract Data Types (ADT) and Concrete Data Types, and keep in mind that Abstract Data Types are built upon 
  Concrete Data Types.Here, you can:
 
