@@ -60,9 +60,10 @@ Dynamic Memory Allocation
 - 2.calloc()
 - 3.realloc()
 - 4.free()
-#🔹 Let's Start with malloc().
+
+# 🔹 Let's Start with malloc().
 ---------------------------------------------------------------------------------------------------------------
-###✅ Malloc() Function : 
+### ✅ Malloc() Function : 
 - 🔹 Malloc Stands For Memory Allocation and we know Memory Allocations are of two Types, Static and Dynamic and the memory is allocated in the Stack and Heap 
  Memory of the RAM Respectively.
 - 🔹 This malloc() Function is Declared in Standard Library which is knows/used in program by,
@@ -72,3 +73,5 @@ Dynamic Memory Allocation
 
 - 🔹 Suppose we give 10 bytes of Memory Space, Then this will allocate 10 bytes of memory in HEAP and will Return the Base Address to the Pointer. and This Base 
  address (pointer) points to the First Byte in The Memory Allocated.
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/b9dec398-c1ca-46b5-99ce-56b2f74c54c2)
