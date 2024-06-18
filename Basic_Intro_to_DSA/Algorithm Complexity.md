@@ -88,7 +88,25 @@ There are three asymptotic notations that are used to represent the time complex
 1.Θ Notation (theta)
 2.Big O Notation
 3.Ω Notation
+
+
+
+Big-O
+Upperbound (worst case)
+Big-Ω (omega)
+Lowerbound (best case)
+Big-θ (theta)
+Tight bound
 ```
+
++   
+|      Big-O
+|     /   _____ Big-θ
+|    /   /
+|   /  /
+|  / /  ________ Big-Ω 
+| // __/ 
+|///____________ n
 - Before learning about these three asymptotic notation, we should learn about the best, average, and the worst case of an algorithm.
 
 #### Best case, Average case, and Worst case
