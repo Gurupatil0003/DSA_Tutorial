@@ -55,3 +55,12 @@ Space Complexity = Auxiliary space + Space used by input values.
 
 <img width="100%" src="https://github.com/Gurupatil0003/DSA_Tutorial/blob/master/Img/bigO1.png"/>
 
+Logarithmic => O(log n)
+- <img width="100%" src="https://github.com/Gurupatil0003/DSA_Tutorial/blob/master/Img/bigOlogN.png"/>
+
+### Linear => O(n)
+- execution is directly proportional to the size of input (graph is linear)
+- <img width="100%" src="https://github.com/Gurupatil0003/DSA_Tutorial/blob/master/Img/bigOn.png"/>
+
+Quadratic => O(n^2)
+- <img width="100%" src="https://github.com/Gurupatil0003/DSA_Tutorial/blob/master/Img/bigOnSquared.png"/>
