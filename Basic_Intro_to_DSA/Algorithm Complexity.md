@@ -53,5 +53,5 @@ Space Complexity = Auxiliary space + Space used by input values.
 ### Constant => O(1)
 - the size of input does not affect the number of operations or the amount of time it takes for an algorithm to complete
 
-<img width="100%" src="Img/bigO1.png"/>
+<img width="100%" src="https://github.com/Gurupatil0003/DSA_Tutorial/blob/master/Img/bigO1.png"/>
 
