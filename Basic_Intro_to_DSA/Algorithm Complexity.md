@@ -186,7 +186,41 @@ and g(n) = n²
 then for c = 6 and n0 = 1, we can say that f(n) = O(n²)
 ```
 ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/96131229-4be5-4286-9b3c-32edba769e15)
+```
+Finding the Big O
+Example 1: O(2n+1)
 
+O(2n + 1)
+
+1 is dropped since non dominant terms get dropped
+
+O(2n)
+
+2 gets dropped since it is a constant
+
+Answer: O(n)
+
+Example 2: O(n^2+n+1)
+
+O(n^2 + n + 1)
+
+1 gets dropped since it is a non dominant term
+
+O(n^2 + n)
+
+n gets dropped since it is a non dominant term
+
+Answer: O(n^2)
+
+Example 3: O(4)
+
+O(4 1) Pretend there is 1 behind 4 so we can assume 4 is our constant
+
+We can drop the four
+
+Answer: O(1)
+
+```
 
 ### Big O notation example of Algorithms
 - Big O notation is the most used notation to express the time complexity of an algorithm. In this section of the blog, we will find the big O notation of various 
@@ -194,7 +228,7 @@ algorithms.
 
 - Example 1: Finding the sum of the first n numbers.
 
-= In this example, we have to find the sum of first n numbers. For example, if n = 4, then our output should be 1 + 2 + 3 + 4 = 10. If n = 5, then the ouput 
+- In this example, we have to find the sum of first n numbers. For example, if n = 4, then our output should be 1 + 2 + 3 + 4 = 10. If n = 5, then the ouput 
  should be 1 + 2 + 3 + 4 + 5 = 15. Let's try various solutions to this code and try to compare all those codes.
 ```c
 O(1) solution
