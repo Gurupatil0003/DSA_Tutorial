@@ -1,4 +1,57 @@
 Implement Stack and its operations like push and pop
+```c
+#include <stdio.h>
+
+void push();
+void display();
+
+int a[100], top = -1;
+
+int main() {
+    int x;
+    while (1) {
+        printf("\n0 or CTRL-C to Exit ");
+        printf("\n1. Push");
+        printf("\n5. Display");
+        printf("\nEnter your choice? \n");
+        scanf("%d", &x);
+        switch (x) {
+            case 0:
+                return 0;
+            case 1:
+                push();
+                break;
+            case 5:
+                display();
+                break;
+            default:
+                printf("\nInvalid choice,\nPlease try again.\n");
+        }
+    }
+    return 0;
+}
+
+// function for pushing the element
+void push() {
+    int n = 0;
+    printf("\nEnter the value to be inserted: ");
+    scanf("%d", &n);
+    top += 1;
+    a[top] = n;
+}
+
+// function to view entire stack
+void display() {
+    if (top == -1) {
+        printf("\nStack is empty");
+    } else {
+        printf("\nStack elements:\n");
+        for (int i = top; i >= 0; i--) {
+            printf("%d\n", a[i]);
+        }
+    }
+}
+```
 # Push Operation
 ```c
 #include <stdio.h>
