@@ -103,8 +103,7 @@ int main() {
 - If the element is an operator O, pop twice and get A and B respectively. Calculate BOA and push it back to the stack.
 - When the expression is ended, the value in the stack is the final answer.
 - Evaluation of a postfix expression using a stack is explained in below example:
-](https://github.com/Gurupatil0003/DSA_Tutorial/blob/master/Img/Evaluation-of-a-postfix-expression-using-a-stack.gif)
-
+https://github.com/Gurupatil0003/DSA_Tutorial/blob/master/Img/Evaluation-of-a-postfix-expression-using-a-stack.gif
 # Postfix Evalution
 ```c
 #include <stdio.h>
