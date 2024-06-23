@@ -224,6 +224,24 @@ void display() {
 
 
 ```
+### Time Complexity of Stack Operations
+- The time complexity of the several stack operations are:
+
+### Push Operation: O(1)
+- The time complexity of the Pop operation would be O(1) as in this operation, we are inserting an element at the top of the stack only.
+
+### Pop Operation: O(1)
+- The time complexity of the Push operation would be O(1) as in this operation, we are removing and returning an element from the top of the stack only.
+
+### Peek Operation: O(1)
+- The time complexity of the Peek operation would be O(1) as in this operation, we are returning only the topmost element of the stack.
+
+### IsEmpty Operation: O(1)
+- The time complexity of the IsEmpty operation would be O(1) as in this operation, we are checking whether the topmost element is null or not.
+
+### IsFull Operation: O(1)
+- The time complexity of the IsFull operation would be O(1) as in this operation, we are checking whether the topmost element is at the maximum position or not.
+- 
 ## Stacks using Dynamic Arrays
 - Array in C is static in nature, so its size should be known at compile time and we can’t change the size of the array after its declaration. Due to this, we may encounter situations where our array doesn’t 
  have enough space left for required elements or we allotted more than the required memory leading to memory wastage. To solve this problem, dynamic arrays come into the picture.
