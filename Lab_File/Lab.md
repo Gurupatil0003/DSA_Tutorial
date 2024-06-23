@@ -96,6 +96,14 @@ int main() {
     return 0;
 }
 ```
+### Algorithm for Evaluation of Postfix Expression
+- Create an empty stack and start scanning the postfix expression from left to right. 
+
+- If the element is an operand, push it into the stack.
+- If the element is an operator O, pop twice and get A and B respectively. Calculate BOA and push it back to the stack.
+- When the expression is ended, the value in the stack is the final answer.
+- Evaluation of a postfix expression using a stack is explained in below example:
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/90a3de9b-c0fd-4751-a5d2-e867e2139a02)
 
 
 # Postfix Evalution
