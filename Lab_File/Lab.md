@@ -96,6 +96,240 @@ int main() {
     return 0;
 }
 ```
+
+
+# Postfix Evalution
+```c
+#include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
+
+#define SIZE 40 // Define the maximum size of the stack
+
+// Function prototypes
+int pop();
+void push(int);
+
+// Global variables
+char postfix[SIZE]; // Array to store the postfix expression
+int stack[SIZE]; // Stack array
+int top = -1; // Index of the top of the stack
+
+int main()
+{
+    int i, a, b, result;
+    char ch;
+
+    // Prompt the user to enter a postfix expression
+    printf("Enter a postfix expression: ");
+    scanf("%s", postfix); // Read the postfix expression, e.g., "89+9-8/"
+
+    // Process each character in the postfix expression
+    for(i = 0; postfix[i] != '\0'; i++)
+    {
+        ch = postfix[i]; // Get the current character
+
+        // If the character is a digit, push it onto the stack
+        if(isdigit(ch))
+        {
+            push(ch - '0'); // Convert char to int and push onto the stack
+        }
+        // If the character is an operator, pop two elements and apply the operator
+        else if(ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '%')
+        {
+            b = pop(); // Pop the top element
+            a = pop(); // Pop the next top element
+
+            // Perform the operation based on the operator
+            switch(ch)
+            {
+                case '+': result = a + b; break;
+                case '-': result = a - b; break;
+                case '*': result = a * b; break;
+                case '/': result = a / b; break;
+                case '%': result = a % b; break;
+                default: 
+                    printf("Invalid operator encountered!\n");
+                    exit(-1);
+            }
+            
+            // Push the result back onto the stack
+            push(result);
+        }
+        else
+        {
+            printf("Invalid character encountered in expression!\n");
+            exit(-1);
+        }
+    }
+
+    // Pop the final result from the stack
+    result = pop();
+
+    // Print the result of the postfix evaluation
+    printf("The postfix evaluation is: %d\n", result);
+    
+    return 0;
+}
+
+// Function to push an element onto the stack
+void push(int n)
+{
+    if (top < SIZE - 1) // Check if the stack is not full
+    {
+        stack[++top] = n; // Increment the top index and push the element
+    }
+    else
+    {
+        printf("Stack overflow!\n"); // Print error message if stack is full
+        exit(-1); // Exit the program with error code
+    }
+}
+
+// Function to pop an element from the stack
+int pop()
+{    
+    if (top > -1) // Check if the stack is not empty
+    {
+        return stack[top--]; // Return the top element and decrement the top index
+    }
+    else
+    {
+        printf("Stack underflow!\n"); // Print error message if stack is empty
+        exit(-1); // Exit the program with error code
+    }
+}
+
+
+```
+```c
+Simplified Step-by-Step Execution for Input 89+9-8/:
+Initialization:
+
+stack: An array to store the numbers.
+top: Initialized to -1 to indicate an empty stack.
+Processing Each Character in 89+9-8/:
+
+8:
+isdigit('8') returns true.
+Convert '8' to 8 (ch - '0').
+Push 8 onto the stack.
+Stack: [8], top: 0.
+
+9:
+isdigit('9') returns true.
+Convert '9' to 9 (ch - '0').
+Push 9 onto the stack.
+Stack: [8, 9], top: 1.
+
++:
+isdigit('+') returns false.
+Pop 9 from the stack.
+Pop 8 from the stack.
+Perform 8 + 9 = 17.
+Push 17 onto the stack.
+Stack: [17], top: 0.
+
+9:
+isdigit('9') returns true.
+Convert '9' to 9 (ch - '0').
+Push 9 onto the stack.
+Stack: [17, 9], top: 1.
+
+-:
+isdigit('-') returns false.
+Pop 9 from the stack.
+Pop 17 from the stack.
+Perform 17 - 9 = 8.
+Push 8 onto the stack.
+Stack: [8], top: 0.
+
+8:
+isdigit('8') returns true.
+Convert '8' to 8 (ch - '0').
+Push 8 onto the stack.
+Stack: [8, 8], top: 1.
+
+/:
+isdigit('/') returns false.
+Pop 8 from the stack.
+Pop 8 from the stack.
+Perform 8 / 8 = 1.
+Push 1 onto the stack.
+Stack: [1], top: 0.
+Final Result:
+
+Pop the final result 1 from the stack.
+Stack: [], top: -1.
+
+Output: The postfix evaluation is: 1.
+
+```
+```c
+printf("Enter a postfix expression: ");
+scanf("%s", postfix); // User inputs "89+9-8/"
+```
+- The input string "89+9-8/" is stored in the postfix array:
+
+```c
+postfix = ['8', '9', '+', '9', '-', '8', '/', '\0']
+```
+
+- Processing the Input:
+- The for loop iterates through each character of the postfix array until it encounters the null terminator ('\0'), which indicates the end of the string.
+```c
+for (i = 0; postfix[i] != '\0'; i++) {
+    ch = postfix[i];
+    // Process the character stored in ch
+}
+```
+```c
+Let's break down each iteration:
+
+Iteration 1:
+
+i = 0
+postfix[0] = '8'
+ch = '8'
+Since '8' is a digit, push(ch - '0') converts it to an integer (8) and pushes it onto the stack.
+Iteration 2:
+
+i = 1
+postfix[1] = '9'
+ch = '9'
+Since '9' is a digit, push(ch - '0') converts it to an integer (9) and pushes it onto the stack.
+Iteration 3:
+
+i = 2
+postfix[2] = '+'
+ch = '+'
+Since '+' is an operator, two elements (9 and 8) are popped from the stack, the addition operation is performed (8 + 9), and the result (17) is pushed back onto the stack.
+Iteration 4:
+
+i = 3
+postfix[3] = '9'
+ch = '9'
+Since '9' is a digit, push(ch - '0') converts it to an integer (9) and pushes it onto the stack.
+Iteration 5:
+
+i = 4
+postfix[4] = '-'
+ch = '-'
+Since '-' is an operator, two elements (9 and 17) are popped from the stack, the subtraction operation is performed (17 - 9), and the result (8) is pushed back onto the stack.
+Iteration 6:
+
+i = 5
+postfix[5] = '8'
+ch = '8'
+Since '8' is a digit, push(ch - '0') converts it to an integer (8) and pushes it onto the stack.
+Iteration 7:
+
+i = 6
+postfix[6] = '/'
+ch = '/'
+Since '/' is an operator, two elements (8 and 8) are popped from the stack, the division operation is performed (8 / 8), and the result (1) is pushed back onto the stack.
+
+```
 # Push and Pop Operation
 
 ```c
