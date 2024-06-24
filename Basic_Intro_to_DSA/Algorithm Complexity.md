@@ -608,3 +608,50 @@ Logarithmic => O(log n)
 
 Quadratic => O(n^2)
 - <img width="100%" src="https://github.com/Gurupatil0003/DSA_Tutorial/blob/master/Img/bigOnSquared.png"/>
+
+
+# Space complexity
+
+- Space complexity is used to measure the growth trend of the memory space occupied by an algorithm as the amount of data increases. This concept is very similar 
+ to time complexity, except that "running time" is replaced with "occupied memory space".
+
+
+### 2.4.1   Space related to algorithms¶
+- The memory space used by an algorithm during its execution mainly includes the following types.
+
+- Input space: Used to store the input data of the algorithm.
+- Temporary space: Used to store variables, objects, function contexts, and other data during the algorithm's execution.
+- Output space: Used to store the output data of the algorithm.
+- Generally, the scope of space complexity statistics includes both "Temporary Space" and "Output Space".
+
+### Temporary space can be further divided into three parts.
+
+- Temporary data: Used to save various constants, variables, objects, etc., during the algorithm's execution.
+- Stack frame space: Used to save the context data of the called function. The system creates a stack frame at the top of the stack each time a function is 
+ called, and the stack frame space is released after the function returns.
+- Instruction space: Used to store compiled program instructions, which are usually negligible in actual statistics.
+ When analyzing the space complexity of a program, we typically count the Temporary Data, Stack Frame Space, and Output Data, as shown in Figure 2-15.
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/68601175-0312-4653-89ad-80e3f90191dc)
+```c
+/* Structures */
+struct Node {
+    int val;
+    Node *next;
+    Node(int x) : val(x), next(nullptr) {}
+};
+
+/* Functions */
+int func() {
+    // Perform certain operations...
+    return 0;
+}
+
+int algorithm(int n) {          // input data
+    const int a = 0;            // temporary data (constant)
+    int b = 0;                  // temporary data (variable)
+    Node* node = new Node(0);   // temporary data (object)
+    int c = func();             // stack frame space (call function)
+    return a + b + c;           // output data
+}
+```
