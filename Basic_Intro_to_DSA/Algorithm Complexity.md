@@ -107,6 +107,7 @@ Tight bound
 |  / /  ________ Big-Ω 
 | // __/ 
 |///____________ n
+
 - Before learning about these three asymptotic notation, we should learn about the best, average, and the worst case of an algorithm.
 
 #### Best case, Average case, and Worst case
@@ -634,24 +635,41 @@ Quadratic => O(n^2)
 
 ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/68601175-0312-4653-89ad-80e3f90191dc)
 ```c
-/* Structures */
-struct Node {
-    int val;
-    Node *next;
-    Node(int x) : val(x), next(nullptr) {}
-};
-
 /* Functions */
 int func() {
     // Perform certain operations...
     return 0;
 }
 
-int algorithm(int n) {          // input data
-    const int a = 0;            // temporary data (constant)
-    int b = 0;                  // temporary data (variable)
-    Node* node = new Node(0);   // temporary data (object)
-    int c = func();             // stack frame space (call function)
-    return a + b + c;           // output data
+int algorithm(int n) {  // input data
+    const int a = 0;    // temporary data (constant)
+    int b = 0;          // temporary data (variable)
+    int c = func();     // stack frame space (call function)
+    return a + b + c;   // output data
 }
 ```
+### 2.4.2   Calculation method¶
+- The method for calculating space complexity is roughly similar to that of time complexity, with the only change being the shift of the statistical object from 
+ "number of operations" to "size of used space".
+
+- However, unlike time complexity, we usually only focus on the worst-case space complexity. This is because memory space is a hard requirement, and we must 
+ ensure that there is enough memory space reserved under all input data.
+
+- Consider the following code, the term "worst-case" in worst-case space complexity has two meanings.
+
+- Based on the worst input data: When n<10 , the space complexity is O(1) ; but when n>0, the initialized array nums occupies O(n) space , thus the worst-case 
+ space complexity is O(n).
+
+- Based on the peak memory used during the algorithm's execution: For example, before executing the last line, the program occupies O(1) space; when initializing 
+ the array nums, the program occupies O(n) space, hence the worst-case space complexity is O(n).
+
+```c
+void algorithm(int n) {
+    int a = 0;               // O(1)
+    int b[10000];            // O(1)
+    if (n > 10)
+        int nums[n] = {0};   // O(n)
+}
+```
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/b178f715-f17f-4438-aa1d-4fd8be4e9847)
