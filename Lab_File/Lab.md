@@ -96,6 +96,52 @@ int main() {
     return 0;
 }
 ```
+# 1. Infix Expressions
+- Infix expressions are the most usual type of expression. This notation is typically employed when writing arithmetic expressions by hand. Moreover, in the infix 
+ expression, we place the operator between the two operands it operates on.
+
+- For example, the operator “+” appears between the operands A and B in the expression “A + B”. The following figure depicts the example:
+
+  ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/3fe85874-89ba-4691-8b18-ab6ea7d35437)
+
+- Furthermore, infix expressions can also include parentheses to indicate the order of operations. In this way, we should observe the operator precedence rules 
+ and use parentheses to clarify the order of operations in expressions in infix notation.
+
+- Operator precedence rules specify the operator evaluation order in an expression. So, in an expression, operators with higher precedence are evaluated before 
+ operators with lower precedence.
+
+### Some operator precedence rules follow:
+
+- Parentheses: expressions inside parentheses are evaluated first
+- Exponentiation: exponents are evaluated next
+- Multiplication and division: multiplication and division are evaluated before addition and subtraction
+- Addition and subtraction: finally, addition and subtraction are evaluated last
+- However, if an expression has multiple operators with the same precedence, the evaluation of those operators occurs from left to right.
+
+### 2. Prefix Expressions
+- Prefix expressions, also known as Polish notation, place the operator before the operands.
+
+- For example, in the expression “+ A B”,  we place the “+” operator before the operands A and B, as demonstrated in the image next:
+- ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/f89fa26b-8b81-4598-90a9-7ce561f7a763)
+- We should consider that prefix expressions are evaluated from right to left. Thus, we apply each operator to its operands as it is encountered.
+
+### Postfix Expressions
+- Postfix expressions, also known as reverse Polish notation, where we place the operator after the operands.
+
+- For instance, in the expression “A B +”, the “+” we place the operator after the operands A and B. The figure next depicts the example:
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/7294a960-72fe-46e0-a4f2-7ee122e40e75)
+
+- Hence, we can evaluate postfix expressions from left to right, with each operator being applied to its operands as encountered.
+
+
+## Infix, Postfix, and Prefix Notations
+
+| Infix                 | Postfix       | Prefix         | Notes                                                            |
+|-----------------------|---------------|----------------|------------------------------------------------------------------|
+| A * B + C / D         | A B * C D / + | + * A B / C D  | multiply A and B, divide C by D, add the results                  |
+| A * (B + C) / D       | A B C + * D / | / * A + B C D  | add B and C, multiply by A, divide by D                          |
+| A * (B + C / D)       | A B C D / + * | * A + B / C D  | divide C by D, add B, multiply by A                              |
+
 ### Algorithm for Evaluation of Postfix Expression
 - Create an empty stack and start scanning the postfix expression from left to right. 
 
