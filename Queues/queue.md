@@ -366,6 +366,8 @@ int main() {
 ## Simple Queue
 - In a simple queue, insertion takes place at the rear and removal occurs at the front. It strictly follows the FIFO (First in First out) rule.
 
+ ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/43905d80-45db-4e35-b5b2-992b81bc4e83)
+
 ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/a1f6e08f-12e6-49bc-9bee-46504eb34939)
 
 ## Circular Queue
@@ -378,6 +380,9 @@ int main() {
 ## Priority Queue
 - A priority queue is a special type of queue in which each element is associated with a priority and is served according to its priority. If elements with the 
  same priority occur, they are served according to their order in the queue.
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/7e1f2ae4-1121-4299-86b3-53e867ff19cf)
+
 
 ![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/dfda1f41-4028-4426-ae68-bc131fa4b4c7)
 - Insertion occurs based on the arrival of the values and removal occurs based on priority.
