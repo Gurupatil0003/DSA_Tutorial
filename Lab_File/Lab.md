@@ -511,3 +511,239 @@ void peek() {
     printf("\nThe front element is %d\n", queue[front]);
 }
 ```
+
+### Circular Queue
+```c
+#include <stdio.h>
+#include <stdlib.h> // header for using exit and return function
+
+#define max 5 // symbolic constant
+
+int rear = -1, front = -1; // global variables
+int queue[max];
+
+void enqueue();
+int dequeue();
+void display();
+void peek();
+
+int main() {
+    int w, num;
+    while (1) {
+        printf("\n1. Enqueue");
+        printf("\n2. Dequeue");
+        printf("\n3. Display");
+        printf("\n4. Peek");
+        printf("\n5. EXIT");
+        printf("\nEnter your choice: ");
+        scanf("%d", &w);
+        if (w == 1)
+            enqueue();
+        else if (w == 2)
+            num = dequeue();
+        else if (w == 3)
+            display();
+        else if (w == 4)
+            peek();
+        else if (w == 5)
+            exit(1);
+        else
+            printf("\nInvalid Choice!!");
+    }
+
+    return 0;
+}
+
+void enqueue() {
+    int num;
+    if ((rear + 1) % max == front) {
+        printf("\nQueue is Full!\n");
+        return;
+    }
+    printf("\nEnter a number to insert: ");
+    scanf("%d", &num);
+    if (front == -1)
+        front = 0;
+    rear = (rear + 1) % max;
+    queue[rear] = num;
+}
+
+int dequeue() {
+    int num;
+    if (front == -1) {
+        printf("\nQueue is Empty!\n");
+        return 0;
+    }
+    num = queue[front];
+    printf("\n%d was deleted!\n", num);
+    if (front == rear) {
+        front = rear = -1; // Reset the queue after the last element is dequeued
+    } else {
+        front = (front + 1) % max;
+    }
+    return num;
+}
+
+void display() {
+    int i;
+    if (front == -1) {
+        printf("\nQueue is Empty! Nothing to display!!\n");
+        return;
+    }
+    printf("\n\nQueue elements:\n");
+    if (rear >= front) {
+        for (i = front; i <= rear; i++)
+            printf("%d\t", queue[i]);
+    } else {
+        for (i = front; i < max; i++)
+            printf("%d\t", queue[i]);
+        for (i = 0; i <= rear; i++)
+            printf("%d\t", queue[i]);
+    }
+    printf("\n");
+}
+
+void peek() {
+    if (front == -1) {
+        printf("\nQueue is Empty!\n");
+        return;
+    }
+    printf("\nThe front element is %d\n", queue[front]);
+}
+```
+
+### Dynamic Circular Queue
+
+```c
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Queue {
+    int *arr;       // Array to store queue elements
+    int capacity;   // Maximum capacity of the queue
+    int front;      // Front points to the front element in the queue
+    int rear;       // Rear points to the last element in the queue
+    int size;       // Current number of elements in the queue
+};
+
+// Function prototypes
+struct Queue *createQueue(int capacity);
+void enqueue(struct Queue *queue, int item);
+int dequeue(struct Queue *queue);
+void display(struct Queue *queue);
+void peek(struct Queue *queue);
+
+int main() {
+    int choice, item;
+    struct Queue *queue = createQueue(5);  // Initial capacity of the queue
+
+    while (1) {
+        printf("\n1. Enqueue");
+        printf("\n2. Dequeue");
+        printf("\n3. Display");
+        printf("\n4. Peek");
+        printf("\n5. Exit");
+        printf("\nEnter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("Enter the element to enqueue: ");
+                scanf("%d", &item);
+                enqueue(queue, item);
+                break;
+            case 2:
+                item = dequeue(queue);
+                if (item != -1)
+                    printf("Dequeued element: %d\n", item);
+                break;
+            case 3:
+                display(queue);
+                break;
+            case 4:
+                peek(queue);
+                break;
+            case 5:
+                exit(0);
+            default:
+                printf("Invalid choice. Please enter again.\n");
+        }
+    }
+
+    return 0;
+}
+
+// Function to create a queue with given capacity
+struct Queue *createQueue(int capacity) {
+    struct Queue *queue = (struct Queue *)malloc(sizeof(struct Queue));
+    if (queue == NULL) {
+        printf("Memory allocation failed\n");
+        exit(1);
+    }
+    queue->capacity = capacity;
+    queue->front = 0;
+    queue->rear = -1;
+    queue->size = 0;
+    queue->arr = (int *)malloc(queue->capacity * sizeof(int));
+    if (queue->arr == NULL) {
+        printf("Memory allocation failed\n");
+        exit(1);
+    }
+    return queue;
+}
+
+// Function to add an element to the queue
+void enqueue(struct Queue *queue, int item) {
+    if (queue->size == queue->capacity) {
+        printf("Queue is full. Resizing...\n");
+        queue->capacity *= 2;  // Double the capacity
+        queue->arr = (int *)realloc(queue->arr, queue->capacity * sizeof(int));
+        if (queue->arr == NULL) {
+            printf("Memory reallocation failed\n");
+            exit(1);
+        }
+    }
+    queue->rear = (queue->rear + 1) % queue->capacity;
+    queue->arr[queue->rear] = item;
+    queue->size++;
+}
+
+// Function to remove an element from the queue
+int dequeue(struct Queue *queue) {
+    if (queue->size == 0) {
+        printf("Queue is empty.\n");
+        return -1;
+    }
+    int item = queue->arr[queue->front];
+    queue->front = (queue->front + 1) % queue->capacity;
+    queue->size--;
+    return item;
+}
+
+// Function to display the elements of the queue
+void display(struct Queue *queue) {
+    if (queue->size == 0) {
+        printf("Queue is empty.\n");
+        return;
+    }
+    printf("Queue elements: ");
+    int i = queue->front;
+    for (int count = 0; count < queue->size; count++) {
+        printf("%d ", queue->arr[i]);
+        i = (i + 1) % queue->capacity;
+    }
+    printf("\n");
+}
+
+// Function to display the front element of the queue
+void peek(struct Queue *queue) {
+    if (queue->size == 0) {
+        printf("Queue is empty.\n");
+        return;
+    }
+    printf("Front element: %d\n", queue->arr[queue->front]);
+}
+
+
+```
