@@ -423,3 +423,91 @@ int main() {
     return 0;
 }
 ```
+### Queue Operation
+```c
+#include <stdio.h>
+#include <stdlib.h> // header for using exit and return function
+
+#define max 5 // symbolic constant
+
+int rear = -1, front = -1; // global variables
+int queue[max];
+
+void enqueue();
+int dequeue();
+void display();
+void peek();
+
+int main() {
+    int w, num;
+    while (1) {
+        printf("\n1. enqueue");
+        printf("\n2. dequeue");
+        printf("\n3. Display");
+        printf("\n4. Peek");
+        printf("\n5. EXIT");
+        printf("\nEnter What you want: ");
+        scanf("%d", &w);
+        if (w == 1)
+            enqueue();
+        else if (w == 2)
+            num = dequeue();
+        else if (w == 3)
+            display();
+        else if (w == 4)
+            peek();
+        else if (w == 5)
+            exit(1);
+        else
+            printf("\nInvalid Choice!!");
+    }
+
+    return 0;
+}
+
+void enqueue() {
+    int num;
+    if (rear == max - 1) {
+        printf("\nQueue is Full!\n");
+        return;
+    }
+    printf("\nEnter a number to insert: ");
+    scanf("%d", &num);
+    if (front == -1)
+        front = front + 1;
+    rear = rear + 1;
+    queue[rear] = num;
+}
+
+int dequeue() {
+    int num;
+    if (front == -1 || front == rear + 1) {
+        printf("\nQueue is Empty!\n");
+        return 0;
+    }
+    num = queue[front];
+    printf("\n%d was deleted!\n", num);
+    front = front + 1;
+    return num;
+}
+
+void display() {
+    int i;
+    if (front == -1 || front == rear + 1) {
+        printf("\nQueue is Empty! Nothing to display!!\n");
+        return;
+    }
+    printf("\n\n");
+    for (i = front; i <= rear; i++)
+        printf("%d\t", queue[i]);
+    printf("\n");
+}
+
+void peek() {
+    if (front == -1 || front == rear + 1) {
+        printf("\nQueue is Empty!\n");
+        return;
+    }
+    printf("\nThe front element is %d\n", queue[front]);
+}
+```
