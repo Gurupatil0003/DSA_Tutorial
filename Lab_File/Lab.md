@@ -170,6 +170,9 @@ int main() {
     return 0;
 }
 ```
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/3916d3e4-25c7-47ff-bda0-e04ef00eedee)
+
 ### Infix to Postfix in c
 ```c
 #include <stdio.h>      // Include standard input-output library
