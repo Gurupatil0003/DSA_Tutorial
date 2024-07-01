@@ -752,3 +752,87 @@ void peek(struct Queue *queue) {
 
 
 ```
+### Queue
+```c
+#include <stdio.h>
+#include <stdlib.h> // Header for using exit function
+
+#define max 5 // Symbolic constant for the maximum size of the queue
+
+int rear = -1, front = -1; // Global variables for the front and rear indices
+int queue[max]; // Array to hold the queue elements
+
+void enqueue() {
+    int num;
+    if (rear == max - 1) { // Check if the queue is full
+        printf("\nQueue is Full!\n");
+        return;
+    }
+    printf("\nEnter a number to insert: ");
+    scanf("%d", &num);
+    if (front == -1) // If the queue is initially empty
+        front = 0; // Set front to 0 (the first index)
+    rear = rear + 1; // Increment rear index
+    queue[rear] = num; // Insert the number at the rear
+}
+
+int dequeue() {
+    int num;
+    if (front == -1 || front == rear + 1) { // Check if the queue is empty
+        printf("\nQueue is Empty!\n");
+        return 0;
+    }
+    num = queue[front]; // Retrieve the front element
+    printf("\n%d was deleted!\n", num);
+    front = front + 1; // Increment front index
+    return num; // Return the removed element
+}
+
+void display() {
+    int i;
+    if (front == -1 || front == rear + 1) { // Check if the queue is empty
+        printf("\nQueue is Empty! Nothing to display!!\n");
+        return;
+    }
+    printf("\nQueue elements are:\n");
+    for (i = front; i <= rear; i++) // Print elements from front to rear
+        printf("%d\t", queue[i]);
+    printf("\n");
+}
+
+void peek() {
+    if (front == -1 || front == rear + 1) { // Check if the queue is empty
+        printf("\nQueue is Empty!\n");
+        return;
+    }
+    printf("\nThe front element is %d\n", queue[front]); // Print the front element
+}
+
+int main() {
+    int w, num;
+    while (1) {
+        printf("\n1. Enqueue");
+        printf("\n2. Dequeue");
+        printf("\n3. Display");
+        printf("\n4. Peek");
+        printf("\n5. EXIT");
+        printf("\nEnter What you want: ");
+        scanf("%d", &w);
+        
+        if (w == 1)
+            enqueue(); // Call to enqueue function
+        else if (w == 2)
+            num = dequeue(); // Call to dequeue function
+        else if (w == 3)
+            display(); // Call to display function
+        else if (w == 4)
+            peek(); // Call to peek function
+        else if (w == 5)
+            exit(1); // Exit the program
+        else
+            printf("\nInvalid Choice!!");
+    }
+
+    return 0;
+}
+```
