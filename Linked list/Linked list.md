@@ -29,6 +29,30 @@ So, instead of you remembering where everyone sat, if everyone kept track of the
 
 - You see, arrays are suitable when we need fast access. Like who's seating at seat no. 13 can be answered in constant time! But arrays require you to declare a fixed size at the compile-time, due to which memory can be either wasted or fell short.
 
+### Representation of linkedlist in memory 
+- Data: This is where the actual data or payload of the node is stored.
+- Pointer (or Reference): This part contains the address (or reference) of the next node in the sequence.
+### Visual Representation
+- Let's consider a simple singly linked list with three nodes containing integers:
+```sql
+Node 1              Node 2              Node 3
++--------+------+   +--------+------+   +--------+------+
+|  Data  | Next ---->|  Data  | Next ---->|  Data  | Next ----> NULL
++--------+------+   +--------+------+   +--------+------+
+|   5    |  2000 |   |   10   |  3000 |   |   15   | NULL |
++--------+------+   +--------+------+   +--------+------+
+
+```
+
+### Key Points:
+- Data Storage: Each node stores the actual data (like integers, strings, or even complex structures).
+- Pointer/Reference: Each node (except the last one) has a pointer that references the next node in the sequence.
+- NULL Pointer: The last node in the list has a pointer/reference that is NULL (or None in some languages), indicating the end of the list.
+
+### Dynamic Allocation:
+- In many programming languages like C, C++, or Java, nodes of a linked list are dynamically allocated using malloc() (in C) or new (in C++ and Java).
+- This allows nodes to be created as needed and linked together using pointers.
+  
 # linked list
 - A linked list is a linear data structure that includes a series of connected nodes. Here, each node stores the data and the address of the next node. For example,
 
@@ -84,6 +108,57 @@ three->next = NULL;
 head = one;
 ```
 
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+    int data;
+    struct node *next;
+};
+
+int main() {
+    /* Initialize nodes */
+    struct node *head = NULL;
+    struct node *one = NULL;
+    struct node *two = NULL;
+    struct node *three = NULL;
+
+    /* Allocate memory */
+    one = malloc(sizeof(struct node));
+    two = malloc(sizeof(struct node));
+    three = malloc(sizeof(struct node));
+
+   
+    /* Assign data values */
+    one->data = 1;
+    two->data = 2;
+    three->data = 3;
+
+    /* Connect nodes */
+    one->next = two;
+    two->next = three;
+    three->next = NULL;
+
+    /* Save address of first node in head */
+    head = one;
+
+    /* Printing the linked list */
+    struct node *current = head;
+    while (current != NULL) {
+        printf("%d -> ", current->data);
+        current = current->next;
+    }
+    printf("NULL\n");
+
+    /* Free allocated memory */
+    free(one);
+    free(two);
+    free(three);
+
+    return 0;
+}
+```
 - If you didn't understand any of the lines above, all you need is a refresher on pointers and structs.
 
 - In just a few steps, we have created a simple linked list with three nodes
