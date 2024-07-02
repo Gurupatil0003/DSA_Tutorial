@@ -74,7 +74,7 @@ struct Node {
 - Given a particular key (data), we need to search for a node whose data matches the key. In the best-case scenario, the head would be the node we are looking for, 
  whereas in the worst-case the required node would be the tail. In terms of time complexity the best case, the average case, and the worst case of searching are 
  denoted as Ω(1), Θ(n), and O(n) respectively.
-
+### Implementation of LinkedList Operation
 ```c
 #include <stdio.h>
 #include <stdlib.h>
