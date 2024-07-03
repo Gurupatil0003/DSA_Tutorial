@@ -616,6 +616,13 @@ Queue is empty !!
 | Binary Heap         | O(1)     | O(log n)    | O(log n)    |
 | Binary Search Tree  | O(1)     | O(log n)    | O(log n)    |
 
+
+### Types of Deque
+### Input Restricted Deque
+- In this deque, input is restricted at a single end but allows deletion at both the ends.
+### Output Restricted Deque
+- In this deque, output is restricted at a single end but allows insertion at both the ends.
+  
 ## Priority Queue Operations
 - Basic operations of a priority queue are inserting, removing, and peeking elements.
 ```c
