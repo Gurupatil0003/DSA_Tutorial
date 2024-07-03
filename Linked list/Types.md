@@ -195,4 +195,13 @@ int main() {
 }
 ```
 
+```c
+cd "c:\Users\LENOVO\Downloads\Music-Player-Using-LinkedList-in-C-main\Music-Player-Using-LinkedList-in-C-main\"
 
+```
+```c
+gcc music_player.c -o music_player.exe
+```
+```c
+music_player.exe
+```
