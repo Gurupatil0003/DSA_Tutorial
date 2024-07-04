@@ -142,6 +142,85 @@ int main() {
 | A * (B + C) / D       | A B C + * D / | / * A + B C D  | add B and C, multiply by A, divide by D                          |
 | A * (B + C / D)       | A B C D / + * | * A + B / C D  | divide C by D, add B, multiply by A                              |
 
+
+### Infix to Postfix Using Stack
+```c
+#include <stdio.h>      // Include standard input-output library
+#include <ctype.h>      // Include ctype library for character functions
+
+#define SIZE 40         // Define the maximum size of the stack and expression
+
+char stack[SIZE];       // Declare stack array to store characters
+int top = -1;           // Initialize top of stack to -1 indicating an empty stack
+
+// Function to push a character onto the stack
+void push(char c) {
+    
+    stack[++top] = c;        // Increment top and push character onto stack
+}
+
+// Function to pop a character from the stack
+char pop() {
+ 
+      return stack[top--]; // Return top character and decrement top
+    }
+
+
+// Function to determine precedence of operators
+int precedence(char op) {
+    if (op == '+' || op == '-')       // Lowest precedence
+        return 1;
+    if (op == '*' || op == '/' || op == '%')   // Medium precedence
+        return 2;
+    if (op == '^')                   // Highest precedence
+        return 3;
+    return 0;                        // Non-operator characters
+}
+
+// Function to convert infix expression to postfix
+void infixToPostfix(char* infix, char* postfix) {
+    int i = 0, j = 0;    // Initialize indices for infix and postfix arrays
+    char ch, popped;
+
+    // Process each character in the infix expression
+    while ((ch = infix[i++]) != '\0') {
+        if (isdigit(ch) || isalpha(ch)) {   // If operand, add to postfix
+            postfix[j++] = ch;
+        } else if (ch == '(') {             // If '(', push to stack
+            push(ch);
+        } else if (ch == ')') {             // If ')', pop until '('
+            while (top != -1 && (popped = pop()) != '(') {
+                postfix[j++] = popped;
+            }
+        } else {                            // If operator
+            while (top != -1 && precedence(stack[top]) >= precedence(ch)) {
+                postfix[j++] = pop();       // Pop higher or equal precedence operators
+            }
+            push(ch);                       // Push current operator onto stack
+        }
+    }
+
+    // Pop remaining operators from the stack
+    while (top != -1) {
+        postfix[j++] = pop();
+    }
+
+    postfix[j] = '\0';    // Null-terminate the postfix expression
+}
+
+int main() {
+    char infix[SIZE], postfix[SIZE];  // Declare arrays for infix and postfix expressions
+
+    printf("Enter an infix expression: ");
+    scanf("%s", infix);               // Read infix expression from user
+
+    infixToPostfix(infix, postfix);   // Convert infix to postfix
+
+    printf("Postfix expression: %s\n", postfix);  // Output the postfix expression
+
+    return 0;                         // Exit program
+}
+```
 ### Algorithm for Evaluation of Postfix Expression
 - Create an empty stack and start scanning the postfix expression from left to right. 
 
