@@ -307,3 +307,7 @@ int data;
 struct node *next;
 };
 ```
+
+https://www.hackerearth.com/practice/data-structures/linked-list/singly-linked-list/practice-problems/algorithm/remove-friends-5/
+
+https://www.hackerearth.com/practice/data-structures/linked-list/singly-linked-list/practice-problems/algorithm/print-linked-list/
