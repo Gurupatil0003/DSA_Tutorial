@@ -712,6 +712,8 @@ int main() {
     return 0;
 }
 ```
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/2a4305f6-6d8a-4d69-af3c-fae9fe5bd45b)
+
 # Fibonacci Sequence
 - The Fibonacci sequence is a series of numbers in which each number is the sum of the two preceding ones, usually starting with 0 and 1.
 ```c
