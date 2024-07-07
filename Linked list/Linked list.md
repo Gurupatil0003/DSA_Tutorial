@@ -1,7 +1,7 @@
 # Linked List
 - A Linked List is a linear data structure consisting of connected nodes where each node has corresponding data and a pointer to the address of the next node. The first node of a linked list is called the Head, and it acts as an access point. On the other hand, the last node is called the Tail, and it marks the end of a linked list by pointing to a NULL value!
 
-![Uploading image.png…]()
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/130e9f74-c877-48c8-b8c3-402eb938d7fd)
 
 ## Why Do We Need a Linked List?
 ```c
