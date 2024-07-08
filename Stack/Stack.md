@@ -615,6 +615,7 @@ int main() {
 - Although stack is a simple data structure to implement, it is very powerful. The most common uses of a stack are:
 
 - To reverse a word - Put all the letters in a stack and pop them out. Because of the LIFO order of stack, you will get the letters in reverse order.
+
  
 - In compilers - Compilers use the stack to calculate the value of expressions like 2 + 4 / 5 * (7 - 9) by converting the expression to prefix or postfix form.
  In browsers - The back button in a browser saves all the URLs you have visited previously in a stack. Each time you visit a new page, it is added on top of the stack. When you press the back button, the current 
@@ -657,6 +658,9 @@ int main() {
   implementations of some common recursive algorithms:
 
 ### How recursion works?
+
+![image](https://github.com/Gurupatil0003/DSA_Tutorial/assets/110026505/1d67bb51-f2d5-4bb8-b386-583faac10704)
+
 ```c
 void recurse()
 {
@@ -719,23 +723,39 @@ int main() {
 ```c
 #include <stdio.h>
 
-// Recursive function to calculate Fibonacci number
-int fibonacci(int n) {
-    if (n <= 1)
-        return n;
-    else
-        return fibonacci(n - 1) + fibonacci(n - 2);
-}
+// Function declaration
+int fib(int);
 
+// Main function
 int main() {
-    int n = 7;
-    printf("Fibonacci sequence up to %d terms: ", n);
-    for (int i = 0; i < n; i++) {
-        printf("%d ", fibonacci(i));
+    int i, n;
+    
+    printf("Enter the number of terms in Fibonacci series: ");
+    scanf("%d", &n);
+    
+    printf("First %d numbers in Fibonacci series: ", n);
+    for (i = 0; i < n; i++) {
+        printf("%d ", fib(i));
     }
-    printf("\n");
+    
+    // Wait for user to press Enter before exiting
+    printf("\nPress Enter to exit...");
+    getchar(); // Wait for a character input (Enter key)
+    
     return 0;
 }
+
+// Recursive function to calculate Fibonacci number
+int fib(int x) {
+    if (x == 0) {
+        return 0;
+    } else if (x == 1) {
+        return 1;
+    } else {
+        return (fib(x - 1) + fib(x - 2));
+    }
+}
+
 ```
 
 ## Tower of Hanoi
