@@ -535,12 +535,12 @@ void peek();
 int main() {
     int w, num;
     while (1) {
-        printf("\n1. Enqueue");
-        printf("\n2. Dequeue");
+        printf("\n1. enqueue");
+        printf("\n2. dequeue");
         printf("\n3. Display");
         printf("\n4. Peek");
         printf("\n5. EXIT");
-        printf("\nEnter your choice: ");
+        printf("\nEnter What you want: ");
         scanf("%d", &w);
         if (w == 1)
             enqueue();
@@ -561,55 +561,48 @@ int main() {
 
 void enqueue() {
     int num;
-    if ((rear + 1) % max == front) {
+    if (rear == max - 1) {
         printf("\nQueue is Full!\n");
         return;
     }
     printf("\nEnter a number to insert: ");
     scanf("%d", &num);
-    if (front == -1)
-        front = 0;
-    rear = (rear + 1) % max;
+    
+    if (front == -1) {
+        front = 0;  // Adjust front only if the queue is initially empty
+    }
+    
+    rear = rear + 1;
     queue[rear] = num;
 }
 
+
 int dequeue() {
     int num;
-    if (front == -1) {
+    if (front == -1 || front == rear + 1) {
         printf("\nQueue is Empty!\n");
         return 0;
     }
     num = queue[front];
     printf("\n%d was deleted!\n", num);
-    if (front == rear) {
-        front = rear = -1; // Reset the queue after the last element is dequeued
-    } else {
-        front = (front + 1) % max;
-    }
+    front = front + 1;
     return num;
 }
 
 void display() {
     int i;
-    if (front == -1) {
+    if (front == -1 || front == rear + 1) {
         printf("\nQueue is Empty! Nothing to display!!\n");
         return;
     }
-    printf("\n\nQueue elements:\n");
-    if (rear >= front) {
-        for (i = front; i <= rear; i++)
-            printf("%d\t", queue[i]);
-    } else {
-        for (i = front; i < max; i++)
-            printf("%d\t", queue[i]);
-        for (i = 0; i <= rear; i++)
-            printf("%d\t", queue[i]);
-    }
+    printf("\n\n");
+    for (i = front; i <= rear; i++)
+        printf("%d\t", queue[i]);
     printf("\n");
 }
 
 void peek() {
-    if (front == -1) {
+    if (front == -1 || front == rear + 1) {
         printf("\nQueue is Empty!\n");
         return;
     }
