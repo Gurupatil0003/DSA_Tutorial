@@ -530,7 +530,7 @@ int queue[max];
 void enqueue();
 int dequeue();
 void display();
-void peek();
+void search();
 
 int main() {
     int w, num;
@@ -538,22 +538,28 @@ int main() {
         printf("\n1. enqueue");
         printf("\n2. dequeue");
         printf("\n3. Display");
-        printf("\n4. Peek");
+        printf("\n4. Search");
         printf("\n5. EXIT");
         printf("\nEnter What you want: ");
         scanf("%d", &w);
-        if (w == 1)
-            enqueue();
-        else if (w == 2)
-            num = dequeue();
-        else if (w == 3)
-            display();
-        else if (w == 4)
-            peek();
-        else if (w == 5)
-            exit(1);
-        else
-            printf("\nInvalid Choice!!");
+        switch (w) {
+            case 1:
+                enqueue();
+                break;
+            case 2:
+                num = dequeue();
+                break;
+            case 3:
+                display();
+                break;
+            case 4:
+                search();
+                break;
+            case 5:
+                exit(1);
+            default:
+                printf("\nInvalid Choice!!");
+        }
     }
 
     return 0;
@@ -575,7 +581,6 @@ void enqueue() {
     rear = rear + 1;
     queue[rear] = num;
 }
-
 
 int dequeue() {
     int num;
@@ -601,13 +606,24 @@ void display() {
     printf("\n");
 }
 
-void peek() {
+void search() {
+    int num, i;
     if (front == -1 || front == rear + 1) {
         printf("\nQueue is Empty!\n");
         return;
     }
-    printf("\nThe front element is %d\n", queue[front]);
+    printf("\nEnter element to search: ");
+    scanf("%d", &num);
+    
+    for (i = front; i <= rear; i++) {
+        if (queue[i] == num) {
+            printf("\n%d found at position %d\n", num, i - front + 1);
+            return;
+        }
+    }
+    printf("\n%d not found in queue\n", num);
 }
+
 ```
 
 ### Dynamic Circular Queue
