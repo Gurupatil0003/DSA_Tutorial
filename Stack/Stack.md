@@ -794,38 +794,27 @@ int main() {
 ```c
 #include <stdio.h>
 
-// Function declaration
-int fib(int);
-
-// Main function
-int main() {
-    int i, n;
-    
-    printf("Enter the number of terms in Fibonacci series: ");
-    scanf("%d", &n);
-    
-    printf("First %d numbers in Fibonacci series: ", n);
-    for (i = 0; i < n; i++) {
-        printf("%d ", fib(i));
+// Function to calculate Fibonacci number using recursion
+int fibonacci(int n) {
+    if (n == 0) {
+        return 0;
+    } else if (n == 1) {
+        return 1;
+    } else {
+        return fibonacci(n - 1) + fibonacci(n - 2);
     }
+}
+
+int main() {
+    int n=7;
     
-    // Wait for user to press Enter before exiting
-    printf("\nPress Enter to exit...");
-    getchar(); // Wait for a character input (Enter key)
+    for (int i = 0; i < n; i++) {
+        printf("%d ", fibonacci(i));
+    }
     
     return 0;
 }
 
-// Recursive function to calculate Fibonacci number
-int fib(int x) {
-    if (x == 0) {
-        return 0;
-    } else if (x == 1) {
-        return 1;
-    } else {
-        return (fib(x - 1) + fib(x - 2));
-    }
-}
 
 ```
 
