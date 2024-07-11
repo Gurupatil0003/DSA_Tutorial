@@ -533,23 +533,27 @@ int main() {
 ```c
 #include <stdio.h>
 
-// Recursive function to calculate Fibonacci number
+// Function to calculate Fibonacci number using recursion
 int fibonacci(int n) {
-    if (n <= 1)
-        return n;
-    else
+    if (n == 0) {
+        return 0;
+    } else if (n == 1) {
+        return 1;
+    } else {
         return fibonacci(n - 1) + fibonacci(n - 2);
+    }
 }
 
 int main() {
-    int n = 7;
-    printf("Fibonacci sequence up to %d terms: ", n);
+    int n=7;
+    
     for (int i = 0; i < n; i++) {
         printf("%d ", fibonacci(i));
     }
-    printf("\n");
+    
     return 0;
 }
+
 ```
 
 ## Tower of Hanoi
