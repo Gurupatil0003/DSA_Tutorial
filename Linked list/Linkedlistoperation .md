@@ -202,7 +202,7 @@ void deleteNode(struct Node **head, int key) {
     free(temp); // Free memory of the deleted node
 }
 Operation Of Linked list
-```
+```c
 // Function to search for a node with a specific key
 int searchNode(struct Node *head, int key) {
     struct Node *current = head; // Initialize current pointer to head
@@ -285,4 +285,4 @@ int main() {
     return 0;
 }
 
-```c
+```
