@@ -697,6 +697,77 @@ int main() {
     return 0;
 }
 ```
+
+```
+#include <stdio.h>
+
+// Function prototype
+unsigned long long factorial(int n);
+
+int main() {
+    int number;
+    printf("Enter a positive integer: ");
+    scanf("%d", &number);
+
+    if (number < 0) {
+        printf("Factorial of a negative number doesn't exist.\n");
+    } else {
+        printf("Factorial of %d = %llu\n", number, factorial(number));
+    }
+
+    return 0;
+}
+
+// Recursive function to calculate factorial
+unsigned long long factorial(int n) {
+    if (n == 0) {
+        return 1;  // Base case: factorial of 0 is 1
+    } else {
+        return n * factorial(n - 1);  // Recursive case
+    }
+}
+```
+- In C, int or long int may not be sufficient to hold such large numbers. Instead, you can use libraries like stdint.h and inttypes.h to handle large integers. 
+ Alternatively, you can use an array or string representation to store and manipulate large numbers.
+
+```c
+#include <stdio.h>
+
+#define MAX_DIGITS 1000 // Adjust this based on the maximum factorial size you want to calculate
+
+void factorial(int n) {
+    int result[MAX_DIGITS] = {1}; // Initialize result array with 1 (representing 1!)
+
+    // Calculate factorial
+    for (int i = 2; i <= n; ++i) {
+        int carry = 0;
+        for (int j = 0; j < MAX_DIGITS; ++j) {
+            int product = result[j] * i + carry;
+            result[j] = product % 10;
+            carry = product / 10;
+        }
+    }
+
+    // Find the last non-zero digit in result to print
+    int index = MAX_DIGITS - 1;
+    while (result[index] == 0) {
+        index--;
+    }
+
+    // Print factorial in reverse order
+    printf("%d! = ", n);
+    for (; index >= 0; --index) {
+        printf("%d", result[index]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int n = 1000; // Calculate 1000!
+    factorial(n);
+    return 0;
+}
+```
 ## GCD (Greatest Common Divisor)
 - The greatest common divisor (GCD) of two integers a and b is the largest positive integer that divides both a and b without leaving a remainder.
 ```c
