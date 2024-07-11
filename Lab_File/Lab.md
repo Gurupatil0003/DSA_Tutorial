@@ -516,6 +516,7 @@ void peek() {
     printf("\nThe front element is %d\n", queue[front]);
 }
 ```
+https://in.images.search.yahoo.com/search/images;_ylt=AwrKAijSYY9mB7wtXi69HAx.;_ylu=c2VjA3NlYXJjaARzbGsDYnV0dG9u;_ylc=X1MDMjExNDcyMzAwNQRfcgMyBGZyA21jYWZlZQRmcjIDcDpzLHY6aSxtOnNiLXRvcARncHJpZANzUmlIbURVSlFSV2xaSl9fQm9NUm1BBG5fcnNsdAMwBG5fc3VnZwMxMARvcmlnaW4DaW4uaW1hZ2VzLnNlYXJjaC55YWhvby5jb20EcG9zAzAEcHFzdHIDBHBxc3RybAMwBHFzdHJsAzUEcXVlcnkDcXVldWUEdF9zdG1wAzE3MjA2NzI4Mjc-?p=queue&fr=mcafee&fr2=p%3As%2Cv%3Ai%2Cm%3Asb-top&ei=UTF-8&x=wrt&type=E211IN714G0#id=8&iurl=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F015%2F917%2F172%2Fnon_2x%2Fpeople-queue-from-behind-characters-stand-in-line-free-vector.jpg&action=click
 
 ### Circular Queue
 ```c
