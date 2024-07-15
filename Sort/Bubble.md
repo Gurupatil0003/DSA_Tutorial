@@ -1,7 +1,9 @@
+# Bubble Sort
+![image](https://github.com/user-attachments/assets/a6e88f76-ebe8-468b-a046-d791ef9010cf)
 
 
 ### Bubble Sort
-```
+```c
 #include <stdio.h>
 
 // Function to perform Bubble Sort on an array
