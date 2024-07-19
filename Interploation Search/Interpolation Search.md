@@ -13,6 +13,20 @@ For example,
 - Output: Element not found
 
 ```
+
+```c
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+
+target = 12
+
+position = low + ((target - arr[low]) * (high - low)) / (arr[high] - arr[low])
+position = 0 + ((12 - 2) * (9 - 0)) / (20 - 2)
+position = 0 + (10 * 9) / 18
+position = 0 + 90 / 18
+position = 0 + 5
+position = 5
+```
+
 - Interpolation search is an algorithm similar to binary search for searching for a given target value in a sorted array. It parallels how humans search through a telephone book for a particular name, the target value by which the book’s entries are ordered.
 
 - We know that binary search always chooses the middle of the remaining search space, discarding one half or the other depending on the comparison result between the mid-value and the target value. The remaining search space is reduced to the part before or after the mid-position.
