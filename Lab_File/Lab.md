@@ -853,4 +853,104 @@ int main() {
 
 
 
+    
+
+
+
+~~~c
+void reverseList(struct Node **head) {
+    struct Node *prev = NULL;
+    struct Node *current = *head;
+    struct Node *next = NULL;
+
+    while (current != NULL) {
+        next = current->next; // Store next node
+        current->next = prev; // Reverse current node's pointer
+        prev = current; // Move pointers one position ahead
+        current = next;
+    }
+
+    *head = prev; // Update head to point to the new first node (prev)
+}.     Could u explain reverse operation each by clearly
+Certainly! Let's walk through the reverseList function step by step to understand how it reverses a singly linked list:
+
+Initial Setup
+void reverseList(struct Node **head) {
+    struct Node *prev = NULL;
+    struct Node *current = *head;
+    struct Node *next = NULL;
+prev: This will eventually point to the previous node as we reverse the list. Initially, it is set to NULL because the new tail of the list (the original head) will point to NULL.
+current: This points to the current node being processed. It is initialized to the head of the list.
+next: This will temporarily store the next node in the list as we reverse the pointers.
+Loop to Reverse the List
+c
+
+    while (current != NULL) {
+        next = current->next; // Store next node
+        current->next = prev; // Reverse current node's pointer
+        prev = current; // Move pointers one position ahead
+        current = next;
+    }
+Let's break down what happens in each iteration of the loop:
+
+Store next node: next = current->next;
+
+This saves the next node (current->next) so that we don't lose the reference to the rest of the list after reversing the current node's pointer.
+Reverse current node's pointer: current->next = prev;
+
+This changes the next pointer of the current node to point to the previous node (prev). This is the key step that reverses the direction of the list.
+Move prev pointer ahead: prev = current;
+
+Now that the current node's pointer is reversed, we move the prev pointer to the current node. prev will be used in the next iteration to reverse the next node's pointer.
+Move current pointer ahead: current = next;
+
+We move the current pointer to the next node in the original list (stored in next). This prepares us to reverse the pointer of the next node in the next iteration.
+Updated 
+After the loop completes, prev will be pointing to the new head of the reversed list (the original tail). We update the head pointer to point to this new head.
+
+Example Walkthrough
+Consider the following linked list: 1 -> 2 -> 3 -> NULL.
+
+Initial State
+prev = NULL
+current = head (1)
+next = NULL
+First Iteration
+next = current->next (next points to 2)
+current->next = prev (1's next now points to NULL)
+prev = current (prev points to 1)
+current = next (current points to 2)
+State:
+
+1 -> NULL
+prev = 1
+current = 2
+next = 2
+Second Iteration
+next = current->next (next points to 3)
+current->next = prev (2's next now points to 1)
+prev = current (prev points to 2)
+current = next (current points to 3)
+State:
+
+2 -> 1 -> NULL
+prev = 2
+current = 3
+next = 3
+Third Iteration
+next = current->next (next points to NULL)
+current->next = prev (3's next now points to 2)
+prev = current (prev points to 3)
+current = next (current points to NULL)
+State:
+
+3 -> 2 -> 1 -> NULL
+prev = 3
+current = NULL
+next = NULL
+Final Update
+*head = prev (head now points to 3)
+The linked list is now reversed: 3 -> 2 -> 1 -> NULL.
+
+~~~
 
