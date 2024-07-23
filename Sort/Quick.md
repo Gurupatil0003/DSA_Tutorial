@@ -60,3 +60,7 @@
 
 
 <img src="https://github.com/user-attachments/assets/cb9d7598-ba75-4c12-a74e-7ec64f1c7c1c" alt="Description of the image" height="500">
+
+ ## Sorted Array
+ 
+![image](https://github.com/user-attachments/assets/c7497a04-4c02-45e0-b645-4fdee53e7bf8)
