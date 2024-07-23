@@ -17,11 +17,13 @@
 
 - Starting at the top, because this is our first step, the region of values we are looking to sort is everything. The first thing we do is pick our pivot, the value at the middle position:
 
-  ![image](https://github.com/user-attachments/assets/54b6c63e-217a-4430-8bda-730fd4e726c8)
+<img src="https://github.com/user-attachments/assets/54b6c63e-217a-4430-8bda-730fd4e726c8" alt="Description of the image"  height="200">
+
 
 - We can pick our pivot from anywhere, but all the cool kids pick (for various good reasons) the pivot from the midpoint. Since we want to be cool as well, that's what we'll do. Quicksort uses the pivot value to order items in a very crude and basic way. From quicksort's point of view, all items to the left of the pivot value should be smaller, and all items to the right of the pivot value should be larger:
 
-![image](https://github.com/user-attachments/assets/bd777414-00a5-4dfa-b942-e23ecfef798b)
+<img src="https://github.com/user-attachments/assets/bd777414-00a5-4dfa-b942-e23ecfef798b" alt="Description of the image"  height="200">
+
 
 - This is the equivalent of throwing things over the fence to the other side where the pivot value is the fence. When we do this rearranging, this is what we will see:
 
