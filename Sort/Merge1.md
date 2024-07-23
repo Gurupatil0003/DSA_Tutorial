@@ -9,7 +9,7 @@
 
  
 
-- One quick aside. I should mention that mergesort is a divide and conquer algorithm...and it is quite shameless about that. All that it means is that mergesort performs its magic on numbers by dividing them into smaller and smaller sections first. Right now, we have nine numbers that we threw at mergesort. The first thing mergesort does is break that up into two halves:
+## One quick aside. I should mention that mergesort is a divide and conquer algorithm...and it is quite shameless about that. All that it means is that mergesort performs its magic on numbers by dividing them into smaller and smaller sections first. Right now, we have nine numbers that we threw at mergesort. The first thing mergesort does is break that up into two halves:
 
  
 <img src="https://github.com/user-attachments/assets/40940c0c-0f2e-49c8-bb7d-87ba4c58b4f9" alt="Description of the image" >
