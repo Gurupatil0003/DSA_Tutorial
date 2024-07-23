@@ -12,7 +12,7 @@
 - One quick aside. I should mention that mergesort is a divide and conquer algorithm...and it is quite shameless about that. All that it means is that mergesort performs its magic on numbers by dividing them into smaller and smaller sections first. Right now, we have nine numbers that we threw at mergesort. The first thing mergesort does is break that up into two halves:
 
  
-<img src="https://github.com/user-attachments/assets/40940c0c-0f2e-49c8-bb7d-87ba4c58b4f9" alt="Description of the image"  height="200">
+<img src="https://github.com/user-attachments/assets/40940c0c-0f2e-49c8-bb7d-87ba4c58b4f9" alt="Description of the image"  height="250">
 
 
 
@@ -21,7 +21,7 @@
 - Your original input is now divided into two sections. Next, we continue the dividing by breaking our two sections into four sections:
 
  
-<img src="https://github.com/user-attachments/assets/ba861938-dda1-4344-90db-f2357854ee1c" alt="Description of the image"  height="200">
+<img src="https://github.com/user-attachments/assets/ba861938-dda1-4344-90db-f2357854ee1c" alt="Description of the image"  height="250">
 
 
 
@@ -29,7 +29,7 @@
 
 - We are going to keep dividing these sections until you get to the point where you are left with just one number in each section and can't divide any further:
 
- ![image](https://github.com/user-attachments/assets/36163c5f-cf27-4134-9470-0b4b791a20b6)
+<img src="https://github.com/user-attachments/assets/36163c5f-cf27-4134-9470-0b4b791a20b6" alt="Description of the image"  height="250">
 
 
 
@@ -38,8 +38,9 @@
 
 - Let's start with the first two sections:
 
- 
-![image](https://github.com/user-attachments/assets/b3e474e8-c748-4973-8073-b67ac1ba019a)
+
+ <img src="https://github.com/user-attachments/assets/b3e474e8-c748-4973-8073-b67ac1ba019a" alt="Description of the image"  height="250">
+
 
 
 
@@ -48,7 +49,8 @@
 - What we are going to do is merge these numbers together. As part of the merging, we'll also do a sort to ensure the the numbers in the combined section are arranged from smalles to largest. Because we are only dealing with two numbers, this is pretty easy for the 5 and 12:
 
  
-![image](https://github.com/user-attachments/assets/368822e1-e77c-4542-91d9-73bdc2c43279)
+
+ <img src="https://github.com/user-attachments/assets/368822e1-e77c-4542-91d9-73bdc2c43279" alt="Description of the image"  height="250">
 
 
 
@@ -56,8 +58,8 @@
 
 - We now repeat this for the next two sections made up of the numbers 4 and 1:
 
- ![image](https://github.com/user-attachments/assets/4fb25ee8-f613-4091-ab38-8f44af46106e)
 
+ <img src="https://github.com/user-attachments/assets/4fb25ee8-f613-4091-ab38-8f44af46106e" alt="Description of the image"  height="250">
 
 
 
