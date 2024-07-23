@@ -48,7 +48,8 @@
 
 - Notice that we moved values smaller than our pivot value to the left. Values greater than our pivot were thrown over the fence to the right. We now have a few more pivot values that are in their final sorted section, and we have a few more unsorted regions that need the good old quicksort treatment applied to them. If we sped things up a bit, here is how each step will ultimately play out:
 
-  ![image](https://github.com/user-attachments/assets/9eae6a88-a5ec-4f00-a2e8-aaff86d557cd)
+<img src="https://github.com/user-attachments/assets/9eae6a88-a5ec-4f00-a2e8-aaff86d557cd" alt="Description of the image"  height="200">
+
 
 - We keep repeating all of this pivoting and sorting on each of the sections until we get to the point where we don't have enough values to pick a pivot and divide from. Once we reach that point and can divide no further, guess what? We are done! Our initial collection of unordered data is now sorted from small to large, and we can see that if we read our pivot items from left to right:
 
