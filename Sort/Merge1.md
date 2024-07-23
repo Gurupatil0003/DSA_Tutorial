@@ -113,7 +113,7 @@
 
 
 
- <img src="https://github.com/user-attachments/assets/deba0cad-6644-480e-ab80-612100cda12a" alt="Description of the image">
+![image](https://github.com/user-attachments/assets/b65462cf-2a09-41c2-a205-8af94062eb51)
 
 
 ## Wohooo! You now have a sorted list of numbers. There are no more sections to merge and sort, so you are done. As a quick recap (and to reminisce about all the good times we had), take a look at the full list of steps we performed to sort our initial collection of numbers:
