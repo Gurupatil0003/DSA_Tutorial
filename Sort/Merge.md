@@ -115,6 +115,14 @@ Cworst(n) = nlog2n + n - 1
 Best case: In the best case scenario, the array is already sorted, but we still have to split and recombine it back.
 ```
 
+
+![image](https://github.com/user-attachments/assets/e0e45c82-ba2c-4fb9-810b-97ebc12717e9)
+
+
+![image](https://github.com/user-attachments/assets/4c035c5c-03f0-4531-9e72-e31b72d5abef)
+
+![image](https://github.com/user-attachments/assets/d4e9470d-6f28-4285-b84b-8437638bb497)
+
 - Here's a simple way to visualize Merge Sort:
 
 - Divide: Split your array of data in half, again and again, until each piece can't be divided further (you'll end up with arrays of just one element).
