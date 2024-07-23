@@ -55,10 +55,6 @@
 
 - ![image](https://github.com/user-attachments/assets/9676c79d-12fd-437b-a66b-3b480933d8cd)
 
-<img src="![image](https://github.com/user-attachments/assets/cb9d7598-ba75-4c12-a74e-7ec64f1c7c1c)
-" width="99"/>
-
-![image](https://github.com/user-attachments/assets/cb9d7598-ba75-4c12-a74e-7ec64f1c7c1c)
 
 
 <img src="https://github.com/user-attachments/assets/cb9d7598-ba75-4c12-a74e-7ec64f1c7c1c" alt="Description of the image" height="500">
