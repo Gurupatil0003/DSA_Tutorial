@@ -3,7 +3,7 @@
 - A Simple Look
 - To start things off, imagine that we have the following unsorted collection of numbers that we would like to sort:
 
-![image](https://github.com/user-attachments/assets/6bbddd0c-858b-4de3-9345-356e824d4a71)
+<img src="https://github.com/user-attachments/assets/6bbddd0c-858b-4de3-9345-356e824d4a71" alt="Description of the image" width="500" height="300">
 
 
 ### We want to use quicksort to sort these numbers, and this is what quicksort does:
