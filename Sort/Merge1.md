@@ -12,7 +12,7 @@
 - One quick aside. I should mention that mergesort is a divide and conquer algorithm...and it is quite shameless about that. All that it means is that mergesort performs its magic on numbers by dividing them into smaller and smaller sections first. Right now, we have nine numbers that we threw at mergesort. The first thing mergesort does is break that up into two halves:
 
  
-<img src="https://github.com/user-attachments/assets/40940c0c-0f2e-49c8-bb7d-87ba4c58b4f9" alt="Description of the image" height="500">
+<img src="https://github.com/user-attachments/assets/40940c0c-0f2e-49c8-bb7d-87ba4c58b4f9" alt="Description of the image" >
 
 
 
@@ -21,7 +21,7 @@
 - Your original input is now divided into two sections. Next, we continue the dividing by breaking our two sections into four sections:
 
  
-<img src="https://github.com/user-attachments/assets/ba861938-dda1-4344-90db-f2357854ee1c" alt="Description of the image"  height="250">
+<img src="https://github.com/user-attachments/assets/ba861938-dda1-4344-90db-f2357854ee1c" alt="Description of the image"  height="">
 
 
 
@@ -29,7 +29,7 @@
 
 - We are going to keep dividing these sections until you get to the point where you are left with just one number in each section and can't divide any further:
 
-<img src="https://github.com/user-attachments/assets/36163c5f-cf27-4134-9470-0b4b791a20b6" alt="Description of the image"  height="250">
+<img src="https://github.com/user-attachments/assets/36163c5f-cf27-4134-9470-0b4b791a20b6" alt="Description of the image"  height="">
 
 
 
@@ -39,7 +39,7 @@
 - Let's start with the first two sections:
 
 
- <img src="https://github.com/user-attachments/assets/b3e474e8-c748-4973-8073-b67ac1ba019a" alt="Description of the image"  height="250">
+ <img src="https://github.com/user-attachments/assets/b3e474e8-c748-4973-8073-b67ac1ba019a" alt="Description of the image"  height="">
 
 
 
@@ -50,7 +50,7 @@
 
  
 
- <img src="https://github.com/user-attachments/assets/368822e1-e77c-4542-91d9-73bdc2c43279" alt="Description of the image"  height="250">
+ <img src="https://github.com/user-attachments/assets/368822e1-e77c-4542-91d9-73bdc2c43279" alt="Description of the image"  height="">
 
 
 
@@ -59,7 +59,7 @@
 - We now repeat this for the next two sections made up of the numbers 4 and 1:
 
 
- <img src="https://github.com/user-attachments/assets/4fb25ee8-f613-4091-ab38-8f44af46106e" alt="Description of the image"  height="250">
+ <img src="https://github.com/user-attachments/assets/4fb25ee8-f613-4091-ab38-8f44af46106e" alt="Description of the image"  height="">
 
 
 
@@ -71,7 +71,7 @@
 
  
 
- <img src="https://github.com/user-attachments/assets/417fb0ba-5c4b-4d0d-a1ae-e42fc0d94737" alt="Description of the image"  height="250">
+ <img src="https://github.com/user-attachments/assets/417fb0ba-5c4b-4d0d-a1ae-e42fc0d94737" alt="Description of the image"  height="">
 
 
  
@@ -83,20 +83,20 @@
  
 
 
- <img src="https://github.com/user-attachments/assets/2a682ccf-6387-483c-a480-80b3503fc3a9" alt="Description of the image"  height="250">
+ <img src="https://github.com/user-attachments/assets/2a682ccf-6387-483c-a480-80b3503fc3a9" alt="Description of the image"  height="">
 
  
 
 - Instead of the merged section containing two numbers, it now contains four numbers...all in perfectly sorted bliss. We repeat this process for the remaining sections as well:
 
 
- <img src="https://github.com/user-attachments/assets/31529ee2-5b08-4099-8fe8-084b6fa9b7f1" alt="Description of the image"  height="250">
+ <img src="https://github.com/user-attachments/assets/31529ee2-5b08-4099-8fe8-084b6fa9b7f1" alt="Description of the image"  height="">
 
 
 - The number 10 is still not quite in the right position to be sorted and merged, so we'll drag it along for the next round:
 
 
- <img src="https://github.com/user-attachments/assets/b226a249-f699-477c-8408-1e9867036da2" alt="Description of the image"  height="250">
+ <img src="https://github.com/user-attachments/assets/b226a249-f699-477c-8408-1e9867036da2" alt="Description of the image"  height="">
 
 
 
@@ -106,20 +106,20 @@
 
  
 
- <img src="https://github.com/user-attachments/assets/c1d7e7bb-1ea6-48f9-b691-c175f3789069" alt="Description of the image"  height="250">
+ <img src="https://github.com/user-attachments/assets/c1d7e7bb-1ea6-48f9-b691-c175f3789069" alt="Description of the image"  height="">
 
 
 - This almost looks fully sorted! We just have one one more round to go, and to those of you deeply worried about the number 10...it makes the cut this time around:
 
 
 
- <img src="https://github.com/user-attachments/assets/deba0cad-6644-480e-ab80-612100cda12a" alt="Description of the image"  height="250">
+ <img src="https://github.com/user-attachments/assets/deba0cad-6644-480e-ab80-612100cda12a" alt="Description of the image"  height="">
 
 
 - Wohooo! You now have a sorted list of numbers. There are no more sections to merge and sort, so you are done. As a quick recap (and to reminisce about all the good times we had), take a look at the full list of steps we performed to sort our initial collection of numbers:
 
 
- <img src="https://github.com/user-attachments/assets/cf37a1ad-fb92-4a95-999f-18d43992bd3d" alt="Description of the image"  height="250">
+ <img src="https://github.com/user-attachments/assets/cf37a1ad-fb92-4a95-999f-18d43992bd3d" alt="Description of the image"  height="">
 
 
 
