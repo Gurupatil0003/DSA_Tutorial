@@ -22,7 +22,7 @@
 
 - We can pick our pivot from anywhere, but all the cool kids pick (for various good reasons) the pivot from the midpoint. Since we want to be cool as well, that's what we'll do. Quicksort uses the pivot value to order items in a very crude and basic way. From quicksort's point of view, all items to the left of the pivot value should be smaller, and all items to the right of the pivot value should be larger:
 
-<img src="https://github.com/user-attachments/assets/bd777414-00a5-4dfa-b942-e23ecfef798b" alt="Description of the image"  height="250">
+<img src="https://github.com/user-attachments/assets/bd777414-00a5-4dfa-b942-e23ecfef798b" alt="Description of the image">
 
 
 - This is the equivalent of throwing things over the fence to the other side where the pivot value is the fence. When we do this rearranging, this is what we will see:
