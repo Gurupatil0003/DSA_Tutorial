@@ -128,4 +128,3 @@
 This giant list of steps is a visual representation of mergesort - with all of its dividing and conquering goodness!
 
 
-![image](https://github.com/user-attachments/assets/c7497a04-4c02-45e0-b645-4fdee53e7bf8)
