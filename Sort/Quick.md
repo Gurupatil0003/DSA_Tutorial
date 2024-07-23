@@ -17,17 +17,17 @@
 
 - Starting at the top, because this is our first step, the region of values we are looking to sort is everything. The first thing we do is pick our pivot, the value at the middle position:
 
-<img src="https://github.com/user-attachments/assets/54b6c63e-217a-4430-8bda-730fd4e726c8" alt="Description of the image"  height="250">
+<img src="https://github.com/user-attachments/assets/54b6c63e-217a-4430-8bda-730fd4e726c8" alt="Description of the image"  height="350">
 
 
 - We can pick our pivot from anywhere, but all the cool kids pick (for various good reasons) the pivot from the midpoint. Since we want to be cool as well, that's what we'll do. Quicksort uses the pivot value to order items in a very crude and basic way. From quicksort's point of view, all items to the left of the pivot value should be smaller, and all items to the right of the pivot value should be larger:
 
-<img src="https://github.com/user-attachments/assets/bd777414-00a5-4dfa-b942-e23ecfef798b" alt="Description of the image"  height="250">
+<img src="https://github.com/user-attachments/assets/bd777414-00a5-4dfa-b942-e23ecfef798b" alt="Description of the image"  height="350">
 
 
 - This is the equivalent of throwing things over the fence to the other side where the pivot value is the fence. When we do this rearranging, this is what we will see:
 
-<img src="https://github.com/user-attachments/assets/4565c22f-c442-42e1-bbfa-7752ffbcbab1" alt="Description of the image"  height="250">
+<img src="https://github.com/user-attachments/assets/4565c22f-c442-42e1-bbfa-7752ffbcbab1" alt="Description of the image"  height="350">
 
 
 
@@ -35,12 +35,12 @@
 
 - At this point, we now have two sections of data on either side of our initial pivot value that are partially sorted by whether they are less than or greater than our pivot value. What we do next is repeat all of this pivot picking and rearranging on each of these two unsorted sections:
 
-<img src="https://github.com/user-attachments/assets/45e246bc-db4f-47b9-821d-ab4f996e635c" alt="Description of the image"  height="250">
+<img src="https://github.com/user-attachments/assets/45e246bc-db4f-47b9-821d-ab4f996e635c" alt="Description of the image"  height="350">
 
 
 - In each unsorted section, we pick our pivot value first. This will be the value at the midpoint of the values in the section. Once we have picked our pivot, it is time to do some rearranging:
 
-<img src="https://github.com/user-attachments/assets/bf4b4a0a-48b5-4d3b-91ed-a9e470503cde" alt="Description of the image"  height="250">
+<img src="https://github.com/user-attachments/assets/bf4b4a0a-48b5-4d3b-91ed-a9e470503cde" alt="Description of the image"  height="350">
 
 
 
@@ -48,7 +48,7 @@
 
 - Notice that we moved values smaller than our pivot value to the left. Values greater than our pivot were thrown over the fence to the right. We now have a few more pivot values that are in their final sorted section, and we have a few more unsorted regions that need the good old quicksort treatment applied to them. If we sped things up a bit, here is how each step will ultimately play out:
 
-<img src="https://github.com/user-attachments/assets/9eae6a88-a5ec-4f00-a2e8-aaff86d557cd" alt="Description of the image"  height="250">
+<img src="https://github.com/user-attachments/assets/9eae6a88-a5ec-4f00-a2e8-aaff86d557cd" alt="Description of the image"  height="350">
 
 
 - We keep repeating all of this pivoting and sorting on each of the sections until we get to the point where we don't have enough values to pick a pivot and divide from. Once we reach that point and can divide no further, guess what? We are done! Our initial collection of unordered data is now sorted from small to large, and we can see that if we read our pivot items from left to right:
