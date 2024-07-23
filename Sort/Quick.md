@@ -27,7 +27,8 @@
 
 - This is the equivalent of throwing things over the fence to the other side where the pivot value is the fence. When we do this rearranging, this is what we will see:
 
-![image](https://github.com/user-attachments/assets/4565c22f-c442-42e1-bbfa-7752ffbcbab1)
+<img src="https://github.com/user-attachments/assets/4565c22f-c442-42e1-bbfa-7752ffbcbab1" alt="Description of the image"  height="200">
+
 
 
 - There are a few things to notice here. First, notice that all items to the left of the pivot are smaller than the pivot. All items to the right of the pivot are larger than the pivot. Second, these items also aren't ordered. They are just smaller or larger relative to the pivot value, but they aren't placed in any ordered fashion. Once all of the values to the left and right of the pivot have been properly placed, our pivot value is considered to be sorted. What we just did is identify a single pivot and rearrange values to the left or right of it. The end result is that we have one sorted value. There are many more values to sort, so we repeat the steps we just saw on the unsorted regions.
