@@ -35,11 +35,13 @@
 
 - At this point, we now have two sections of data on either side of our initial pivot value that are partially sorted by whether they are less than or greater than our pivot value. What we do next is repeat all of this pivot picking and rearranging on each of these two unsorted sections:
 
-![image](https://github.com/user-attachments/assets/45e246bc-db4f-47b9-821d-ab4f996e635c)
+<img src="https://github.com/user-attachments/assets/45e246bc-db4f-47b9-821d-ab4f996e635c" alt="Description of the image"  height="200">
+
 
 - In each unsorted section, we pick our pivot value first. This will be the value at the midpoint of the values in the section. Once we have picked our pivot, it is time to do some rearranging:
 
-![image](https://github.com/user-attachments/assets/bf4b4a0a-48b5-4d3b-91ed-a9e470503cde)
+<img src="https://github.com/user-attachments/assets/bf4b4a0a-48b5-4d3b-91ed-a9e470503cde" alt="Description of the image"  height="200">
+
 
 
 - Notice that we moved values smaller than our pivot value to the left. Values greater than our pivot were thrown over the fence to the right. We now have a few more pivot values that are in their final sorted section, and we have a few more unsorted regions that need the good old quicksort treatment applied to them. If we sped things up a bit, here is how each step will ultimately play out:
