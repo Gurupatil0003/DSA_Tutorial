@@ -3,7 +3,7 @@
 - A Simple Look
 - To start things off, imagine that we have the following unsorted collection of numbers that we would like to sort:
 
-<img src="https://github.com/user-attachments/assets/6bbddd0c-858b-4de3-9345-356e824d4a71" alt="Description of the image"  height="300">
+<img src="https://github.com/user-attachments/assets/6bbddd0c-858b-4de3-9345-356e824d4a71" alt="Description of the image">
 
 
 ### We want to use quicksort to sort these numbers, and this is what quicksort does:
@@ -17,7 +17,7 @@
 
 - Starting at the top, because this is our first step, the region of values we are looking to sort is everything. The first thing we do is pick our pivot, the value at the middle position:
 
-<img src="https://github.com/user-attachments/assets/54b6c63e-217a-4430-8bda-730fd4e726c8" alt="Description of the image"  height="500">
+<img src="https://github.com/user-attachments/assets/54b6c63e-217a-4430-8bda-730fd4e726c8" alt="Description of the image" >
 
 
 - We can pick our pivot from anywhere, but all the cool kids pick (for various good reasons) the pivot from the midpoint. Since we want to be cool as well, that's what we'll do. Quicksort uses the pivot value to order items in a very crude and basic way. From quicksort's point of view, all items to the left of the pivot value should be smaller, and all items to the right of the pivot value should be larger:
