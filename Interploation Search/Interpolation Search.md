@@ -167,96 +167,16 @@ int main() {
 ~~~
 
 Example Explanation
+
+# Interpolation Search Example
+
 Let's say you have a sorted array:
-𝐴
-=
-[
-10
-,
-20
-,
-30
-,
-40
-,
-50
-,
-60
-,
-70
-,
-80
-,
-90
-,
-100
-]
-A=[10,20,30,40,50,60,70,80,90,100]
+```markdown
+A = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 
-Suppose you are looking for the value 45. Here's how the interpolation search works:
+pos = low + ( (target - A[low]) * (high - low) ) / (A[high] - A[low])
 
-Calculate the estimated position using the interpolation formula:
-
-𝑝
-𝑜
-𝑠
-=
-𝑙
-𝑜
-𝑤
-+
-(
-(
-𝑡
-𝑎
-𝑟
-𝑔
-𝑒
-𝑡
-−
-𝐴
-[
-𝑙
-𝑜
-𝑤
-]
-)
-×
-(
-ℎ
-𝑖
-𝑔
-ℎ
-−
-𝑙
-𝑜
-𝑤
-)
-(
-𝐴
-[
-ℎ
-𝑖
-𝑔
-ℎ
-]
-−
-𝐴
-[
-𝑙
-𝑜
-𝑤
-]
-)
-)
-pos=low+( 
-(A[high]−A[low])
-(target−A[low])×(high−low)
-
- )
-Here:
-
-low is the index of the first element (0).
+~~~
 
 ## Performance
 - Each iteration of the above code requires between five and six comparisons. On average, the interpolation search makes about log(log(n)) comparisons if the elements are uniformly distributed, where n is the 
