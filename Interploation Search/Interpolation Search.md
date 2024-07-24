@@ -176,7 +176,12 @@ A = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 
 pos = low + ( (target - A[low]) * (high - low) ) / (A[high] - A[low])
 
-~~~
+
+pos = 0 + ( (45 - 10) * (9 - 0) ) / (100 - 10)
+    = 0 + ( 35 * 9 ) / 90
+    = 0 + 3.5
+    = 3.5
+
 
 ## Performance
 - Each iteration of the above code requires between five and six comparisons. On average, the interpolation search makes about log(log(n)) comparisons if the elements are uniformly distributed, where n is the 
