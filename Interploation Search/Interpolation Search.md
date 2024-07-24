@@ -182,6 +182,13 @@ pos = 0 + ( (45 - 10) * (9 - 0) ) / (100 - 10)
     = 0 + 3.5
     = 3.5
 
+Interpreting the result:
+
+The position 3.5 means that the target value (45) is estimated to be somewhere between the indices 3 and 4.
+Choosing between 4 and 5:
+
+Typically, you would take the floor of the result (i.e., index 3) and check the value at index 3.
+If the value at index 3 is not the target value, you would then move to the next index (index 4) to check there.
 
 ## Performance
 - Each iteration of the above code requires between five and six comparisons. On average, the interpolation search makes about log(log(n)) comparisons if the elements are uniformly distributed, where n is the 
