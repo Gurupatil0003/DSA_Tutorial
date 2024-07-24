@@ -110,6 +110,154 @@ Element found at index 1
 
 ```
 
+~~~c
+#include <stdio.h>
+
+// Function to perform interpolation search
+int interpolationSearch(int arr[], int size, int target) {
+    int low = 0;
+    int high = size - 1;
+
+    while (low <= high && target >= arr[low] && target <= arr[high]) {
+        // Calculate the estimated position using the interpolation formula
+        int pos = low + ((double)(high - low) / (arr[high] - arr[low]) * (target - arr[low]));
+
+        // Ensure pos is within the bounds of the array
+        if (pos < low || pos > high) {
+            return -1;
+        }
+
+        // Check if target is found at pos
+        if (arr[pos] == target) {
+            return pos;
+        }
+
+        // If target is larger, target is in the upper part of the array
+        if (arr[pos] < target) {
+            low = pos + 1;
+        }
+        // If target is smaller, target is in the lower part of the array
+        else {
+            high = pos - 1;
+        }
+    }
+
+    // If the element was not found
+    return -1;
+}
+
+int main() {
+    int arr[] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int target = 45;
+
+    int result = interpolationSearch(arr, size, target);
+
+    if (result != -1) {
+        printf("Element found at index %d\n", result);
+    } else {
+        printf("Element not found\n");
+    }
+
+    return 0;
+}
+
+
+
+~~~
+
+Example Explanation
+Let's say you have a sorted array:
+𝐴
+=
+[
+10
+,
+20
+,
+30
+,
+40
+,
+50
+,
+60
+,
+70
+,
+80
+,
+90
+,
+100
+]
+A=[10,20,30,40,50,60,70,80,90,100]
+
+Suppose you are looking for the value 45. Here's how the interpolation search works:
+
+Calculate the estimated position using the interpolation formula:
+
+𝑝
+𝑜
+𝑠
+=
+𝑙
+𝑜
+𝑤
++
+(
+(
+𝑡
+𝑎
+𝑟
+𝑔
+𝑒
+𝑡
+−
+𝐴
+[
+𝑙
+𝑜
+𝑤
+]
+)
+×
+(
+ℎ
+𝑖
+𝑔
+ℎ
+−
+𝑙
+𝑜
+𝑤
+)
+(
+𝐴
+[
+ℎ
+𝑖
+𝑔
+ℎ
+]
+−
+𝐴
+[
+𝑙
+𝑜
+𝑤
+]
+)
+)
+pos=low+( 
+(A[high]−A[low])
+(target−A[low])×(high−low)
+
+ )
+Here:
+
+low is the index of the first element (0).
+
 ## Performance
 - Each iteration of the above code requires between five and six comparisons. On average, the interpolation search makes about log(log(n)) comparisons if the elements are uniformly distributed, where n is the 
  total number of elements to be searched. In the worst case, it can make up to O(n) comparisons. The worst-case might happen when the numerical values of the targets increase exponentially.
