@@ -64,50 +64,78 @@
 
 ~~~c
 #include <stdio.h>
-#include <ctype.h>
 #include <stdlib.h>
 
-#define SIZE 40 // Define the maximum size of the stack
+#define MAX 100
 
-// Function prototypes
-int pop();
-void push(int);
+typedef struct {
+    int items[MAX];
+    int top;
+} Stack;
 
-// Global variables
-char postfix[SIZE]; // Array to store the postfix expression
-int stack[SIZE]; // Stack array
-int top = -1; // Index of the top of the stack
-
-int main()
-{
+void initStack(Stack* s) {
+    s->top = -1;
 }
 
-// Function to push an element onto the stack
-void push(int n)
-{
-    if (top < SIZE - 1) // Check if the stack is not full
-    {
-        stack[++top] = n; // Increment the top index and push the element
-    }
-    else
-    {
-        printf("Stack overflow!\n"); // Print error message if stack is full
-        exit(-1); // Exit the program with error code
+int isFull(Stack* s) {
+    return s->top == MAX - 1;
+}
+
+int isEmpty(Stack* s) {
+    return s->top == -1;
+}
+
+void push(Stack* s, int value) {
+    if (isFull(s)) {
+        printf("Stack is full!\n");
+    } else {
+        s->items[++(s->top)] = value;
     }
 }
 
-// Function to pop an element from the stack
-int pop()
-{    
-    if (top > -1) // Check if the stack is not empty
-    {
-        return stack[top--]; // Return the top element and decrement the top index
-    }
-    else
-    {
-        printf("Stack underflow!\n"); // Print error message if stack is empty
-        exit(-1); // Exit the program with error code
+int pop(Stack* s) {
+    if (isEmpty(s)) {
+        printf("Stack is empty!\n");
+        return -1;
+    } else {
+        return s->items[(s->top)--];
     }
 }
+
+void moveDisk(Stack* src, Stack* dest, char s, char d) {
+    int disk = pop(src);
+    push(dest, disk);
+    printf("Move disk %d from %c to %c\n", disk, s, d);
+}
+
+void towerOfHanoi(int n, Stack* src, Stack* dest, Stack* aux, char s, char d, char a) {
+    if (n == 1) {
+        moveDisk(src, dest, s, d);
+        return;
+    }
+    towerOfHanoi(n - 1, src, aux, dest, s, a, d);
+    moveDisk(src, dest, s, d);
+    towerOfHanoi(n - 1, aux, dest, src, a, d, s);
+}
+
+int main() {
+    int n = 3; // Number of disks
+    Stack src, dest, aux;
+
+    initStack(&src);
+    initStack(&dest);
+    initStack(&aux);
+
+    // Push disks to source stack in descending order
+    for (int i = n; i >= 1; i--) {
+        push(&src, i);
+    }
+
+    // Perform the Tower of Hanoi operation
+    towerOfHanoi(n, &src, &dest, &aux, 'A', 'C', 'B');
+
+    return 0;
+}
+
 
 ~~~
