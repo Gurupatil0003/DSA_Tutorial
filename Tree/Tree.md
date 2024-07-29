@@ -10,3 +10,6 @@
  responsible - for storing data, and it is also responsible for linking to other nodes. The link (visualized as a line) between each node is known as an edge:
 
 ![image](https://github.com/user-attachments/assets/37747cea-6871-40d6-91a7-cb535a2c20a6)
+
+
+![tree-1](https://github.com/user-attachments/assets/cd422347-6d1c-4ec7-96bf-f902f62fbd85)
