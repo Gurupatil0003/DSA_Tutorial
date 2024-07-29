@@ -181,4 +181,114 @@ We can see in the image given the two cases of null links.
 
 ## Terminologies
 
+## 1. Degree.
+```c
+1.The degree of a node can be defined as it’s number of sub trees.
 
+2. A node with zero degree is a leaf node.
+
+3.A node with maximum degree is the root node in the tree.
+```
+![degree](https://github.com/user-attachments/assets/a8a31bbd-7a4b-469d-80f5-b30b0963997a)
+
+## 2. Edge
+```c
+1.An edge can be defined as a connection or a link from one node to another node.
+
+2.In the given image, we have 3 edges from node ‘a’ to node ‘h’.
+
+3.If we see the image, we can see clearly that we have a total of 13 nodes and 12 edges.
+
+3.Thus, we can say that ,
+
+No. of edges  =   No. of nodes  –  1
+```
+ 
+![edge](https://github.com/user-attachments/assets/dd63af67-83ad-4993-a42f-bedeba82c337)
+
+
+## 3. Path
+1.A course of nodes and edges for operations such as traversal,etc is known as a path.
+
+2.Let us see with the help of an example taking the image as reference,
+
+3.The path from node ‘a’ to the node ‘h’ is represented in red which consist of 4 nodes and 3 edges.
+
+4.Similarly, the path from node ‘a’ to ‘l’ is represented in purple which consist of 4 nodes and 3 edges.
+
+![path](https://github.com/user-attachments/assets/2d2c310e-5812-4892-86c5-0633f3812c12)
+
+
+## 4. Depth
+1.The number of edges that lie in between the path from a node to the root in a tree is defined as the depth of the tree. 
+
+2.In the image given here, we can see the depth of each node. For instance the depth of the root node is zero.
+![depth](https://github.com/user-attachments/assets/c8d296e9-5eac-4b02-a663-6a7155a79ffb)
+
+
+## 5. Level
+```c
+1.Level of a node is symbolic of the generation of a given node. It is one greater than the level of it’s parent.
+
+2.For instance, in the given image we can see, the level of the node ‘b’ and ‘c’ is one more than the level of their parent node ‘a’.
+
+Note – Formula Max number of nodes at any given level for the tree would be
+
+2L (If level Starts from 0)
+2L-1 (If level Starts from 1)
+Example (Considering level starts from 1) – 
+
+Level 1 (Max nodes) =21-1 = 1
+Level 2 (Max nodes) =22-1= 2
+Level 3 (Max nodes) =23-1= 4
+Level 4 (Max nodes) =24-1= 8
+Thus max possible nodes in the tree for Level 4 would be
+
+21-1 + 22-1 + 23-1 + 24-1 = 1 + 2 + 4 + 8 = 15
+This above can be generalised to a formula as :
+
+Maximum number of nodes (Considering Level Starts from 1) =
+
+1 + 2 + 4 + 8 + … + 2L-1 = (2L – 1)
+The above formula will change to (2L+1 – 1) (If level starts from 0)
+```
+![level](https://github.com/user-attachments/assets/dd8558b2-2519-4776-ac14-221306b90443)
+
+### Formula summary
+```c
+
+
+Formula Max number of nodes at any given level for the tree would be:
+2L (If level Starts from 0)
+2L-1 (If level Starts from 1)
+
+Formula Max number of nodes in the whole tree would be:
+2L+1 -1 (If level Starts from 0)
+2L - 1 (If level Starts from 1)
+×Dismiss this alert.
+```
+
+## 6. Height
+```c
+1.Height of a node can be defined as the longest path downwards between the root node and a leaf.
+
+2.For example in the given image, we can see that the height of the node ‘l’ is 3; since the distance between it and the root node is 3.
+
+3.Height of a tree starts from 0
+
+Formula –
+
+Height of tree is h then Max nodes a Full Binary Tree will have
+
+(2h+1 – 1)nodes  (if h starts from 0)
+(2h – 1)nodes  (if h starts from 1)
+Formula – Minimum number of nodes in a Binary Tree of height h would be
+
+(h + 1) (if h starts from 0)
+h (if h starts from 1)
+Formula – In a Binary Tree with N nodes, minimum possible height
+
+(Log2(N+1) – 1) (if h starts from 0)
+Log2(N+1) (if h starts from 1)
+```
+![height](https://github.com/user-attachments/assets/00a717b8-f2e9-46a1-9cab-288e16c5351f)
