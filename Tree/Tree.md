@@ -14,7 +14,7 @@
 
 ![tree-1](https://github.com/user-attachments/assets/cd422347-6d1c-4ec7-96bf-f902f62fbd85)
 
-# Trees in Data Structures
+# Trees in Data Structures     ![tree](https://github.com/user-attachments/assets/d0a72a05-e5bf-42ed-aae6-5bb0708268d9)
+
 - A tree is a hierarchical data structure, which has one root node and multiple child nodes(branches). Unlike, Arrays, Linked Lists, Stacks or queues, a Tree is non 
- linear data structure.
-                                              ![tree](https://github.com/user-attachments/assets/d0a72a05-e5bf-42ed-aae6-5bb0708268d9)
+  linear data structure.
