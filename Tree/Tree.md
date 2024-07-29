@@ -12,7 +12,6 @@
 ![image](https://github.com/user-attachments/assets/37747cea-6871-40d6-91a7-cb535a2c20a6)
 
 
-![tree-1](https://github.com/user-attachments/assets/cd422347-6d1c-4ec7-96bf-f902f62fbd85)
 
 # Trees in Data Structures     ![tree](https://github.com/user-attachments/assets/d0a72a05-e5bf-42ed-aae6-5bb0708268d9)
 
@@ -21,9 +20,9 @@
 
 
 
-## Classification of Trees
-- Trees are classified by the following types – ![tree-1](https://github.com/user-attachments/assets/8bbf1b60-cf17-48dd-a61c-2288d0317c30)
+## Classification of Trees   ![tree-1](https://github.com/user-attachments/assets/8bbf1b60-cf17-48dd-a61c-2288d0317c30)
 
+- Trees are classified by the following types – 
 ```c
 By Max number of branches – Binary, Ternary, n-ary
 By Heights of subtree – Full, complete, perfect, balanced (Check this page)
