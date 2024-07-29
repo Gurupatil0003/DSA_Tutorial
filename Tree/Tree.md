@@ -91,7 +91,7 @@ Level
 Height
 ```
 
-### 1. Root  ![image](https://github.com/user-attachments/assets/1056facf-9094-4ed5-8a9f-931101a38666)
+### 1. Root  
 
 
 ```c
@@ -100,7 +100,7 @@ There exists only one root node per tree.
 Taking the image above as reference, node ‘a’ is the root of the tree as shown here.
 
 ```
-
+![image](https://github.com/user-attachments/assets/1056facf-9094-4ed5-8a9f-931101a38666)
 ### 2. Parent
 
 ```c
@@ -109,47 +109,76 @@ Each parent can have one or more child node.
 In the given image we can see, the node ‘a’ is the parent of the nodes ‘b’ and ‘c’.
 ```
  ![parent](https://github.com/user-attachments/assets/43b17fda-0b6d-47f3-ad93-62ef9bcd2645)
-3. Child Node
+ 
+### 3. Child Node
+```c
 Any node which has an edge directed upwards to the parent node is known as child node.
 Each child node has a single parent node.
 In the given image we can see, the nodes ‘h’ and ‘i’ are the child nodes of the node ‘d’.
+```
+![child](https://github.com/user-attachments/assets/6e4ef546-794a-4065-bf55-b169dcd523f1)
 
-4. Sibling
+### 4. Sibling
+```c
 A set of nodes that are extended from the same parent are known as the siblings.
 In the given image, we can see that
 the nodes ‘b’ and ‘c’ are sibling nodes. 
 the nodes ‘h’ and ‘i’  are sibling nodes.
-
+```
 ![sibling](https://github.com/user-attachments/assets/28e7cbc4-e3ea-42a6-8146-4a7b831b6969)
 
-6. Leaf(external nodes)
+### 6. Leaf(external nodes)
+```c
 Any node that does not have any child node is known as the leaf node.
 In the given image, the nodes ‘f’, ‘h’, ‘i’, ‘j’, ‘k’, ‘l’ and ‘m’ are leaf nodes since these nodes are terminal and have no further child nodes.
 Total Number of leaf nodes in a Binary Tree = Total Number of nodes with 2 children + 1
+```
+![leaf](https://github.com/user-attachments/assets/e4e75d16-25d5-43e2-980e-2dd8b466f1d2)
 
-leaf
-6. Branch(internal nodes)
+
+### 6. Branch(internal nodes)
+```c
 Any node which has at least one child node is known as branch node.
 In the given image, the nodes ‘b’ , ‘c’ , ‘d’ , ‘e’ , ‘g’ are branch nodes since each of these nodes extend further to their respective children.
 branch
-7. Sub-Tree
+```
+![branch](https://github.com/user-attachments/assets/f6df24e3-02df-4c3d-aa57-eaa972843924)
+
+
+### 7. Sub-Tree
+```
 A sub tree of a tree is defined as a tree that consist of a node along with all it’s descendants.
 In the image , we can see that a sub tree can be extended from node ‘b’ which will be termed as the left sub tree.
 Similarly, a sub tree can be extended from the node ‘c’ which will be termed as the right sub tree. 
 subtree
-8. Ancestor
+```
+![subtree](https://github.com/user-attachments/assets/34d81ad5-b823-4b42-a29b-cffe17f95b47)
+
+### 8. Ancestor
+```c
 Any predecessor of a node along with all the ancestors of the predecessor of that node is known is as the ancestor.
 The root node has no ancestors.
 In the given image, the ancestors of the node ‘h’ will be ‘d’, ‘b’ and ‘a’.
-ancestors
-9. Descendant
+
+```
+![ancestors](https://github.com/user-attachments/assets/7e0259ae-838a-4362-9edb-554adddc2bd8)
+
+### 9. Descendant
+```c
 All the children of a node along with all the descendants of the children of a node is known as descendant.
 A leaf node has no descendants.
 In the given image, if we consider the node ‘c’, the descendants of node ‘c’ will be nodes ‘f’ , ‘g’ , ‘l’ and ‘m’ .
-descendant
-10. Null Nodes
+```
+![decendant](https://github.com/user-attachments/assets/4f4e1eeb-a848-4776-8103-77dd0bf95869)
+
+### 10. Null Nodes
+```c
 If in a binary tree, a node has only one child it is said to have a single null link.
 Similarly if a node has no child node it is said to have two null links.
 We can see in the image given the two cases of null links.
-null link
-Terminologies
+```
+![null-link](https://github.com/user-attachments/assets/24116652-d620-41ec-be0c-88d3f385efac)
+
+## Terminologies
+
+
