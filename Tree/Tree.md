@@ -91,7 +91,8 @@ Level
 Height
 ```
 
-### 1. Root  ![root](https://github.com/user-attachments/assets/92688f39-53fb-4c74-9f9f-64228fc7991b)
+### 1. Root  ![image](https://github.com/user-attachments/assets/1056facf-9094-4ed5-8a9f-931101a38666)
+
 
 ```c
 The topmost node of  a tree is known as the root.
