@@ -56,7 +56,7 @@ Moderate Insertion/Deletion
 - Trees provide moderate insertion/deletion (Slower than Linked lists, quicker than arrays)
  Trees
 
-### Technical Description of Trees  ![introduction](https://github.com/user-attachments/assets/dcb9501b-6494-4cfe-9aa5-ab8f17027386)
+### Technical Description of Trees  
 
 - Trees can defined as a collection of  entities, that constitute it’s frame, known as nodes.
 - Nodes are the basic building blocks of a tree structure that store some data/value .
@@ -64,3 +64,29 @@ Moderate Insertion/Deletion
  are connected to each other via edges.
 
 - Since trees are flexible and powerful data structures, they are multipurpose data structure that provide a wide range of applications to the user.
+
+![introduction](https://github.com/user-attachments/assets/dcb9501b-6494-4cfe-9aa5-ab8f17027386)
+
+
+## Components
+```c
+Root
+Parent
+Child nodes
+Siblings
+Leaves
+Brach
+Sub-Tree
+Ancestor
+Descendants
+Null Nodes
+```
+## others
+```c
+Degree
+Edges
+Path
+Depth
+Level
+Height
+```
