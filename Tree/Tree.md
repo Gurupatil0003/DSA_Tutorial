@@ -36,7 +36,8 @@ This n value is sometimes called as the degree of the tree.
 
 ```
 
-## Why Trees?
+## Why Trees?   ![architecture-and-city](https://github.com/user-attachments/assets/6fc0b239-ad32-40fd-a9b2-51a2d6f7d23d)
+
 ```c
 Hierarchical approach
 ```
@@ -55,7 +56,8 @@ Moderate Insertion/Deletion
 - Trees provide moderate insertion/deletion (Slower than Linked lists, quicker than arrays)
  Trees
 
-### Technical Description of Trees
+### Technical Description of Trees  ![introduction](https://github.com/user-attachments/assets/dcb9501b-6494-4cfe-9aa5-ab8f17027386)
+
 - Trees can defined as a collection of  entities, that constitute it’s frame, known as nodes.
 - Nodes are the basic building blocks of a tree structure that store some data/value .
 - These are  ADT (Abstract Data Structures) which form a hierarchical layout comprising of a single root node followed by parent nodes and children nodes, which 
