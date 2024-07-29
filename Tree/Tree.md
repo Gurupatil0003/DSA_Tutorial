@@ -36,5 +36,29 @@ This n value is sometimes called as the degree of the tree.
 
 ```
 
-![Trees-in-Data-Structures-Binary](https://github.com/user-attachments/assets/c70e852a-!    [Trees-in-Data-Structures-n-ary](https://github.com/user-attachments/assets/dfee0a93-35be-4991-951c-01f7720c8421)
-1733-4f52-92c1-af4fbe9cc235)    ![Trees-in-Data-Structures-Ternary](https://github.com/user-attachments/assets/6dceb211-39e6-4d16-bf1a-a9c0d2fca098)
+## Why Trees?
+```c
+Hierarchical approach
+```
+- One reason could be that we want to store information that follows, natural hierarchy, like how we store folders in a computer system.
+```c
+No Upper Limit
+```
+- Trees, unlike arrays, stacks, queues do not have an upper limit on how many nodes can be created, as they are created using pointers
+```c
+Quicker Search and Access
+```
+- Trees (BST) are able to do searching quicker than arrays, linked lists etc
+```c
+Moderate Insertion/Deletion
+```
+- Trees provide moderate insertion/deletion (Slower than Linked lists, quicker than arrays)
+ Trees
+
+### Technical Description of Trees
+- Trees can defined as a collection of  entities, that constitute it’s frame, known as nodes.
+- Nodes are the basic building blocks of a tree structure that store some data/value .
+- These are  ADT (Abstract Data Structures) which form a hierarchical layout comprising of a single root node followed by parent nodes and children nodes, which 
+ are connected to each other via edges.
+
+- Since trees are flexible and powerful data structures, they are multipurpose data structure that provide a wide range of applications to the user.
