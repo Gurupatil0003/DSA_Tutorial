@@ -101,25 +101,28 @@ Taking the image above as reference, node ‘a’ is the root of the tree as sho
 
 ```
 
-### 2. Parent ![parent](https://github.com/user-attachments/assets/43b17fda-0b6d-47f3-ad93-62ef9bcd2645)
+### 2. Parent
 
 ```c
 Any node which has an edge directed downwards to the child node is known as parent node.
 Each parent can have one or more child node.
 In the given image we can see, the node ‘a’ is the parent of the nodes ‘b’ and ‘c’.
 ```
+ ![parent](https://github.com/user-attachments/assets/43b17fda-0b6d-47f3-ad93-62ef9bcd2645)
 3. Child Node
 Any node which has an edge directed upwards to the parent node is known as child node.
 Each child node has a single parent node.
 In the given image we can see, the nodes ‘h’ and ‘i’ are the child nodes of the node ‘d’.
-child
+
 4. Sibling
 A set of nodes that are extended from the same parent are known as the siblings.
 In the given image, we can see that
 the nodes ‘b’ and ‘c’ are sibling nodes. 
 the nodes ‘h’ and ‘i’  are sibling nodes.
-sibling
-5. Leaf(external nodes)
+
+![sibling](https://github.com/user-attachments/assets/28e7cbc4-e3ea-42a6-8146-4a7b831b6969)
+
+6. Leaf(external nodes)
 Any node that does not have any child node is known as the leaf node.
 In the given image, the nodes ‘f’, ‘h’, ‘i’, ‘j’, ‘k’, ‘l’ and ‘m’ are leaf nodes since these nodes are terminal and have no further child nodes.
 Total Number of leaf nodes in a Binary Tree = Total Number of nodes with 2 children + 1
