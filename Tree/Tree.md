@@ -36,4 +36,5 @@ This n value is sometimes called as the degree of the tree.
 
 ```
 
-![Trees-in-Data-Structures-Ternary](https://github.com/user-attachments/assets/6dceb211-39e6-4d16-bf1a-a9c0d2fca098)
+![Trees-in-Data-Structures-Binary](https://github.com/user-attachments/assets/c70e852a-![Trees-in-Data-Structures-n-ary](https://github.com/user-attachments/assets/dfee0a93-35be-4991-951c-01f7720c8421)
+1733-4f52-92c1-af4fbe9cc235) ![Trees-in-Data-Structures-Ternary](https://github.com/user-attachments/assets/6dceb211-39e6-4d16-bf1a-a9c0d2fca098)
