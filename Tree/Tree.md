@@ -18,3 +18,22 @@
 
 - A tree is a hierarchical data structure, which has one root node and multiple child nodes(branches). Unlike, Arrays, Linked Lists, Stacks or queues, a Tree is non 
   linear data structure.
+
+
+
+## Classification of Trees
+- Trees are classified by the following types – ![tree-1](https://github.com/user-attachments/assets/8bbf1b60-cf17-48dd-a61c-2288d0317c30)
+
+```c
+By Max number of branches – Binary, Ternary, n-ary
+By Heights of subtree – Full, complete, perfect, balanced (Check this page)
+The following diagram shows one example of each –
+
+Binary Tree: A tree where each node can have a maximum of two child nodes
+Ternary Tree: A tree where each node can have a maximum of three child nodes
+n-ary Tree: A tree where each node can have a maximum of n child nodes
+This n value is sometimes called as the degree of the tree.
+
+```
+
+![Trees-in-Data-Structures-Ternary](https://github.com/user-attachments/assets/6dceb211-39e6-4d16-bf1a-a9c0d2fca098)
