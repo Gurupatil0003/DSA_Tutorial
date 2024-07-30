@@ -120,6 +120,7 @@ Total nodes = 1 + 2 + 4 = 7, which matches `
 - **Nodes (N):** 15
 - 
 - **Calculation:** `log2​(15+1)=log2​(16)=4`
+  
 - **Minimum Number of Levels:** 4
 ```c
       1          (Level 1)
@@ -134,6 +135,26 @@ Total nodes = 1 + 2 + 4 = 7, which matches `
 `- Height = 3 (since height is levels - 1)`
 `- Levels = 4`
 
+
+## 4. A Binary Tree with L leaves has at least | Log2L |+ 1   levels:
+
+Example Calculation
+Consider a binary tree with 
+```c
+L=5 leaves:
+log2(5)≈2.32
+⌈log2 5⌉=3
+Thus, the minimum number of levels is:
+⌈log2 5⌉+1=3+1=4
+```
+```c
+        1         (Level 1)
+      /   \
+     2     3      (Level 2)
+    / \   / \
+   4   5 6   7    (Level 3, leaves)
+
+```
 ## 5. In a Binary tree where every node has 0 or 2 children, the number of leaf nodes is always one more than nodes with two children:
 
 ```c
