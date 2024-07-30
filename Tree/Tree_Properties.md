@@ -138,8 +138,20 @@ Total nodes = 1 + 2 + 4 = 7, which matches `
 
 ## 4. A Binary Tree with L leaves has at least | Log2L |+ 1   levels:
 
+#### Example
+- For a binary tree with 
+```c
+𝐿=5
+L=5 leaves:
 
+Calculate Minimum Levels:
 
+ℎ≥log2(5)+1≈2.32+1=3.32
+
+Taking the ceiling:
+
+ℎ≥⌈3.32⌉=4
+```
 2. **Example Tree**:
 
 
