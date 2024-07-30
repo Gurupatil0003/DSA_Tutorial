@@ -6,19 +6,19 @@
 
 `In a binary tree, each node has at most two children. The level of a node is defined by its distance from the root node:`
 
-`- **Level 0:** The root node.
- **Level 1:** The children of the root node.
- **Level 2:** The children of the nodes at level 1.
- **Level 3:** The children of the nodes at level 2.
- And so on.`
+- **Level 0:** The root node.
+- **Level 1:** The children of the root node.
+- **Level 2:** The children of the nodes at level 1.
+- **Level 3:** The children of the nodes at level 2.
+ And so on.
 
 `The maximum number of nodes at each level \( l \) is given by the formula \( 2^l \). This exponential growth is due to the binary branching factor where each node can have up to two children.`
 
 `## Maximum Nodes at Each Level
 
-`1. **Level 0:**`
-  ` - **Nodes:** [2]`
- `  - **Maximum nodes:** \( 2^0 = 1 \)`
+- 1. **Level 0:**`
+- **Nodes:** [2]`
+- **Maximum nodes:** \( 2^0 = 1 \)
 
 `2. **Level 1:**`
    `- **Nodes:** [7, 5]`
@@ -34,7 +34,7 @@
 
 ## Summary
 
-`- **Level 0:** The root node (2) is at level 0 and matches the maximum of \( 2^0 = 1 \).
+- **Level 0:** The root node (2) is at level 0 and matches the maximum of \( 2^0 = 1 \).
  **Level 1:** There are 2 nodes (7, 5), matching the maximum of \( 2^1 = 2 \).
  **Level 2:** There are 3 nodes (2, 6, 9), which is less than the maximum of \( 2^2 = 4 \).
  **Level 3:** There are 3 nodes (5, 11, 4), which is less than the maximum of \( 2^3 = 8 \).`
@@ -91,10 +91,10 @@ This is a geometric series, and its sum can be calculated using the formula:
 Thus, the total number of nodes in a perfect binary tree of height `h` is `2^(h+1) - 1`.
 
 
-`- **Height 0**: \( 2^0 + 1 - 1 = 2^1 - 1 = 1 \)`
- `**Height 1**: \( 2^1 + 1 - 1 = 2^2 - 1 = 3 \)
- **Height 2**: \( 2^2 + 1 - 1 = 2^3 - 1 = 7 \)
- **Height 3**: \( 2^3 + 1 - 1 = 2^4 - 1 = 15 \)`
+- **Height 0**: \( 2^0 + 1 - 1 = 2^1 - 1 = 1 \)
+- **Height 1**: \( 2^1 + 1 - 1 = 2^2 - 1 = 3 \)
+- **Height 2**: \( 2^2 + 1 - 1 = 2^3 - 1 = 7 \)
+- **Height 3**: \( 2^3 + 1 - 1 = 2^4 - 1 = 15 \)
 
 Thus, the maximum number of nodes in a binary tree of height h is `2^(h+1) - 1`.
 
