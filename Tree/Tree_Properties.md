@@ -95,8 +95,8 @@ This example demonstrates that while the maximum number of nodes at level \( l \
 ## Verification:
 - According to the property 
  e=n−1:
-
+```c
  e=n−1
  8=9−1
-
+```
 - This property holds true for this tree.
