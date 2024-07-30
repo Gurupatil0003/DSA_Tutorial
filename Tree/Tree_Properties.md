@@ -16,21 +16,21 @@
 
 `## Maximum Nodes at Each Level
 
-- 1. **Level 0:**`
-- **Nodes:** [2]`
+- 1. **Level 0:**
+- **Nodes:** [2]
 - **Maximum nodes:** \( 2^0 = 1 \)
 
-`2. **Level 1:**`
-   `- **Nodes:** [7, 5]`
- `  - **Maximum nodes:** \( 2^1 = 2 \)`
+- 2. **Level 1:**
+   - **Nodes:** [7, 5]
+   - - **Maximum nodes:** \( 2^1 = 2 \)
 
-`3. **Level 2:**`
-   `- **Nodes:** [2, 6, 9]`
-   `- **Maximum nodes:** \( 2^2 = 4 \)`
+- 3. **Level 2:**
+    - **Nodes:** [2, 6, 9]
+    - **Maximum nodes:** \( 2^2 = 4 \)
 
-`4. **Level 3:**`
-  ` - **Nodes:** [5, 11, 4]`
-  ` - **Maximum nodes:** \( 2^3 = 8 \)`
+- 4. **Level 3:**
+  - **Nodes:** [5, 11, 4]
+  - **Maximum nodes:** \( 2^3 = 8 \)
 
 ## Summary
 
