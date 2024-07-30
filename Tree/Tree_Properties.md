@@ -140,22 +140,72 @@ Total nodes = 1 + 2 + 4 = 7, which matches `
 
 Example Calculation
 Consider a binary tree with 
+
+
 ```c
-L=5 leaves:
-log2(5)≈2.32
-⌈log2 5⌉=3
-Thus, the minimum number of levels is:
-⌈log2 5⌉+1=3+1=4
-```
-```c
-        1         (Level 1)
-      /   \
-     2     3      (Level 2)
-    / \   / \
-   4   5 6   7    (Level 3, leaves)
+         1
+       /    \
+      2      3
+     / \    / \
+    4   5  6   7
+   / \
+  8   9
 
 ```
+**In this tree:
+
+Node 1 is the root at level 1.
+Nodes 2 and 3 are at level 2.
+Nodes 4, 5, 6, and 7 are at level 3.
+Nodes 8 and 9 are at level 4.
+Leaves are nodes 5, 6, 7, 8, and 9.
+The tree has 4 levels, which matches our calculation.**
+
 ## 5. In a Binary tree where every node has 0 or 2 children, the number of leaf nodes is always one more than nodes with two children:
+
+## Minimum Levels in a Binary Tree with \( L \) Leaves
+
+A binary tree with \( L \) leaves has at least \( \lceil \log_2 L \rceil + 1 \) levels. This can be understood by considering the properties of a binary tree and logarithms.
+
+### Explanation
+
+1. **Binary Tree**: A binary tree is a tree where each node has at most two children.
+2. **Leaves**: Leaves are nodes that do not have any children.
+3. **Levels**: The height of the tree plus one. The root node is at level 1.
+
+### Reasoning
+
+In a balanced binary tree, each level doubles the number of nodes from the previous level. The minimum number of levels \( h \) required to accommodate \( L \) leaves can be calculated using logarithms:
+
+1. **Full Binary Tree**: In a perfectly balanced binary tree, the number of leaves \( L \) is \( 2^{h-1} \), where \( h \) is the number of levels.
+2. **Logarithmic Calculation**:
+   - To find the smallest \( h \) such that \( 2^{h-1} \geq L \), we use the logarithm base 2:
+     \[
+     h - 1 \geq \log_2 L
+     \]
+   - Solving for \( h \):
+     \[
+     h \geq \log_2 L + 1
+     \]
+   - Since \( h \) must be an integer, we take the ceiling of \( \log_2 L + 1 \):
+     \[
+     h \geq \lceil \log_2 L \rceil + 1
+     \]
+
+### Example
+
+For a binary tree with \( L = 5 \) leaves:
+
+1. **Calculate Minimum Levels**:
+   \[
+   h \geq \log_2 5 + 1 \approx 2.32 + 1 = 3.32
+   \]
+   Taking the ceiling:
+   \[
+   h \geq \lceil 3.32 \rceil = 4
+   \]
+
+2. **Example Tree**:
 
 ```c
          A
