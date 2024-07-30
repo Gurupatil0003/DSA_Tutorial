@@ -117,7 +117,8 @@ By understanding this property, you can analyze the maximum capacity of a binary
 
 
 - **Nodes (N):** 15
-- **Calculation:** \( \log_2 (15 + 1) = \log_2 (16) = 4 \)
+- 
+- **Calculation:** \log2​(15+1)=log2​(16)=4
 - **Minimum Number of Levels:** 4
 ```c
       1          (Level 1)
