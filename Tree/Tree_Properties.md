@@ -89,8 +89,13 @@ This is a geometric series, and its sum can be calculated using the formula:
 
 Thus, the total number of nodes in a perfect binary tree of height `h` is `2^(h+1) - 1`.
 
+Here’s the final ordered breakdown of each height:
 
-Thus, the total number of nodes in a perfect binary tree of height \( h \) is \( 2^{h+1} - 1 \).
+- **Height 0**: \( 2^0 + 1 - 1 = 2^1 - 1 = 1 \)
+- **Height 1**: \( 2^1 + 1 - 1 = 2^2 - 1 = 3 \)
+- **Height 2**: \( 2^2 + 1 - 1 = 2^3 - 1 = 7 \)
+- **Height 3**: \( 2^3 + 1 - 1 = 2^4 - 1 = 15 \)
+
 
 
 ## 3. In a Binary Tree with N nodes, the minimum possible height or the minimum number of levels is Log2(N+1):
