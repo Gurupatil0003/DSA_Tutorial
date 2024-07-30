@@ -1,6 +1,6 @@
 # Binary Tree Has 6 Propaerties
 
-## The maximum number of nodes at level ‘l’ of a binary tree is 2l:    take this as example explain me this propartie
+## 1.The maximum number of nodes at level ‘l’ of a binary tree is 2l:    take this as example explain me this propartie
 
 # Binary Tree Node Levels
 
@@ -40,6 +40,17 @@ The maximum number of nodes at each level \( l \) is given by the formula \( 2^l
 - **Level 3:** There are 3 nodes (5, 11, 4), which is less than the maximum of \( 2^3 = 8 \).
 
 This example demonstrates that while the maximum number of nodes at level \( l \) is \( 2^l \), not all levels will necessarily have the maximum number of nodes due to the possibility of nodes having fewer than two children.
+
+## 2.The Maximum number of nodes in a binary tree of height ‘h’ is 2h – 1:  can this propartie explain
+
+### Understanding Height in a Binary Tree
+```c
+Height of a Tree: The height of a binary tree is the number of edges on the longest path from the root to a leaf. For the purpose of this explanation, we'll consider the height of a single-node tree as 0.
+
+1.Height 0: 1 level (root only)
+2.Height 1: 2 levels (root and its children)
+3.Height 2: 3 levels (root, its children, and grandchildren)
+```
 
 
 ## 3. In a Binary Tree with N nodes, the minimum possible height or the minimum number of levels is Log2(N+1):
