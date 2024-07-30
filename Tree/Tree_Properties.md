@@ -74,22 +74,21 @@ A perfect binary tree is a type of binary tree where every internal node has exa
 
 ### Number of Nodes at Each Level
 
-For a binary tree of height \( h \):
-- The number of nodes at level \( i \) is \( 2^i \), where \( i \) ranges from 0 to \( h \).
+For a binary tree of height `h`:
+- The number of nodes at level `i` is `2^i`, where `i` ranges from 0 to `h`.
 
 ### Total Number of Nodes
 
-To find the total number of nodes in a perfect binary tree of height \( h \), sum the number of nodes at each level from 0 to \( h \):
+To find the total number of nodes in a perfect binary tree of height `h`, sum the number of nodes at each level from 0 to `h`:
 
-\[ \text{Total number of nodes} = 2^0 + 2^1 + 2^2 + \cdots + 2^h \]
+- Total number of nodes = `2^0 + 2^1 + 2^2 + ... + 2^h`
 
 This is a geometric series, and its sum can be calculated using the formula:
 
-\[ \text{Sum} = 2^0 + 2^1 + 2^2 + \cdots + 2^h \]
+- Sum = `2^(h+1) - 1`
 
-The sum of this geometric series is:
+Thus, the total number of nodes in a perfect binary tree of height `h` is `2^(h+1) - 1`.
 
-\[ \text{Sum} = \frac{2^{h+1} - 1}{2 - 1} = 2^{h+1} - 1 \]
 
 Thus, the total number of nodes in a perfect binary tree of height \( h \) is \( 2^{h+1} - 1 \).
 
