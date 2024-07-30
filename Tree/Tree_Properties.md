@@ -44,6 +44,68 @@ This example demonstrates that while the maximum number of nodes at level \( l \
 
 ## 3. In a Binary Tree with N nodes, the minimum possible height or the minimum number of levels is Log2(N+1):
 
+
+```c
+         A
+       /   \
+     B       C
+    / \     / \
+   D   E   F   G
+  / \       / \
+ H   I     J   K
+
+```
+## Step-by-Step Construction:
+- Root Node:
+
+- A
+#### Level 1:
+
+- Nodes B and C are children of A.
+
+#### Level 2:
+
+- Nodes D and E are children of B.
+  Nodes F and G are children of C.
+
+#### Level 3:
+
+- Nodes H and I are children of D.
+  Nodes J and K are children of F.
+
+  ## Counting the Nodes:
+
+- Internal Nodes with Two Children (I):
+
+- Node A has children B and C.
+  Node B has children D and E.
+  Node C has children F and G.
+  Node D has children H and I.
+  Node F has children J and K.
+  Thus, 
+```c
+ I=5.
+```
+
+#### Leaf Nodes (L):
+
+- Nodes E, G, H, I, J, and K are leaf nodes.
+ Thus, 
+```c
+L=6.
+```
+
+#### Verification:
+- According to the property 
+
+```c
+L=I+1:
+
+6=5+1
+
+```
+## 6. In a non-empty binary tree, if n is the total number of nodes and e is the total number of edges, then e = n-1:
+
 - The property stating that in a non-empty binary tree, the total number of edges  𝑒 e is equal to the total number of nodes 𝑛 n minus one, 𝑒=𝑛−1 e=n−1, can be 
   understood through the basic structure of trees in graph theory. Let's break this 
   down and explain it using a specific tree structure.
