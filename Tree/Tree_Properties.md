@@ -52,6 +52,47 @@ Height of a Tree: The height of a binary tree is the number of edges on the long
 3.Height 2: 3 levels (root, its children, and grandchildren)
 ```
 
+Perfect Binary Tree
+A perfect binary tree is a binary tree in which all internal nodes have exactly two children, and all leaf nodes are at the same level.
+
+Calculation of Maximum Nodes
+Level 0: The root node. Number of nodes at this level =  2^0=1
+
+Level 1: The root's children. Number of nodes at this level = 
+2^1=2
+
+Level 2: The children of the nodes at level 1. Number of nodes at this level = 
+2^2=4
+
+Level 3: The children of the nodes at level 2. Number of nodes at this level = 
+
+2^3=8.
+
+## Number of Nodes in a Perfect Binary Tree
+
+A perfect binary tree is a type of binary tree where every internal node has exactly two children, and all leaf nodes are at the same level.
+
+### Number of Nodes at Each Level
+
+For a binary tree of height \( h \):
+- The number of nodes at level \( i \) is \( 2^i \), where \( i \) ranges from 0 to \( h \).
+
+### Total Number of Nodes
+
+To find the total number of nodes in a perfect binary tree of height \( h \), sum the number of nodes at each level from 0 to \( h \):
+
+\[ \text{Total number of nodes} = 2^0 + 2^1 + 2^2 + \cdots + 2^h \]
+
+This is a geometric series, and its sum can be calculated using the formula:
+
+\[ \text{Sum} = 2^0 + 2^1 + 2^2 + \cdots + 2^h \]
+
+The sum of this geometric series is:
+
+\[ \text{Sum} = \frac{2^{h+1} - 1}{2 - 1} = 2^{h+1} - 1 \]
+
+Thus, the total number of nodes in a perfect binary tree of height \( h \) is \( 2^{h+1} - 1 \).
+
 
 ## 3. In a Binary Tree with N nodes, the minimum possible height or the minimum number of levels is Log2(N+1):
 
