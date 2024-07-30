@@ -111,14 +111,14 @@ Total nodes = 1 + 2 + 4 = 7, which matches
 
 `2^2+1−1=7`
 
-By understanding this property, you can analyze the maximum capacity of a binary tree of any given height, which is particularly useful in scenarios involving memory allocation and tree balancing algorithms.
+`By understanding this property, you can analyze the maximum capacity of a binary tree of any given height, which is particularly useful in scenarios involving memory allocation and tree balancing algorithms.`
 
 ## 3. In a Binary Tree with N nodes, the minimum possible height or the minimum number of levels is Log2(N+1):
 
 
 - **Nodes (N):** 15
 - 
-- **Calculation:** \log2​(15+1)=log2​(16)=4
+- **Calculation:** `log2​(15+1)=log2​(16)=4`
 - **Minimum Number of Levels:** 4
 ```c
       1          (Level 1)
