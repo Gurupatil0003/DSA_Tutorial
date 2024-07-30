@@ -45,6 +45,8 @@ This example demonstrates that while the maximum number of nodes at level \( l \
 ## 3. In a Binary Tree with N nodes, the minimum possible height or the minimum number of levels is Log2(N+1):
 
 
+## 5. In a Binary tree where every node has 0 or 2 children, the number of leaf nodes is always one more than nodes with two children:
+
 ```c
          A
        /   \
@@ -144,14 +146,14 @@ L=I+1:
 ## Edges:
 
 - Edge between A and B.
- Edge between A and C.
- Edge between B and D.
- Edge between B and E.
- Edge between C and F.
- Edge between C and G.
- Edge between D and H.
- Edge between D and I.
- Total number of edges 
+  Edge between A and C.
+  Edge between B and D.
+  Edge between B and E.
+  Edge between C and F.
+  Edge between C and G.
+  Edge between D and H.
+  Edge between D and I.
+  Total number of edges 
  𝑒=8
 
 ## Verification:
@@ -162,3 +164,4 @@ L=I+1:
  8=9−1
 ```
 - This property holds true for this tree.
+- 
