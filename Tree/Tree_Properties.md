@@ -35,11 +35,11 @@
 ## Summary
 
 - **Level 0:** The root node (2) is at level 0 and matches the maximum of \( 2^0 = 1 \).
- **Level 1:** There are 2 nodes (7, 5), matching the maximum of \( 2^1 = 2 \).
- **Level 2:** There are 3 nodes (2, 6, 9), which is less than the maximum of \( 2^2 = 4 \).
- **Level 3:** There are 3 nodes (5, 11, 4), which is less than the maximum of \( 2^3 = 8 \).`
+  **Level 1:** There are 2 nodes (7, 5), matching the maximum of \( 2^1 = 2 \).
+  **Level 2:** There are 3 nodes (2, 6, 9), which is less than the maximum of \( 2^2 = 4 \).
+  **Level 3:** There are 3 nodes (5, 11, 4), which is less than the maximum of \( 2^3 = 8 \).
 
-`This example demonstrates that while the maximum number of nodes at level \( l \) is \( 2^l \), not all levels will necessarily have the maximum number of nodes due to the possibility of nodes having fewer than two children.`
+This example demonstrates that while the maximum number of nodes at level \( l \) is \( 2^l \), not all levels will necessarily have the maximum number of nodes due to the possibility of nodes having fewer than two children.
 
 ## 2.The Maximum number of nodes in a binary tree of height ‘h’ is 2h – 1:  can this propartie explain
 
