@@ -1,45 +1,45 @@
-`# Binary Tree Has 6 Propaerties
+# Binary Tree Has 6 Propaerties
 
 ## 1.The maximum number of nodes at level ‘l’ of a binary tree is 2l:    take this as example explain me this propartie
 
 # Binary Tree Node Levels
 
-In a binary tree, each node has at most two children. The level of a node is defined by its distance from the root node:
+`In a binary tree, each node has at most two children. The level of a node is defined by its distance from the root node:`
 
-- **Level 0:** The root node.
-- **Level 1:** The children of the root node.
-- **Level 2:** The children of the nodes at level 1.
-- **Level 3:** The children of the nodes at level 2.
-- And so on.
+`- **Level 0:** The root node.
+ **Level 1:** The children of the root node.
+ **Level 2:** The children of the nodes at level 1.
+ **Level 3:** The children of the nodes at level 2.
+ And so on.`
 
-The maximum number of nodes at each level \( l \) is given by the formula \( 2^l \). This exponential growth is due to the binary branching factor where each node can have up to two children.
+`The maximum number of nodes at each level \( l \) is given by the formula \( 2^l \). This exponential growth is due to the binary branching factor where each node can have up to two children.`
 
-## Maximum Nodes at Each Level
+`## Maximum Nodes at Each Level
 
-1. **Level 0:**
-   - **Nodes:** [2]
-   - **Maximum nodes:** \( 2^0 = 1 \)
+`1. **Level 0:**`
+  ` - **Nodes:** [2]`
+ `  - **Maximum nodes:** \( 2^0 = 1 \)`
 
-2. **Level 1:**
-   - **Nodes:** [7, 5]
-   - **Maximum nodes:** \( 2^1 = 2 \)
+`2. **Level 1:**`
+   `- **Nodes:** [7, 5]`
+ `  - **Maximum nodes:** \( 2^1 = 2 \)`
 
-3. **Level 2:**
-   - **Nodes:** [2, 6, 9]
-   - **Maximum nodes:** \( 2^2 = 4 \)
+`3. **Level 2:**`
+   `- **Nodes:** [2, 6, 9]`
+   `- **Maximum nodes:** \( 2^2 = 4 \)`
 
-4. **Level 3:**
-   - **Nodes:** [5, 11, 4]
-   - **Maximum nodes:** \( 2^3 = 8 \)
+`4. **Level 3:**`
+  ` - **Nodes:** [5, 11, 4]`
+  ` - **Maximum nodes:** \( 2^3 = 8 \)`
 
 ## Summary
 
-- **Level 0:** The root node (2) is at level 0 and matches the maximum of \( 2^0 = 1 \).
-- **Level 1:** There are 2 nodes (7, 5), matching the maximum of \( 2^1 = 2 \).
-- **Level 2:** There are 3 nodes (2, 6, 9), which is less than the maximum of \( 2^2 = 4 \).
-- **Level 3:** There are 3 nodes (5, 11, 4), which is less than the maximum of \( 2^3 = 8 \).
+`- **Level 0:** The root node (2) is at level 0 and matches the maximum of \( 2^0 = 1 \).
+ **Level 1:** There are 2 nodes (7, 5), matching the maximum of \( 2^1 = 2 \).
+ **Level 2:** There are 3 nodes (2, 6, 9), which is less than the maximum of \( 2^2 = 4 \).
+ **Level 3:** There are 3 nodes (5, 11, 4), which is less than the maximum of \( 2^3 = 8 \).`
 
-This example demonstrates that while the maximum number of nodes at level \( l \) is \( 2^l \), not all levels will necessarily have the maximum number of nodes due to the possibility of nodes having fewer than two children.
+`This example demonstrates that while the maximum number of nodes at level \( l \) is \( 2^l \), not all levels will necessarily have the maximum number of nodes due to the possibility of nodes having fewer than two children.`
 
 ## 2.The Maximum number of nodes in a binary tree of height ‘h’ is 2h – 1:  can this propartie explain
 
@@ -52,36 +52,37 @@ Height of a Tree: The height of a binary tree is the number of edges on the long
 3.Height 2: 3 levels (root, its children, and grandchildren)
 ```
 
-Perfect Binary Tree
-A perfect binary tree is a binary tree in which all internal nodes have exactly two children, and all leaf nodes are at the same level.
+#### Perfect Binary Tree
+`A perfect binary tree is a binary tree in which all internal nodes have exactly two children, and all leaf nodes are at the same level.`
 
-Calculation of Maximum Nodes
-Level 0: The root node. Number of nodes at this level =  2^0=1
+`Calculation of Maximum Nodes`
+Level 0: The root node. Number of nodes at this level =  2^0=1`
 
-Level 1: The root's children. Number of nodes at this level = 
-2^1=2
+`Level 1: The root's children. Number of nodes at this level = 
+2^1=2`
 
-Level 2: The children of the nodes at level 1. Number of nodes at this level = 
-2^2=4
+`Level 2: The children of the nodes at level 1. Number of nodes at this level = 
+2^2=4`
 
-Level 3: The children of the nodes at level 2. Number of nodes at this level = 
+`Level 3: The children of the nodes at level 2. Number of nodes at this level = `
 
-2^3=8.
+`2^3=8.`
 
 ## Number of Nodes in a Perfect Binary Tree
 
-A perfect binary tree is a type of binary tree where every internal node has exactly two children, and all leaf nodes are at the same level.
+`A perfect binary tree is a type of binary tree where every internal node has exactly two children, and all leaf nodes are at the same level.`
 
 ### Number of Nodes at Each Level
 
-For a binary tree of height `h`:
-- The number of nodes at level `i` is `2^i`, where `i` ranges from 0 to `h`.
+`For a binary tree of height `h`:
+- The number of nodes at level `i` is `2^i`, where `i` ranges from 0 to `h`.`
 
 ### Total Number of Nodes
 
-To find the total number of nodes in a perfect binary tree of height `h`, sum the number of nodes at each level from 0 to `h`:
+`To find the total number of nodes in a perfect binary tree of height `h`, sum the number of nodes at each level from 0 to `h`:`
 
-- Total number of nodes = `2^0 + 2^1 + 2^2 + ... + 2^h`
+- Total number of nodes = `2^0 + 2^1 + 2^2 + ... + 2^h`-
+
 
 This is a geometric series, and its sum can be calculated using the formula:
 
@@ -90,10 +91,10 @@ This is a geometric series, and its sum can be calculated using the formula:
 Thus, the total number of nodes in a perfect binary tree of height `h` is `2^(h+1) - 1`.
 
 
-- **Height 0**: \( 2^0 + 1 - 1 = 2^1 - 1 = 1 \)
-- **Height 1**: \( 2^1 + 1 - 1 = 2^2 - 1 = 3 \)
-- **Height 2**: \( 2^2 + 1 - 1 = 2^3 - 1 = 7 \)
-- **Height 3**: \( 2^3 + 1 - 1 = 2^4 - 1 = 15 \)
+`- **Height 0**: \( 2^0 + 1 - 1 = 2^1 - 1 = 1 \)`
+ `**Height 1**: \( 2^1 + 1 - 1 = 2^2 - 1 = 3 \)
+ **Height 2**: \( 2^2 + 1 - 1 = 2^3 - 1 = 7 \)
+ **Height 3**: \( 2^3 + 1 - 1 = 2^4 - 1 = 15 \)`
 
 Thus, the maximum number of nodes in a binary tree of height h is `2^(h+1) - 1`.
 
@@ -104,10 +105,10 @@ Thus, the maximum number of nodes in a binary tree of height h is `2^(h+1) - 1`.
    / \ / \
   4  5 6  7
 ```
-Level 0: 1 node
+`Level 0: 1 node
 Level 1: 2 nodes
 Level 2: 4 nodes
-Total nodes = 1 + 2 + 4 = 7, which matches 
+Total nodes = 1 + 2 + 4 = 7, which matches `
 
 `2^2+1−1=7`
 
@@ -129,9 +130,9 @@ Total nodes = 1 + 2 + 4 = 7, which matches
  / \ / \ / \
 8  9 10 11 12 13 14 15 (Level 4)
 ```
-- Total nodes = 15
-- Height = 3 (since height is levels - 1)
-- Levels = 4
+`- Total nodes = 15`
+`- Height = 3 (since height is levels - 1)`
+`- Levels = 4`
 
 ## 5. In a Binary tree where every node has 0 or 2 children, the number of leaf nodes is always one more than nodes with two children:
 
@@ -146,26 +147,26 @@ Total nodes = 1 + 2 + 4 = 7, which matches
 
 ```
 ## Step-by-Step Construction:
-- Root Node:
 
-- A
+`- Root Node: A
+`
 #### Level 1:
 
-- Nodes B and C are children of A.
+`- Nodes B and C are children of A.`
 
 #### Level 2:
 
-- Nodes D and E are children of B.
-  Nodes F and G are children of C.
+`- Nodes D and E are children of B.
+  Nodes F and G are children of C.`
 
 #### Level 3:
 
-- Nodes H and I are children of D.
-  Nodes J and K are children of F.
+`- Nodes H and I are children of D.
+  Nodes J and K are children of F.`
 
   ## Counting the Nodes:
 
-- Internal Nodes with Two Children (I):
+`- Internal Nodes with Two Children (I):`
 
 `- Node A has children B and C.
   Node B has children D and E.
