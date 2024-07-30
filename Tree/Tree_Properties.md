@@ -89,17 +89,48 @@ This is a geometric series, and its sum can be calculated using the formula:
 
 Thus, the total number of nodes in a perfect binary tree of height `h` is `2^(h+1) - 1`.
 
-Here’s the final ordered breakdown of each height:
 
 - **Height 0**: \( 2^0 + 1 - 1 = 2^1 - 1 = 1 \)
 - **Height 1**: \( 2^1 + 1 - 1 = 2^2 - 1 = 3 \)
 - **Height 2**: \( 2^2 + 1 - 1 = 2^3 - 1 = 7 \)
 - **Height 3**: \( 2^3 + 1 - 1 = 2^4 - 1 = 15 \)
 
+Thus, the maximum number of nodes in a binary tree of height h is `2^(h+1) - 1`.
 
+```c
+      1
+     / \
+    2   3
+   / \ / \
+  4  5 6  7
+```
+Level 0: 1 node
+Level 1: 2 nodes
+Level 2: 4 nodes
+Total nodes = 1 + 2 + 4 = 7, which matches 
+
+`2^2+1−1=7`
+
+By understanding this property, you can analyze the maximum capacity of a binary tree of any given height, which is particularly useful in scenarios involving memory allocation and tree balancing algorithms.
 
 ## 3. In a Binary Tree with N nodes, the minimum possible height or the minimum number of levels is Log2(N+1):
 
+
+- **Nodes (N):** 15
+- **Calculation:** \( \log_2 (15 + 1) = \log_2 (16) = 4 \)
+- **Minimum Number of Levels:** 4
+```c
+      1          (Level 1)
+     / \
+    2   3        (Level 2)
+   / \ / \
+  4  5 6  7      (Level 3)
+ / \ / \ / \
+8  9 10 11 12 13 14 15 (Level 4)
+```
+- Total nodes = 15
+- Height = 3 (since height is levels - 1)
+- Levels = 4
 
 ## 5. In a Binary tree where every node has 0 or 2 children, the number of leaf nodes is always one more than nodes with two children:
 
