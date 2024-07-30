@@ -1,4 +1,4 @@
-# Binary Tree Has 6 Propaerties
+`# Binary Tree Has 6 Propaerties
 
 ## 1.The maximum number of nodes at level ‘l’ of a binary tree is 2l:    take this as example explain me this propartie
 
@@ -167,12 +167,12 @@ Total nodes = 1 + 2 + 4 = 7, which matches
 
 - Internal Nodes with Two Children (I):
 
-- Node A has children B and C.
+`- Node A has children B and C.
   Node B has children D and E.
   Node C has children F and G.
   Node D has children H and I.
   Node F has children J and K.
-  Thus, 
+  Thus,` 
 ```c
  I=5.
 ```
@@ -196,21 +196,21 @@ L=I+1:
 ```
 ## 6. In a non-empty binary tree, if n is the total number of nodes and e is the total number of edges, then e = n-1:
 
-- The property stating that in a non-empty binary tree, the total number of edges  𝑒 e is equal to the total number of nodes 𝑛 n minus one, 𝑒=𝑛−1 e=n−1, can be 
+`- The property stating that in a non-empty binary tree, the total number of edges  𝑒 e is equal to the total number of nodes 𝑛 n minus one, 𝑒=𝑛−1 e=n−1, can be 
   understood through the basic structure of trees in graph theory. Let's break this 
-  down and explain it using a specific tree structure.
+  down and explain it using a specific tree structure.`
 
 ## Explanation:
 
 ## Definition of a Tree:
-- A tree is a connected, acyclic graph.
+`- A tree is a connected, acyclic graph.
  In any tree with 𝑛 n nodes, there are exactly 𝑛−1 n−1 edges. This is because each additional node must connect to the existing structure via exactly one new edge 
- to maintain connectivity and avoid cycles.
+ to maintain connectivity and avoid cycles.`
 
 ## Binary Tree Structure:
 
-- A binary tree is a special case of a tree where each node has at most two children. Step-by-Step Explanation with an Example: Let's consider a binary tree and 
- verify the property 𝑒=𝑛−1
+`- A binary tree is a special case of a tree where each node has at most two children. Step-by-Step Explanation with an Example: Let's consider a binary tree and 
+ verify the property 𝑒=𝑛−1`
 
 ## Example Tree Structure:
 ```c
@@ -229,11 +229,11 @@ L=I+1:
 ### Nodes:
 
 ## Total number of nodes 
-- 𝑛=9 (A, B, C, D, E, F, G, H, I).
+`- 𝑛=9 (A, B, C, D, E, F, G, H, I).`
 
 ## Edges:
 
-- Edge between A and B.
+`- Edge between A and B.
   Edge between A and C.
   Edge between B and D.
   Edge between B and E.
@@ -242,7 +242,7 @@ L=I+1:
   Edge between D and H.
   Edge between D and I.
   Total number of edges 
- 𝑒=8
+ 𝑒=8`
 
 ## Verification:
 - According to the property 
