@@ -1128,3 +1128,31 @@ int main() {
 
 ```
 
+
+
+#reverse Operation 
+~~~c
+
+void reverseList(struct Node** head) {
+    struct Node *prev = NULL;
+    struct Node *current = *head;
+    struct Node *next = NULL;
+
+    while (current != NULL) {
+        next = current->next;  // Store the next node
+
+        // Swap the next and prev pointers
+        current->next = prev;  // Set current's next to previous
+        current->prev = next;  // Set current's prev to next
+
+        // Move pointers one position ahead
+        prev = current;        // Move prev to the current node
+        current = next;        // Move current to the next node
+    }
+
+    // Update head to point to the new first node (prev)
+    *head = prev;
+}
+
+~~~
+
