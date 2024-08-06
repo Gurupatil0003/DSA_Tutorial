@@ -65,6 +65,7 @@
 | **Space Utilization**      | Space is used efficiently as long as the stack is not full. | Space utilization can vary; circular queues optimize space usage. |
 
 
+
 # 7.Comparison Between Array and Linked List
 
 | **Aspect**                | **Array**                                          | **Linked List**                                      |
@@ -129,4 +130,239 @@ A queue is a linear data structure that follows the FIFO (First In, First Out) p
 These operations ensure that queues efficiently manage elements in the order they are received.
 
 
+# Main Operations of a Stack
+
+A stack is a linear data structure that follows the LIFO (Last In, First Out) principle. Below are the main operations of a stack and their time complexities:
+
+## 1. Push
+- **Description**: Adds an element to the top of the stack.
+- **Time Complexity**: O(1)
+  - **Explanation**: Adding an element to the top of the stack is a constant-time operation because it involves placing the element at the current top and updating the top pointer.
+
+## 2. Pop
+- **Description**: Removes the element from the top of the stack.
+- **Time Complexity**: O(1)
+  - **Explanation**: Removing the top element is a constant-time operation as it involves accessing and removing the top element and then updating the top pointer.
+
+## 3. Top/Peek
+- **Description**: Retrieves (but does not remove) the element at the top of the stack.
+- **Time Complexity**: O(1)
+  - **Explanation**: Accessing the top element is a constant-time operation because it involves viewing the top element without modifying the stack.
+
+## 4. IsEmpty
+- **Description**: Checks whether the stack is empty.
+- **Time Complexity**: O(1)
+  - **Explanation**: Checking if the stack is empty is a constant-time operation, typically involving a simple comparison of the top pointer with a null or a specific value indicating an empty stack.
+
+## 5. Size (optional)
+- **Description**: Returns the number of elements in the stack.
+- **Time Complexity**: O(1) if maintained; O(n) if not maintained
+  - **Explanation**: If the size is maintained as an additional variable, retrieving the size is a constant-time operation. Otherwise, it requires traversing the stack to count elements, which would take linear time.
+
+### Summary of Time Complexities
+
+- **Push**: O(1)
+- **Pop**: O(1)
+- **Top/Peek**: O(1)
+- **IsEmpty**: O(1)
+- **Size (optional)**: O(1) if maintained; O(n) if not maintained
+
+These operations ensure that stacks efficiently manage elements in a last-in, first-out order, useful for applications such as function call management, expression evaluation, and undo mechanisms.
+
+# 10. Describe the algorithm for evaluating postfix expressions using a stack 
+
+
+# Algorithm for Evaluating Postfix Expressions
+
+Evaluating postfix expressions (also known as Reverse Polish Notation) involves using a stack data structure to process the expression systematically. In postfix notation, operators follow their operands, eliminating the need for parentheses. 
+
+## Algorithm
+
+1. **Initialize**:
+   - Create an empty stack to store operands.
+
+2. **Read the Postfix Expression**:
+   - Process each token (either an operand or an operator) from left to right.
+
+3. **Process Each Token**:
+   - **If the token is an operand (number)**:
+     - Push the operand onto the stack.
+   - **If the token is an operator (`+`, `-`, `*`, `/`, etc.)**:
+     - Pop the required number of operands from the stack (for binary operators, pop two operands).
+     - Apply the operator to these operands:
+       - `operand1 operator operand2`
+     - Push the result back onto the stack.
+
+4. **After Processing All Tokens**:
+   - The stack should contain a single element, which is the result of the postfix expression.
+
+5. **Output the Result**:
+   - The remaining element in the stack is the final result of the expression.
+
+## Detailed Steps
+
+1. **Initialize**:
+   - Create an empty stack.
+
+2. **Read Tokens**:
+   - For each token in the postfix expression:
+     - **Operand**:
+       - Push the operand onto the stack.
+     - **Operator**:
+       - Pop the top two operands from the stack (let's call them `operand2` and `operand1`).
+       - Perform the operation: `operand1 operator operand2`.
+       - Push the result of the operation back onto the stack.
+
+3. **Final Result**:
+   - After processing all tokens, the stack should have exactly one element, which is the result of the postfix expression.
+   - If the stack has more than one element or is empty at the end, there was an error in the expression.
+
+## Example
+
+Consider the postfix expression: `5 3 4 * + 2 -`
+
+1. **Initialize an empty stack**.
+
+2. **Process Tokens**:
+   - Token `5`: Push onto stack. Stack: `[5]`
+   - Token `3`: Push onto stack. Stack: `[5, 3]`
+   - Token `4`: Push onto stack. Stack: `[5, 3, 4]`
+   - Token `*`: Pop `4` and `3`, compute `3 * 4 = 12`, push `12`. Stack: `[5, 12]`
+   - Token `+`: Pop `12` and `5`, compute `5 + 12 = 17`, push `17`. Stack: `[17]`
+   - Token `2`: Push onto stack. Stack: `[17, 2]`
+   - Token `-`: Pop `2` and `17`, compute `17 - 2 = 15`, push `15`. Stack: `[15]`
+
+3. **Final Result**:
+   - The stack contains `[15]`, which is the result of the postfix expression.
+
+
+# Psedocode 
+
+Initialize SIZE, postfix array, stack array, and top index
+
+Read postfix expression from user
+
+For each character in postfix expression do
+    If character is a digit:
+        Convert character to integer
+        Push integer onto stack
+    Else if character is an operator (+, -, *, /, %):
+        Pop two operands from stack (operand2 and operand1)
+        Perform the operation (operand1 operator operand2)
+        Push the result onto stack
+    Else:
+        Print "Invalid character encountered!"
+        Exit with error
+
+Pop the final result from stack
+
+Print the result of postfix evaluation
+
+Code Implementation In C (Optional)
+
+```c
+
+#include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
+
+#define SIZE 40 // Define the maximum size of the stack
+
+// Function prototypes
+int pop();
+void push(int);
+
+// Global variables
+char postfix[SIZE]; // Array to store the postfix expression
+int stack[SIZE]; // Stack array
+int top = -1; // Index of the top of the stack
+
+int main()
+{
+    int i, a, b, result;
+    char ch;
+
+    // Prompt the user to enter a postfix expression
+    printf("Enter a postfix expression: ");
+    scanf("%s", postfix); // Read the postfix expression, e.g., "89+9-8/"
+
+    // Process each character in the postfix expression
+    for(i = 0; postfix[i] != '\0'; i++)
+    {
+        ch = postfix[i]; // Get the current character
+
+        // If the character is a digit, push it onto the stack
+        if(isdigit(ch))
+        {
+            push(ch - '0'); // Convert char to int and push onto the stack
+        }
+        // If the character is an operator, pop two elements and apply the operator
+        else if(ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '%')
+        {
+            b = pop(); // Pop the top element
+            a = pop(); // Pop the next top element
+
+            // Perform the operation based on the operator
+            switch(ch)
+            {
+                case '+': result = a + b; break;
+                case '-': result = a - b; break;
+                case '*': result = a * b; break;
+                case '/': result = a / b; break;
+                case '%': result = a % b; break;
+                default: 
+                    printf("Invalid operator encountered!\n");
+                    exit(-1);
+            }
+            
+            // Push the result back onto the stack
+            push(result);
+        }
+        else
+        {
+            printf("Invalid character encountered in expression!\n");
+            exit(-1);
+        }
+    }
+
+    // Pop the final result from the stack
+    result = pop();
+
+    // Print the result of the postfix evaluation
+    printf("The postfix evaluation is: %d\n", result);
+    
+    return 0;
+}
+
+// Function to push an element onto the stack
+void push(int n)
+{
+    if (top < SIZE - 1) // Check if the stack is not full
+    {
+        stack[++top] = n; // Increment the top index and push the element
+    }
+    else
+    {
+        printf("Stack overflow!\n"); // Print error message if stack is full
+        exit(-1); // Exit the program with error code
+    }
+}
+
+// Function to pop an element from the stack
+int pop()
+{    
+    if (top > -1) // Check if the stack is not empty
+    {
+        return stack[top--]; // Return the top element and decrement the top index
+    }
+    else
+    {
+        printf("Stack underflow!\n"); // Print error message if stack is empty
+        exit(-1); // Exit the program with error code
+    }
+}
+
+
+
+```
 
