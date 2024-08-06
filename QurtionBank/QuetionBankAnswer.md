@@ -32,3 +32,37 @@
 | **Operations**            | Generally straightforward and direct.                                 | Often more complex due to hierarchical or networked structure.              |
 | **Usage**                 | Suitable for ordered data processing, such as lists and queues.      | Ideal for representing hierarchical relationships and complex networks.     |
 
+
+
+#
+
+
+| Operation      | Description                                          |
+|----------------|------------------------------------------------------|
+| Push           | Add an element to the top of the stack.              |
+| Pop            | Remove and return the top element from the stack.    |
+| Peek/Top       | Return the top element without removing it.          |
+| isEmpty        | Check if the stack is empty.                         |
+| isFull         | Check if the stack is full (for fixed-size stacks).  |
+| Initialize     | Initialize the stack to make it ready for use.       |
+
+
+
+# 4.Comparison Between Stack and Queue
+
+| **Parameter**              | **Stack**                                       | **Queue**                                          |
+|----------------------------|-------------------------------------------------|----------------------------------------------------|
+| **Order**                  | Follows LIFO (Last In, First Out) order         | Follows FIFO (First In, First Out) order           |
+| **Insertion Operation**    | Inserting an element is known as a `Push` operation. | Inserting an element is known as an `Enqueue` operation. |
+| **Deletion Operation**     | Deleting an element is known as a `Pop` operation. | Deleting an element is known as a `Dequeue` operation. |
+| **Pointer Usage**          | Pointer used for performing operations is only one (top of the stack). | Pointers used for performing operations are two (front and rear of the queue). |
+| **Type**                   | No specific types of stacks are available.     | Three main types of queues: Simple Queue, Circular Queue, and Priority Queue. |
+| **Visualization**          | Vertical collection visualization (elements are stacked on top of each other). | Horizontal collection visualization (elements are lined up in a row). |
+| **Accessibility**          | Only the ‘Top’ element is accessible.           | Elements are added at the rear and removed from the front. |
+| **Typical Use Cases**      | Function call management, expression evaluation, undo mechanisms. | Task scheduling, handling requests in a system, buffering data. |
+| **Complexity**             | `Push` and `Pop` operations are typically O(1). | `Enqueue` and `Dequeue` operations are typically O(1). |
+| **Implementation**         | Can be implemented using arrays or linked lists. | Can be implemented using arrays, linked lists, or circular buffers. |
+| **Space Utilization**      | Space is used efficiently as long as the stack is not full. | Space utilization can vary; circular queues optimize space usage. |
+
+
+
