@@ -55,7 +55,7 @@
 | **Order**                  | Follows LIFO (Last In, First Out) order         | Follows FIFO (First In, First Out) order           |
 | **Insertion Operation**    | Inserting an element is known as a `Push` operation. | Inserting an element is known as an `Enqueue` operation. |
 | **Deletion Operation**     | Deleting an element is known as a `Pop` operation. | Deleting an element is known as a `Dequeue` operation. |
-| **Pointer Usage**          | Pointer used for performing operations is only one (top of the stack). | Pointers used for performing operations are two (front and rear of the queue). |
+| **Pointer Usage**          | Utilizes a single pointer to the top of the stack. | Utilizes two pointers: one for the front and one for the rear of the queue. |
 | **Type**                   | No specific types of stacks are available.     | Three main types of queues: Simple Queue, Circular Queue, and Priority Queue. |
 | **Visualization**          | Vertical collection visualization (elements are stacked on top of each other). | Horizontal collection visualization (elements are lined up in a row). |
 | **Accessibility**          | Only the ‘Top’ element is accessible.           | Elements are added at the rear and removed from the front. |
@@ -63,6 +63,70 @@
 | **Complexity**             | `Push` and `Pop` operations are typically O(1). | `Enqueue` and `Dequeue` operations are typically O(1). |
 | **Implementation**         | Can be implemented using arrays or linked lists. | Can be implemented using arrays, linked lists, or circular buffers. |
 | **Space Utilization**      | Space is used efficiently as long as the stack is not full. | Space utilization can vary; circular queues optimize space usage. |
+
+
+# 7.Comparison Between Array and Linked List
+
+| **Aspect**                | **Array**                                          | **Linked List**                                      |
+|---------------------------|----------------------------------------------------|-------------------------------------------------------|
+| **Memory Allocation**     | **Contiguous Memory**: Allocates a block of memory in a contiguous manner. | **Non-Contiguous Memory**: Uses scattered memory locations, with each element pointing to the next. |
+| **Size**                  | **Fixed Size**: Size is determined at creation and cannot be changed dynamically. | **Dynamic Size**: Size can grow or shrink dynamically as elements are added or removed. |
+| **Access Time**           | **O(1) Access Time**: Direct access to elements using indices is possible, making retrieval very fast. | **O(n) Access Time**: Requires traversing the list from the head to access an element, making it slower. |
+| **Insertion/Deletion**    | **O(n) Time Complexity**: Involves shifting elements, which can be costly for large arrays. | **O(1) Time Complexity (at known positions)**: Efficient insertion and deletion if the position is known, especially at the head or tail. |
+| **Memory Overhead**       | **Low Overhead**: Minimal overhead as arrays do not store additional information apart from the elements. | **High Overhead**: Additional memory overhead due to storing pointers alongside data elements. |
+| **Ease of Implementation**| **Simple Implementation**: Requires less code to implement basic operations. | **Complex Implementation**: Requires extra code to manage pointers and handle dynamic memory allocation. |
+| **Traversal**             | **Linear Traversal**: Supports direct access to any element but requires linear traversal for operations like sorting. | **Sequential Traversal**: Requires traversing from the head, but traversal can be more flexible with doubly or circular linked lists. |
+| **Resizing**              | **Static Size**: Does not support dynamic resizing; dynamic arrays (e.g., `ArrayList` in Java) handle resizing internally. | **Dynamic Size**: Supports resizing naturally as elements can be added or removed without resizing the entire structure. |
+| **Use Cases**             | **Fixed-size Collections**: Suitable when the number of elements is known and does not change frequently, such as look-up tables. | **Dynamic Collections**: Ideal when the number of elements can vary, such as implementing queues, stacks, and other dynamic data structures. |
+
+### Additional Details:
+
+- **Array**:
+  - Arrays are best used when you need fast access to elements by index and when the size of the collection is known ahead of time. They offer constant time complexity for access operations but can be inefficient for insertions and deletions unless using dynamic arrays or lists that handle resizing.
+
+- **Linked List**:
+  - Linked lists are suitable when the size of the collection is unpredictable or frequently changing. They allow for efficient insertions and deletions at known positions but can be slower for random access due to their sequential nature. They also require extra memory for pointers.
+
+8. What are the main operations of a queue? Describe their time complexities. 
+
+# Main Operations of a Queue
+
+A queue is a linear data structure that follows the FIFO (First In, First Out) principle. Below are the main operations of a queue and their time complexities:
+
+## 1. Enqueue
+- **Description**: Adds an element to the rear (end) of the queue.
+- **Time Complexity**: O(1)
+  - **Explanation**: Inserting an element at the rear is a constant-time operation, assuming there is available space in the underlying storage (e.g., an array or linked list).
+
+## 2. Dequeue
+- **Description**: Removes an element from the front of the queue.
+- **Time Complexity**: O(1)
+  - **Explanation**: Removing an element from the front is a constant-time operation as it involves accessing the front element and adjusting the pointer or index to the next element.
+
+## 3. Front/Peek
+- **Description**: Retrieves (but does not remove) the element at the front of the queue.
+- **Time Complexity**: O(1)
+  - **Explanation**: Accessing the front element is a constant-time operation, as it involves simply viewing the element at the front of the queue without modifying it.
+
+## 4. IsEmpty
+- **Description**: Checks whether the queue is empty.
+- **Time Complexity**: O(1)
+  - **Explanation**: Checking if the queue is empty is a constant-time operation because it typically involves comparing the front and rear pointers or indices.
+
+## 5. IsFull 
+- **Description**: Checks whether the queue is full. This operation is relevant for bounded queues implemented with arrays.
+- **Time Complexity**: O(1)
+  - **Explanation**: Checking if the queue is full is a constant-time operation, as it involves comparing the current size or positions of the front and rear pointers.
+
+### Summary of Time Complexities
+
+- **Enqueue**: O(1)
+- **Dequeue**: O(1)
+- **Front/Peek**: O(1)
+- **IsEmpty**: O(1)
+- **IsFull**: O(1) (for bounded queues)
+
+These operations ensure that queues efficiently manage elements in the order they are received.
 
 
 
