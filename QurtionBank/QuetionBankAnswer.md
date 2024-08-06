@@ -88,7 +88,9 @@
 - **Linked List**:
   - Linked lists are suitable when the size of the collection is unpredictable or frequently changing. They allow for efficient insertions and deletions at known positions but can be slower for random access due to their sequential nature. They also require extra memory for pointers.
 
-8. What are the main operations of a queue? Describe their time complexities. 
+
+
+# 8. What are the main operations of a queue? Describe their time complexities. 
 
 # Main Operations of a Queue
 
@@ -237,6 +239,7 @@ Consider the postfix expression: `5 3 4 * + 2 -`
 
 
 # Psedocode 
+```python
 
 Initialize SIZE, postfix array, stack array, and top index
 
@@ -257,7 +260,7 @@ For each character in postfix expression do
 Pop the final result from stack
 
 Print the result of postfix evaluation
-
+```
 Code Implementation In C (Optional)
 
 ```c
@@ -366,3 +369,324 @@ int pop()
 
 ```
 
+# 11. Explain the concept of a singly linked list and provide an example. 
+
+- A singly linked list is a fundamental data structure in computer science and programming. It is a collection of nodes where each node contains a data field and a reference (link) to the next node in the 
+ sequence. The last node in the list points to null, indicating the end of the list. This linear data structure allows for efficient insertion and deletion operations, making it a popular choice for various 
+ applications.
+
+
+### Representation of Singly Linked List
+
+![337129135-b59452f5-41d1-4e90-8c27-722d090c329a](https://github.com/user-attachments/assets/38186cbd-46b4-4674-bb89-85f963a5ba82)
+
+Let's see how each node of the linked list is represented. Each node consists:
+
+
+1.A data item
+
+2.An address of another node
+
+We wrap both the data item and the next node reference in a struct as:
+
+### Syntax
+```c
+struct node
+{
+int data;
+struct node *next;
+};
+```
+
+## Visual Representation of a Singly Linked List
+
+Let's consider a simple singly linked list with three nodes containing integers:
+
+### Node Structure
+
+1. **Node 1**: 
+   - **Data**: `5`
+   - **Next**: Pointer to Node 2
+
+2. **Node 2**: 
+   - **Data**: `10`
+   - **Next**: Pointer to Node 3
+
+3. **Node 3**: 
+   - **Data**: `15`
+   - **Next**: `NULL` (indicating the end of the list)
+
+### Visual Diagram
+
+```plaintext
+Node 1              Node 2              Node 3
++--------+------+   +--------+------+   +--------+------+
+|  Data  | Next ---->|  Data  | Next ---->|  Data  | Next ----> NULL
++--------+------+   +--------+------+   +--------+------+
+|   5    |  2000 |   |   10   |  3000 |   |   15   | NULL |
++--------+------+   +--------+------+   +--------+------+
+```
+
+# Implemetation Of Singly LinkedList
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+    int data;
+    struct node *next;
+};
+
+int main() {
+    /* Initialize nodes */
+    struct node *head = NULL;
+    struct node *one = NULL;
+    struct node *two = NULL;
+    struct node *three = NULL;
+
+    /* Allocate memory */
+    one = malloc(sizeof(struct node));
+    two = malloc(sizeof(struct node));
+    three = malloc(sizeof(struct node));
+
+   
+    /* Assign data values */
+    one->data = 1;
+    two->data = 2;
+    three->data = 3;
+
+    /* Connect nodes */
+    one->next = two;
+    two->next = three;
+    three->next = NULL;
+
+    /* Save address of first node in head */
+    head = one;
+
+    /* Printing the linked list */
+    struct node *current = head;
+    while (current != NULL) {
+        printf("%d -> ", current->data);
+        current = current->next;
+    }
+    printf("NULL\n");
+
+    /* Free allocated memory */
+    free(one);
+    free(two);
+    free(three);
+
+    return 0;
+}
+
+```
+
+# 12. How does a doubly linked list differ from a singly linked list? 
+
+
+
+- A doubly linked list is an extension of a singly linked list that allows traversal in both directions, while a singly linked list only allows traversal in one direction. Here’s a detailed comparison between 
+ the two
+
+![5](https://github.com/user-attachments/assets/8b192757-fd1e-4d96-a96d-b8cf20e3df05)
+
+
+### Representation of Doubly Linked List in Data Structure:
+- In a data structure, a doubly linked list is represented using nodes that have three fields:
+
+- Data
+- A pointer to the next node (next)
+- A pointer to the previous node (prev).
+
+```c
+// Define the Node structure
+struct Node {
+    int data;           // Data stored in the node
+    struct Node* next;  // Pointer to the next node
+    struct Node* prev;  // Pointer to the previous node
+};
+```
+
+# Operations on Doubly Linked List
+
+## 1. Traversal
+
+### Forward Traversal
+1. **Initialize** pointer to head.
+2. **While** pointer is not `NULL`:
+   - Visit data.
+   - Move to next node.
+
+### Backward Traversal
+1. **Initialize** pointer to tail.
+2. **While** pointer is not `NULL`:
+   - Visit data.
+   - Move to previous node.
+
+## 2. Searching
+1. **Initialize** pointer to head.
+2. **While** pointer is not `NULL`:
+   - Check if data matches.
+   - If match, return node or position.
+   - Move to next node.
+
+## 3. Finding Length
+1. **Initialize** counter to 0.
+2. **Initialize** pointer to head.
+3. **While** pointer is not `NULL`:
+   - Increment counter.
+   - Move to next node.
+4. **Return** counter.
+
+## 4. Insertion
+
+### At the Beginning
+1. **Create** new node.
+2. **Set** new node’s `next` to head.
+3. **Update** head’s `prev` to new node.
+4. **Update** head to new node.
+
+### At the End
+1. **Create** new node.
+2. **Traverse** to last node.
+3. **Set** last node’s `next` to new node.
+4. **Set** new node’s `prev` to last node.
+
+### At a Specific Position
+1. **Create** new node.
+2. **Traverse** to position before desired one.
+3. **Update** pointers to insert new node.
+
+## 5. Deletion
+
+### At the Beginning
+1. **Update** head to second node.
+2. **Set** new head’s `prev` to `NULL`.
+
+### At the End
+1. **Traverse** to last node.
+2. **Update** second last node’s `next` to `NULL`.
+
+### At a Specific Position
+1. **Traverse** to node before target.
+2. **Update** pointers to remove target node.
+
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+// Define the structure of a Node for doubly linked list
+struct Node {
+    int data; // The data part of the node
+    struct Node *prev; // Pointer to the previous node in the list
+    struct Node *next; // Pointer to the next node in the list
+};
+
+// Function to display the doubly linked list
+void display(struct Node *head) {
+    struct Node *last;
+
+    // Forward traversal
+    printf("Forward: ");
+    while (head != NULL) { // Traverse the list until the end
+        printf("%d ", head->data); // Print the data of the current node
+        last = head; // Store the current node as last
+        head = head->next; // Move to the next node
+    }
+    printf("\n");
+
+    // Backward traversal
+    printf("Backward: ");
+    while (last != NULL) { // Traverse the list backwards using the 'last' pointer
+        printf("%d ", last->data); // Print the data of the current node
+        last = last->prev; // Move to the previous node
+    }
+    printf("\n");
+}
+
+int main() {
+    // Initialize pointers to nodes
+    struct Node *head = NULL;
+    struct Node *node2 = NULL;
+    struct Node *node3 = NULL;
+    struct Node *node4 = NULL;
+
+    // Allocate memory for each node
+    head = (struct Node *) malloc(sizeof(struct Node));
+    node2 = (struct Node *) malloc(sizeof(struct Node));
+    node3 = (struct Node *) malloc(sizeof(struct Node));
+    node4 = (struct Node *) malloc(sizeof(struct Node));
+
+    // Assign data to each node
+    head->data = 15;
+    node2->data = 10;
+    node3->data = 12;
+    node4->data = 3;
+
+    // Link the nodes together
+    head->prev = NULL;
+    head->next = node2;
+
+    node2->prev = head;
+    node2->next = node3;
+
+    node3->prev = node2;
+    node3->next = node4;
+
+    node4->prev = node3;
+    node4->next = NULL;
+
+    // Display the doubly linked list
+    printf("Doubly Linked List:\n");
+    display(head);
+
+```
+
+# 15. Explain binary search. How does it improve search efficiency compared to linear search? 
+
+
+### PsedoCode
+```c
+Function LinearSearch(array, target)
+    For each element in array do
+        If element == target then
+            Return the index of the element
+        End If
+    End For
+    Return -1  // Target not found
+End Function
+
+
+```
+
+```c
+#include <stdio.h>
+
+// Function to perform linear search
+int linearSearch(int arr[], int size, int target) {
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == target) {
+            return i; // Return the index of the target if found
+        }
+    }
+    return -1; // Return -1 if the target is not found
+}
+
+int main() {
+    int arr[] = {3, 5, 2, 8, 7}; // Example array
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int target = 8; // Element to search for
+
+    // Perform linear search
+    int result = linearSearch(arr, size, target);
+
+    if (result != -1) {
+        printf("Element %d found at index %d\n", target, result);
+    } else {
+        printf("Element %d not found in the array\n", target);
+    }
+
+    return 0;
+}
+```
