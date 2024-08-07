@@ -1495,6 +1495,408 @@ Stacks are widely used in various computing scenarios:
 - **LIFO**: Data is accessed in the reverse order of addition. Suitable for scenarios where the most recently added data should be processed first.
 - **FIFO**: Data is accessed in the same order as addition. Suitable for scenarios where the earliest added data should be processed first.
 
+# 30. How linked list is better compared to stack, queue and array? Explain with concept of dynamic memory allocation. 
+
+### Comparison of Linked List with Stack, Queue, and Array
+
+#### Linked List vs. Array
+
+| Feature                     | Linked List                         | Array                                  |
+|-----------------------------|-------------------------------------|----------------------------------------|
+| **Memory Allocation**       | Dynamic memory allocation. Nodes are allocated as needed, which allows for flexible memory usage. | Static memory allocation. Fixed size must be defined at compile time. |
+| **Size**                    | Can grow or shrink dynamically.     | Size is fixed after declaration.       |
+| **Insertion/Deletion**       | Efficient. Inserting or deleting nodes does not require shifting elements. | Inefficient. Insertion or deletion requires shifting elements. |
+| **Access Time**              | Linear time (O(n)) to access elements, as traversal is required. | Constant time (O(1)) to access elements directly using indices. |
+| **Memory Utilization**       | More efficient, as memory is used only for existing nodes. | May waste memory if the array is not fully utilized. |
+
+#### Linked List vs. Stack
+
+| Feature                     | Linked List (used as a Stack)       | Stack                                   |
+|-----------------------------|-------------------------------------|-----------------------------------------|
+| **Memory Allocation**       | Dynamic memory allocation. Nodes are allocated as needed. | Can be implemented with fixed-size arrays or dynamic arrays. |
+| **Size**                    | Can grow or shrink dynamically.     | Size can be fixed (with arrays) or dynamic (with linked lists). |
+| **Flexibility**              | More flexible in terms of size.     | Limited by the underlying implementation (fixed-size stack may be limited). |
+| **Operations**              | Efficient insertion and deletion at the top. | Efficient push and pop operations if implemented with dynamic arrays. |
+
+#### Linked List vs. Queue
+
+| Feature                     | Linked List (used as a Queue)       | Queue                                   |
+|-----------------------------|-------------------------------------|-----------------------------------------|
+| **Memory Allocation**       | Dynamic memory allocation. Nodes are allocated as needed. | Can be implemented with fixed-size arrays or dynamic arrays. |
+| **Size**                    | Can grow or shrink dynamically.     | Size can be fixed (with arrays) or dynamic (with linked lists). |
+| **Operations**              | Efficient enqueue and dequeue operations. | Efficient enqueue and dequeue operations if implemented with dynamic arrays. |
+
+#### Dynamic Memory Allocation
+
+- **Linked List**: 
+  - Uses dynamic memory allocation, where each node is allocated memory as needed. This allows for efficient use of memory and flexibility in size. Nodes are 
+ allocated and deallocated dynamically, making linked lists suitable for applications where the size of the data structure can change frequently.
+
+- **Array**:
+  - Uses static memory allocation, meaning the size of the array must be specified at compile time. This can lead to memory wastage if the array is not fully 
+ utilized or overflow if the size is insufficient.
+
+- **Stack and Queue**:
+  - Can be implemented using arrays or linked lists. When implemented with arrays, they suffer from the same limitations as arrays (fixed size). When implemented 
+  with linked lists, they benefit from dynamic memory allocation, similar to linked lists.
+
+#### Summary
+
+- **Linked List**: 
+  - Offers flexibility and efficient memory utilization due to dynamic memory allocation.
+  - Suitable for scenarios where the size of the data structure frequently changes.
+
+- **Array**: 
+  - Provides constant-time access but lacks flexibility in size and can lead to memory wastage or overflow issues.
+
+- **Stack and Queue**:
+  - Efficiency and flexibility depend on the underlying implementation. Using linked lists for stacks and queues provides dynamic sizing and efficient memory 
+ usage.
+
+# 31. In which type of scenario, linear queue ( simple queue ) is better than circular queue? 
+### Linear Queue vs. Circular Queue
+
+#### When Linear Queue (Simple Queue) is Better
+
+- A linear queue, also known as a simple queue, is a basic data structure where elements are added at the rear and removed from the front, following the FIFO 
+ (First In, First Out) principle. While circular queues offer advantages in certain scenarios, there are specific situations where a linear queue might be more 
+ appropriate:
+
+1. **Simple Use Cases with Predictable Size**
+   - **Scenario**: When the maximum size of the queue is known and fixed.
+   - **Reason**: Linear queues are straightforward and simple to implement when the size of the queue is fixed and does not change frequently. They do not 
+ require additional complexity for managing wrap-around situations as in circular queues.
+
+2. **Non-Overlapping Operations**
+   - **Scenario**: When queue operations do not overlap or interfere.
+   - **Reason**: In scenarios where the operations on the queue are simple and do not require complex wrap-around logic, a linear queue is sufficient. For 
+ example, processing tasks in a sequential manner without requiring re-usage of freed space.
+
+3. **Ease of Implementation**
+   - **Scenario**: When simplicity in code and implementation is a priority.
+   - **Reason**: Linear queues are easier to understand and implement compared to circular queues. They do not involve the extra logic needed to handle the 
+ circular nature of the queue, making them preferable for straightforward applications.
+
+4. **Non-Critical Performance**
+   - **Scenario**: When performance is not a critical concern, and the queue size is reasonably small.
+   - **Reason**: For smaller queues where performance concerns related to space utilization and wrapping are minimal, a linear queue may be used. This is because 
+ the additional overhead of circular queue management is not justified.
+
+5. **Educational and Basic Examples**
+   - **Scenario**: When used for educational purposes or simple examples.
+   - **Reason**: Linear queues are often used in educational contexts to illustrate basic queue operations and principles without the added complexity of 
+ circular queues.
+
+#### Summary
+
+- **Linear Queue**:
+  - **Advantages**:
+    - Simpler to implement and understand.
+    - Suitable for fixed-size scenarios.
+    - Easier to manage in non-critical performance applications.
+
+- **Circular Queue**:
+  - **Advantages**:
+    - More efficient in space utilization for dynamic and continuous operations.
+    - Avoids the problem of unused space at the start of the queue.
+
+a linear queue is preferable in scenarios where simplicity, fixed size, and non-overlapping operations are key, whereas circular queues are better suited for 
+ situations requiring efficient space utilization and continuous processing.
+
+
+# 32. After evaluation of 3,5,4,*,+ result is ? 
+
+### Evaluation of Postfix Expression
+
+**Postfix Expression:** `3 5 4 * +`
+
+**Steps to Evaluate:**
+
+1. **Initial Stack:** `[]`
+
+2. **Processing Tokens:**
+   - Token `3`: Push onto stack → `[3]`
+   - Token `5`: Push onto stack → `[3, 5]`
+   - Token `4`: Push onto stack → `[3, 5, 4]`
+   - Token `*`: Pop `4` and `5`, compute `5 * 4 = 20`, push `20` → `[3, 20]`
+   - Token `+`: Pop `20` and `3`, compute `3 + 20 = 23`, push `23` → `[23]`
+
+**Final Result:** `23`
+
+# 33. What will be the value of Front and Rear pointers when Queue is empty?
+**Example:**
+  - **Empty Queue:** `Front = -1`, `Rear = -1`
+
+# 34. Apply selection sort algorithm on following input. 12, 29, 25, 8, 32, 17 , 40. Explain step by step. 
+
+### Selection Sort Algorithm
+
+- Selection Sort is a comparison-based sorting algorithm that repeatedly selects the smallest (or largest, depending on sorting order) element from the unsorted 
+ portion of the array and moves it to the beginning.
+
+#### Input Array
+12, 29, 25, 8, 32, 17, 40
+
+
+#### Steps to Sort
+
+1. **Initial Array**:
+
+[12, 29, 25, 8, 32, 17, 40]
+
+
+2. **Pass 1**:
+- Find the minimum element in the array `[12, 29, 25, 8, 32, 17, 40]`, which is `8`.
+- Swap `8` with the first element `12`.
+- **Array After Pass 1**:
+  ```
+  [8, 29, 25, 12, 32, 17, 40]
+  ```
+
+3. **Pass 2**:
+- Find the minimum element in the remaining unsorted array `[29, 25, 12, 32, 17, 40]`, which is `12`.
+- Swap `12` with the second element `29`.
+- **Array After Pass 2**:
+  ```
+  [8, 12, 25, 29, 32, 17, 40]
+  ```
+
+4. **Pass 3**:
+- Find the minimum element in the remaining unsorted array `[25, 29, 32, 17, 40]`, which is `17`.
+- Swap `17` with the third element `25`.
+- **Array After Pass 3**:
+  ```
+  [8, 12, 17, 29, 32, 25, 40]
+  ```
+
+5. **Pass 4**:
+- Find the minimum element in the remaining unsorted array `[29, 32, 25, 40]`, which is `25`.
+- Swap `25` with the fourth element `29`.
+- **Array After Pass 4**:
+  ```
+  [8, 12, 17, 25, 32, 29, 40]
+  ```
+
+6. **Pass 5**:
+- Find the minimum element in the remaining unsorted array `[32, 29, 40]`, which is `29`.
+- Swap `29` with the fifth element `32`.
+- **Array After Pass 5**:
+  ```
+  [8, 12, 17, 25, 29, 32, 40]
+  ```
+
+7. **Pass 6**:
+- The remaining unsorted array is `[32, 40]`. The smallest element is `32`.
+- No swap needed as `32` is already in place.
+- **Array After Pass 6**:
+  ```
+  [8, 12, 17, 25, 29, 32, 40]
+  ```
+
+8. **Pass 7**:
+- The final element `40` is already in place, so no further action is needed.
+
+#### Final Sorted Array
+
+ [8, 12, 17, 25, 29, 32, 40]
+
+# 35. Write an algorithm for bubble sort. Apply it on random 8 input data. 
+### Bubble Sort Algorithm
+
+Bubble Sort is a simple comparison-based sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted.
+
+#### Algorithm for Bubble Sort
+
+1. **Start** from the beginning of the array.
+2. **Compare** each pair of adjacent elements.
+3. **Swap** the elements if they are in the wrong order.
+4. **Repeat** the process for each pair in the array until the end of the array.
+5. **Repeat** the entire process for all elements in the array, reducing the number of comparisons each time, as the largest element "bubbles up" to its correct position.
+6. **Terminate** when no swaps are needed, indicating that the array is sorted.
+
+#### Bubble Sort Algorithm (Pseudocode)
+
+```plaintext
+BubbleSort(array A)
+    n = length(A)
+    for i = 0 to n-1 do
+        for j = 0 to n-i-2 do
+            if A[j] > A[j+1] then
+                swap A[j] and A[j+1]
+
+
+```
+Initial Array:
+Input Data: 7, 1, 5, 3, 8, 2, 6, 4
+
+Pass 1:
+
+Compare 7 and 1: Swap → [1, 7, 5, 3, 8, 2, 6, 4]
+Compare 7 and 5: Swap → [1, 5, 7, 3, 8, 2, 6, 4]
+Compare 7 and 3: Swap → [1, 5, 3, 7, 8, 2, 6, 4]
+Compare 7 and 8: No swap
+Compare 8 and 2: Swap → [1, 5, 3, 7, 2, 8, 6, 4]
+Compare 8 and 6: Swap → [1, 5, 3, 7, 2, 6, 8, 4]
+Compare 8 and 4: Swap → [1, 5, 3, 7, 2, 6, 4, 8]
+
+Array After Pass 1
+[1, 5, 3, 7, 2, 6, 4, 8]
+
+Pass 2:
+
+Compare 1 and 5: No swap
+Compare 5 and 3: Swap → [1, 3, 5, 7, 2, 6, 4, 8]
+Compare 5 and 7: No swap
+Compare 7 and 2: Swap → [1, 3, 5, 2, 7, 6, 4, 8]
+Compare 7 and 6: Swap → [1, 3, 5, 2, 6, 7, 4, 8]
+Compare 7 and 4: Swap → [1, 3, 5, 2, 6, 4, 7, 8]
+Array After Pass 2:
+```c
+[1, 3, 5, 2, 6, 4, 7, 8]
+```
+Pass 3:
+
+Compare 1 and 3: No swap
+Compare 3 and 5: No swap
+Compare 5 and 2: Swap → [1, 3, 2, 5, 6, 4, 7, 8]
+Compare 5 and 6: No swap
+Compare 6 and 4: Swap → [1, 3, 2, 5, 4, 6, 7, 8]
+Array After Pass 3:
+
+[1, 3, 2, 5, 4, 6, 7, 8]
+
+Pass 4:
+
+Compare 1 and 3: No swap
+Compare 3 and 2: Swap → [1, 2, 3, 5, 4, 6, 7, 8]
+Compare 3 and 5: No swap
+Compare 5 and 4: Swap → [1, 2, 3, 4, 5, 6, 7, 8]
+Array After Pass 4:
+
+[1, 2, 3, 4, 5, 6, 7, 8]
+
+Pass 5 to 7:
+
+No further swaps needed, array is sorted.
+
+Final Sorted Array
+
+[1, 2, 3, 4, 5, 6, 7, 8]
+
+# 36. Write Merge Sort algorithm. Apply the algorithm to the following elements: 10,5,28, 7, 39, 310, 55,15,1
+
+# Merge Sort Algorithm
+
+Merge Sort is a divide-and-conquer algorithm that divides the array into smaller subarrays, sorts those subarrays, and then merges them to produce the sorted array. It is efficient and has a time complexity of O(n log n).
+
+## Merge Sort Algorithm (Pseudocode)
+
+```plaintext
+MergeSort(array A, left, right)
+    if left < right then
+        mid = (left + right) / 2
+        MergeSort(A, left, mid)    // Recursively sort the left half
+        MergeSort(A, mid + 1, right) // Recursively sort the right half
+        Merge(A, left, mid, right) // Merge the sorted halves
+```c
+Merge(array A, left, mid, right)
+    n1 = mid - left + 1
+    n2 = right - mid
+
+    // Create temporary arrays
+    LeftArray = new array of size n1
+    RightArray = new array of size n2
+
+    // Copy data to temporary arrays
+    for i = 0 to n1 - 1 do
+        LeftArray[i] = A[left + i]
+    for j = 0 to n2 - 1 do
+        RightArray[j] = A[mid + 1 + j]
+
+    // Merge the temporary arrays back into A
+    i = 0
+    j = 0
+    k = left
+
+    while i < n1 and j < n2 do
+        if LeftArray[i] <= RightArray[j] then
+            A[k] = LeftArray[i]
+            i = i + 1
+        else
+            A[k] = RightArray[j]
+            j = j + 1
+        k = k + 1
+
+    // Copy remaining elements of LeftArray[], if any
+    while i < n1 do
+        A[k] = LeftArray[i]
+        i = i + 1
+        k = k + 1
+
+    // Copy remaining elements of RightArray[], if any
+    while j < n2 do
+        A[k] = RightArray[j]
+        j = j + 1
+        k = k + 1
+```
+
+Apply Merge Sort to Given Data
+Input Data: 10, 5, 28, 7, 39, 310, 55, 15, 1
+
+Steps to Sort
+Initial Array:
+
+[10, 5, 28, 7, 39, 310, 55, 15, 1]
+
+Divide the Array:
+
+First Half: [10, 5, 28, 7, 39]
+Second Half: [310, 55, 15, 1]
+
+Sort Each Half:
+
+Sort [10, 5, 28, 7, 39]:
+
+Divide: [10, 5] and [28, 7, 39]
+Sort [10, 5]:
+Divide: [10] and [5]
+Merge: [5, 10]
+Sort [28, 7, 39]:
+Divide: [28] and [7, 39]
+Sort [7, 39]:
+Divide: [7] and [39]
+Merge: [7, 39]
+Merge: [7, 28, 39]
+Merge: [5, 7, 10, 28, 39]
+Sort [310, 55, 15, 1]:
+
+Divide: [310, 55] and [15, 1]
+Sort [310, 55]:
+Divide: [310] and [55]
+Merge: [55, 310]
+Sort [15, 1]:
+Divide: [15] and [1]
+Merge: [1, 15]
+Merge: [1, 15, 55, 310]
+Merge Sorted Halves:
+
+Merge [5, 7, 10, 28, 39] and [1, 15, 55, 310]:
+
+Initial Merging:
+Compare 5 and 1: Add 1
+Compare 5 and 15: Add 5
+Compare 7 and 15: Add 7
+Compare 10 and 15: Add 10
+Compare 28 and 15: Add 15
+Compare 28 and 55: Add 28
+Compare 39 and 55: Add 39
+Add 55, 310 (remaining elements)
+
+Finally Sorted Array
+
+[1, 5, 7, 10, 15, 28, 39, 55, 310]
+
+
 
 
 
