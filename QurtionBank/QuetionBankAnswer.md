@@ -1857,42 +1857,61 @@ Sort Each Half:
 
 Sort [10, 5, 28, 7, 39]:
 
-Divide: [10, 5] and [28, 7, 39]
-Sort [10, 5]:
-Divide: [10] and [5]
-Merge: [5, 10]
-Sort [28, 7, 39]:
-Divide: [28] and [7, 39]
-Sort [7, 39]:
-Divide: [7] and [39]
-Merge: [7, 39]
-Merge: [7, 28, 39]
-Merge: [5, 7, 10, 28, 39]
-Sort [310, 55, 15, 1]:
 
-Divide: [310, 55] and [15, 1]
-Sort [310, 55]:
-Divide: [310] and [55]
-Merge: [55, 310]
-Sort [15, 1]:
-Divide: [15] and [1]
-Merge: [1, 15]
-Merge: [1, 15, 55, 310]
-Merge Sorted Halves:
+### Divide the Array
 
-Merge [5, 7, 10, 28, 39] and [1, 15, 55, 310]:
+1. **First Half:** `[10, 5, 28, 7, 39]`
+2. **Second Half:** `[310, 55, 15, 1]`
 
-Initial Merging:
-Compare 5 and 1: Add 1
-Compare 5 and 15: Add 5
-Compare 7 and 15: Add 7
-Compare 10 and 15: Add 10
-Compare 28 and 15: Add 15
-Compare 28 and 55: Add 28
-Compare 39 and 55: Add 39
-Add 55, 310 (remaining elements)
+### Sort Each Half
 
-Finally Sorted Array
+#### Sort `[10, 5, 28, 7, 39]`
+
+1. **Divide:** `[10, 5]` and `[28, 7, 39]`
+
+   - **Sort `[10, 5]`:**
+     - **Divide:** `[10]` and `[5]`
+     - **Merge:** `[5, 10]`
+
+   - **Sort `[28, 7, 39]`:**
+     - **Divide:** `[28]` and `[7, 39]`
+       - **Sort `[7, 39]`:**
+         - **Divide:** `[7]` and `[39]`
+         - **Merge:** `[7, 39]`
+       - **Merge:** `[7, 28, 39]`
+     - **Merge:** `[5, 7, 10, 28, 39]`
+
+#### Sort `[310, 55, 15, 1]`
+
+1. **Divide:** `[310, 55]` and `[15, 1]`
+
+   - **Sort `[310, 55]`:**
+     - **Divide:** `[310]` and `[55]`
+     - **Merge:** `[55, 310]`
+
+   - **Sort `[15, 1]`:**
+     - **Divide:** `[15]` and `[1]`
+     - **Merge:** `[1, 15]`
+
+   - **Merge:** `[1, 15, 55, 310]`
+
+### Merge Sorted Halves
+
+1. **Merge `[5, 7, 10, 28, 39]` and `[1, 15, 55, 310]`:**
+
+   - **Initial Merging:**
+     - Compare `5` and `1`: Add `1`
+     - Compare `5` and `15`: Add `5`
+     - Compare `7` and `15`: Add `7`
+     - Compare `10` and `15`: Add `10`
+     - Compare `28` and `15`: Add `15`
+     - Compare `28` and `55`: Add `28`
+     - Compare `39` and `55`: Add `39`
+     - Add `55`, `310` (remaining elements)
+
+### Finally Sorted Array
+
+
 
 [1, 5, 7, 10, 15, 28, 39, 55, 310]
 
