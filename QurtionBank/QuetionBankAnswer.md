@@ -941,7 +941,7 @@ int main() {
 # 16. How does selection sort work? 
 ![image](https://github.com/user-attachments/assets/26bb193e-14a7-40e8-a71d-26211c8a7dff)
 
-# 17 What is Selection Sort?
+#  What is Selection Sort?
 - Selection sort, also known as in-place comparison sort, is a simple sorting algorithm. It works on the idea of repeatedly finding the smallest element and 
  placing 
 - it at its correct sorted position.
@@ -1069,7 +1069,7 @@ int main() {
   c. Take care for differnt terms of inputs.
   d. Drop Non Dominants.
 
-# 20. Describe sparse matrix. Find the address of A [2][1] if base address is 1024 for an integer array A[5][4] in row major order and word size is 2 byte.
+### 20. Describe sparse matrix. Find the address of A [2][1] if base address is 1024 for an integer array A[5][4] in row major order and word size is 2 byte.
 # Sparse Matrix
 # Definition:
 - A sparse matrix is a matrix in which most of the elements are zero. In contrast to a dense matrix where most elements are non-zero, sparse matrices are 
@@ -1115,7 +1115,7 @@ Substitute these values into the formula:
 **Result:**
 The address of `A[2][1]` is **1042**.
 
-# 21.Given a two dimensional array A1(1:8, 7:14) stored in row-major order with base address 
+### 21.Given a two dimensional array A1(1:8, 7:14) stored in row-major order with base address 
  100 and size of each element is 4 bytes, find address of the element A1(4, 12). 
 
 ### Address Calculation in Row-Major Order
@@ -1166,7 +1166,7 @@ Simplify:
 **Result:**
 The address of `A1(4, 12)` is **216**.
 
-# 22. Define dynamic memory allocation? 
+### 22. Define dynamic memory allocation? 
 
 ### Dynamic Memory Allocation
 
@@ -1254,7 +1254,7 @@ typedef struct Node {
 } Node;
 ```
 
-# 24.Array is a heterogeneous data type. (True/False). Justify your answer.
+### 24.Array is a heterogeneous data type. (True/False). Justify your answer.
 -ans: False
 
 # 25.A m*n matrix which contains very few non-zero elements. A matrix contains more number of ZERO values than NON-ZERO values. Such matrix is known as ? 
@@ -1319,7 +1319,7 @@ typedef struct Node {
 7. Final prefix: `- * A B ^ + / C D - E F G`
 
 
-# 27. List applications of stack and Convert 2 * 3 / (2-1) + 5 * 3 infix expression into postfix format. Showing stacks status after every step in tabular form and evaluates that postfix notation. 
+### 27. List applications of stack and Convert 2 * 3 / (2-1) + 5 * 3 infix expression into postfix format. Showing stacks status after every step in tabular form and evaluates that postfix notation. 
 
 ### Applications of Stack
 
@@ -1384,7 +1384,7 @@ Stacks are widely used in various computing scenarios:
 
 **Final Result:** `21`
 
-# 28. Transform the following expression to postfix and evaluate postfix expression by assuming A=1,B=2,C=3,D=4,E=6,F=6,G=1,I=3 and J=3. INFIX- A + B – C * D / E + F * G / ( I + J ) 
+### 28. Transform the following expression to postfix and evaluate postfix expression by assuming A=1,B=2,C=3,D=4,E=6,F=6,G=1,I=3 and J=3. INFIX- A + B – C * D / E + F * G / ( I + J ) 
 
 ### Infix to Postfix Conversion and Evaluation
 
@@ -1463,7 +1463,7 @@ Stacks are widely used in various computing scenarios:
 
 **Final Result:** `2`
 
-# 29. Differentiate between LIFO and FIFO access mechanism. 
+### 29. Differentiate between LIFO and FIFO access mechanism. 
 
 ### LIFO vs FIFO Access Mechanism
 
@@ -1495,7 +1495,7 @@ Stacks are widely used in various computing scenarios:
 - **LIFO**: Data is accessed in the reverse order of addition. Suitable for scenarios where the most recently added data should be processed first.
 - **FIFO**: Data is accessed in the same order as addition. Suitable for scenarios where the earliest added data should be processed first.
 
-# 30. How linked list is better compared to stack, queue and array? Explain with concept of dynamic memory allocation. 
+### 30. How linked list is better compared to stack, queue and array? Explain with concept of dynamic memory allocation. 
 
 ### Comparison of Linked List with Stack, Queue, and Array
 
@@ -1553,7 +1553,7 @@ Stacks are widely used in various computing scenarios:
   - Efficiency and flexibility depend on the underlying implementation. Using linked lists for stacks and queues provides dynamic sizing and efficient memory 
  usage.
 
-# 31. In which type of scenario, linear queue ( simple queue ) is better than circular queue? 
+### 31. In which type of scenario, linear queue ( simple queue ) is better than circular queue? 
 ### Linear Queue vs. Circular Queue
 
 #### When Linear Queue (Simple Queue) is Better
@@ -1604,7 +1604,7 @@ a linear queue is preferable in scenarios where simplicity, fixed size, and non-
  situations requiring efficient space utilization and continuous processing.
 
 
-# 32. After evaluation of 3,5,4,*,+ result is ? 
+## 32. After evaluation of 3,5,4,*,+ result is ? 
 
 ### Evaluation of Postfix Expression
 
@@ -1783,7 +1783,7 @@ Final Sorted Array
 
 [1, 2, 3, 4, 5, 6, 7, 8]
 
-# 36. Write Merge Sort algorithm. Apply the algorithm to the following elements: 10,5,28, 7, 39, 310, 55,15,1
+## 36. Write Merge Sort algorithm. Apply the algorithm to the following elements: 10,5,28, 7, 39, 310, 55,15,1
 
 # Merge Sort Algorithm
 
