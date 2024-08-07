@@ -1,4 +1,4 @@
-# What is a data structure? Explain its importance
+# 1.What is a data structure? Explain its importance
 
 - A data structure is a specialized format for organizing, managing, and storing data efficiently. It provides a way to structure data so that it can be accessed and modified effectively. Common data structures 
  include arrays, linked lists, stacks, queues, trees, and graphs.
@@ -34,7 +34,7 @@
 
 
 
-#
+# 3.What are the primary operations that can be performed on a stack?
 
 
 | Operation      | Description                                          |
@@ -63,6 +63,34 @@
 | **Complexity**             | `Push` and `Pop` operations are typically O(1). | `Enqueue` and `Dequeue` operations are typically O(1). |
 | **Implementation**         | Can be implemented using arrays or linked lists. | Can be implemented using arrays, linked lists, or circular buffers. |
 | **Space Utilization**      | Space is used efficiently as long as the stack is not full. | Space utilization can vary; circular queues optimize space usage. |
+
+
+# 5.How does a circular queue differ from a regular queue
+
+![image](https://github.com/user-attachments/assets/a25ce727-422b-4ed9-a263-61a74e7bcc1d)
+
+| **Aspect**            | **Regular Queue**                                                                 | **Circular Queue**                                                           |
+|-----------------------|------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
+| **Structure**         | Linear (array or linked list)                                                       | Circular array                                                                  |
+| **Space Utilization** | Can waste space if elements are dequeued and the queue is not reset                 | Efficiently uses space by wrapping around when the end of the array is reached |
+| **Index Management**  | Separate indices for front and rear; can lead to unused space                      | Uses modular arithmetic to wrap indices around the end of the array            |
+| **Efficiency**        | May require shifting or resizing of elements, leading to potential inefficiencies   | Avoids wasted space and inefficient resizing by reusing freed space             |
+| **Implementation**    | Can be more straightforward but may not utilize space as effectively                | More complex due to circular indexing but maximizes space utilization           |
+
+# 6.Explain the concept of a linked list. How is it different from an array? 
+
+A linked list is a linear data structure where elements are stored in nodes. Each node contains a value and a reference (or link) to the next node in the sequence. There are several types of linked lists, including singly linked lists, doubly linked lists, and circular linked lists.
+
+
+![image](https://github.com/user-attachments/assets/b3cf85bc-8dc3-47c2-ae11-77e9608d0728)
+
+| **Aspect**            | **Linked List**                                                    | **Array**                                              |
+|-----------------------|---------------------------------------------------------------------|--------------------------------------------------------|
+| **Structure**         | Nodes with data and references to next (and previous in doubly)     | Contiguous memory block                                |
+| **Size**              | Dynamic; grows or shrinks as needed                                | Fixed size; predefined at creation                    |
+| **Access Time**       | O(n); requires traversal from the head (or tail in doubly)          | O(1); direct access via index                          |
+| **Insertion/Deletion**| Efficient; involves updating references                            | Inefficient; requires shifting elements                |
+| **Memory Overhead**   | Extra space for pointers or references                             | No extra overhead; just the data elements              |
 
 
 
@@ -132,7 +160,7 @@ A queue is a linear data structure that follows the FIFO (First In, First Out) p
 These operations ensure that queues efficiently manage elements in the order they are received.
 
 
-# Main Operations of a Stack
+# 9.Main Operations of a Stack
 
 A stack is a linear data structure that follows the LIFO (Last In, First Out) principle. Below are the main operations of a stack and their time complexities:
 
@@ -642,9 +670,228 @@ int main() {
     display(head);
 
 ```
+# 13.What is a circular linked list? 
+
+Here, we can keep traversing forever and ever until the program crashes as the tail node's next pointer points to the head node instead of a NULL.
+
+
+![image](https://github.com/user-attachments/assets/0303497c-6d38-4026-a5e4-aa76c9aad4e3)
+
+
+# implementation of circular linked list
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+// Define the structure of a Node
+struct Node {
+    int data; // The data part of the node
+    struct Node *next; // Pointer to the next node in the list
+};
+
+// Function to insert a node at the beginning of the circular linked list
+void insertStart(struct Node **head, int data) {
+    // Allocate memory for the new node
+    struct Node *newNode = (struct Node *) malloc(sizeof(struct Node));
+    newNode->data = data; // Assign data to the new node
+    
+    // If the list is empty
+    if (*head == NULL) {
+        newNode->next = newNode; // Point to itself
+        *head = newNode; // Update head to point to the new node
+    } else {
+        struct Node *temp = *head;
+        // Traverse to the last node
+        while (temp->next != *head) {
+            temp = temp->next;
+        }
+        temp->next = newNode; // Link the last node to the new node
+        newNode->next = *head; // New node points to the head
+        *head = newNode; // Update head to the new node
+    }
+}
+
+// Function to delete a node with a specific key from the circular linked list
+void deleteNode(struct Node **head, int key) {
+    struct Node *temp = *head; // Temporary pointer to traverse the list
+    struct Node *prev = NULL; // Pointer to keep track of the previous node
+
+    // If the list is empty
+    if (*head == NULL) return;
+
+    // If the head node itself holds the key to be deleted
+    if (temp->data == key) {
+        // Find the last node
+        struct Node *last = *head;
+        while (last->next != *head) {
+            last = last->next;
+        }
+        // Update the last node's next to the new head
+        if (*head == (*head)->next) { // Only one node
+            free(*head);
+            *head = NULL;
+        } else {
+            last->next = temp->next; // Bypass the head node
+            *head = temp->next; // Update head to the next node
+            free(temp); // Free memory of the old head
+        }
+        return;
+    }
+
+    // Traverse the list to find the key
+    while (temp->next != *head && temp->next->data != key) {
+        temp = temp->next; // Move to the next node
+    }
+
+    // If the key was not present in the list
+    if (temp->next == *head) return;
+
+    // Unlink the node from the list
+    struct Node *toDelete = temp->next;
+    temp->next = toDelete->next;
+    free(toDelete); // Free memory of the deleted node
+}
+
+// Function to display the circular linked list
+void display(struct Node *head) {
+    if (head == NULL) {
+        printf("List is empty.\n");
+        return;
+    }
+    struct Node *temp = head;
+    do {
+        printf("%d ", temp->data); // Print the data of the current node
+        temp = temp->next; // Move to the next node
+    } while (temp != head);
+    printf("\n");
+}
+
+int main() {
+    struct Node *head = NULL; // Initialize head pointer
+
+    // Insert nodes into the circular linked list
+    insertStart(&head, 15);
+    insertStart(&head, 10);
+    insertStart(&head, 12);
+    insertStart(&head, 3);
+
+    // Display the circular linked list
+    printf("Circular Linked List: ");
+    display(head);
+
+    // Insert a new node at the beginning
+    insertStart(&head, 25);
+
+    // Display the circular linked list after insertion
+    printf("After Inserting Element: ");
+    display(head);
+
+    // Delete a node with the data value 10
+    deleteNode(&head, 10);
+
+    // Display the circular linked list after deletion
+    printf("After Deleting Element: ");
+    display(head);
+
+    return 0;
+}
+```
+
+# 14. What is linear search, and what is its time complexity?
+
+
+Definition:
+Linear search is a straightforward search algorithm that checks each element of a list or array one by one until the target value is found or the end of the list is reached. It is also known as sequential search.
+
+How It Works:
+
+Start at the beginning of the list.
+Compare each element with the target value.
+If a match is found, return the index of the element.
+If the end of the list is reached without finding the target, return an indication that the target is not present (e.g., -1 or null).
+Characteristics:
+
+Unsorted Data: Linear search does not require the list to be sorted.
+Simple Implementation: Easy to implement and understand.
+Time Complexity:
+
+Best Case: 𝑂(1)
+O(1) — The target value is found at the first position of the list.
+Average Case: 𝑂(𝑛)
+O(n) — The target value is found somewhere in the middle or may not be present at all.
+Worst Case: 𝑂(𝑛)
+O(n) — The target value is either not present in the list or is at the last position.
+Where 𝑛
+n is the number of elements in the list.
+
+![image](https://github.com/user-attachments/assets/06753f2c-699a-4302-b1b3-d45bb5e78dad)
+
+Implementation
+```c
+#include <stdio.h>
+
+int linearSearch(int arr[], int size, int target) {
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == target) {
+            return i; // Return the index of the target
+        }
+    }
+    return -1; // Return -1 if the target is not found
+}
+
+int main() {
+    int arr[] = {10, 20, 30, 40, 50};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int target = 30;
+
+    int result = linearSearch(arr, size, target);
+
+    if (result != -1) {
+        printf("Element found at index %d\n", result);
+    } else {
+        printf("Element not found\n");
+    }
+
+    return 0;
+}
+```
 
 # 15. Explain binary search. How does it improve search efficiency compared to linear search? 
 
+Definition:
+Binary search is an efficient algorithm for finding an element in a sorted list or array. It works by repeatedly dividing the search interval in half, narrowing down the potential locations of the target value.
+
+How It Works:
+
+Initialization: Start with two pointers, low and high, representing the bounds of the list (initially set to the first and last indices of the list, respectively).
+Middle Element: Calculate the middle index, mid, of the current search interval.
+Comparison:
+If the middle element is equal to the target value, return the middle index.
+If the target value is less than the middle element, adjust the high pointer to mid - 1 (search the left half).
+If the target value is greater than the middle element, adjust the low pointer to mid + 1 (search the right half).
+Repeat: Continue the process until the low pointer is greater than the high pointer, indicating that the target is not present in the list.
+Result: Return -1 or another indication that the target value is not found.
+Time Complexity:
+
+Best Case: 𝑂(1)
+O(1) — The target value is found at the middle index on the first comparison.
+Average Case: 𝑂(log𝑛)
+O(logn) — The search space is halved with each comparison.
+Worst Case: 𝑂(log𝑛)
+O(logn) — The target value is not present, and the search space is divided until the pointers converge.
+Where 𝑛
+n is the number of elements in the list.
+
+Efficiency Improvement:
+
+Binary search is much more efficient than linear search for large datasets due to its logarithmic time complexity 
+𝑂(log𝑛)
+O(logn), compared to linear search's 
+𝑂(𝑛)
+O(n). Here's why:
+
+Reduction in Search Space: Binary search eliminates half of the remaining elements in each step, making the search process significantly faster compared to checking each element sequentially as in linear search.
+Sorted Data Requirement: Binary search requires the data to be sorted. If the data is already sorted, binary search is highly efficient. However, if the data needs to be sorted first, the overall efficiency gain depends on the sorting algorithm used.
 
 ### PsedoCode
 ```c
@@ -690,3 +937,181 @@ int main() {
     return 0;
 }
 ```
+
+# 16. How does selection sort work? 
+![image](https://github.com/user-attachments/assets/26bb193e-14a7-40e8-a71d-26211c8a7dff)
+
+# What is Selection Sort?
+- Selection sort, also known as in-place comparison sort, is a simple sorting algorithm. It works on the idea of repeatedly finding the smallest element and 
+ placing 
+- it at its correct sorted position.
+- Selection sort works by dividing the list into two sublists:
+1.Sorted sublist — that is built on the left end of the list from left to right.
+2.Unsorted sublist — that is the rest of the unsorted list, on the right end.
+
+# Flowchart of the Selection Sort
+- A flowchart for the Selection Sort algorithm could be described as follows:
+1.Start: Begin the process.
+2.Input List: Obtain the list or array to be sorted.
+3.Initialize: Set the current index as the starting index. This represents the beginning of the unsorted portion of the list.
+4.Find Minimum: Traverse the rest of the unsorted portion to find the smallest element.
+5.Swap: Swap the smallest element found with the element at the current index.
+6.Increment Index: Increase the current index by one, moving the boundary of the sorted and unsorted portions of the list.
+7.Check: Check if the current index is less than the length of the list — 1. If it is, go back to the “Find Minimum” step. If it’s not, all elements have been 
+ sorted.
+8.End: End the process. The list is now sorted in ascending order.
+
+#17.Classify data structures with diagram. 
+
+![image](https://github.com/user-attachments/assets/20970202-fe83-47a0-bfc6-ebcca9127048)
+
+# 18.Interpret Big O complexity chart?
+![image](https://github.com/user-attachments/assets/5755c53d-119e-4be8-ac8f-4b932fe6143a)
+
+# 19.Discuss Time complexity 
+
+- The time complexity is the number of operations an algorithm performs to complete its task with respect to input size (considering that each operation takes 
+ the same amount of time). The algorithm that performs the task in the smallest number of operations is considered the most efficient one.
+
+# Best case, Average case, and Worst case
+- An algorithm can have different time for different inputs. It may take 1 second for some input and 10 seconds for some other input.
+ For example: We have one array named “ arr” and an integer “ k “. we need to find if that integer “ k “ is present in the array “ arr “ or not? If the integer 
+ is there, then return 1 other return 0. Try to make an algorithm for this question.
+
+# Notation (theta)
+- The Θ Notation is used to find the average bound of an algorithm i.e. it defines an upper bound and a lower bound, and your algorithm will lie in between these 
+ levels. So, if a function is g(n), then the theta representation is shown as Θ(g(n)) and the relation is shown as:
+```c
+Θ(g(n)) = { f(n): there exist positive constants c1, c2 and n0
+          such that 0 ≤ c1g(n) ≤ f(n) ≤ c2g(n) for all n ≥ n0 }
+```
+- The above expression can be read as theta of g(n) is defined as set of all the functions f(n) for which there exists some positive constants c1, c2, and n0 
+ such that c1g(n) is less than or equal to f(n) and f(n) is less than or equal to c2g(n) for all n that is greater than or equal to n0.
+
+![image](https://github.com/user-attachments/assets/6763bf05-5c5b-42a1-9637-895282992960)
+
+- In the above expression, a function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1 and c2 such that it can be sandwiched between c1g(n) 
+ and c2g(n), for sufficiently large n. If a function f(n) lies anywhere in between c1g(n) and c2g(n) for all n ≥ n0, then f(n) is said to be asymptotically tight 
+ bound.
+
+# Ω Notation
+- The Ω notation denotes the lower bound of an algorithm i.e. the time taken by the algorithm can’t be lower than this. In other words, this is the fastest time 
+ in which the algorithm will return a result. Its the time taken by the algorithm when provided with its best-case input. So, if a function is g(n), then the 
+ omega representation is shown as Ω(g(n)) and the relation is shown as:
+```c
+Ω(g(n)) = { f(n): there exist positive constants c and n0 
+          such that 0 ≤ cg(n) ≤ f(n) for all n ≥ n0 }
+```
+
+![image](https://github.com/user-attachments/assets/5546a5e2-3f7c-4da8-acc9-75e4ce347d6e)
+
+- In the above expression, a function f(n) belongs to the set Ω(g(n)) if there exists a positive constant c such that it lies above cg(n), for sufficiently large 
+ n. For any value of n, the minimum time required by the algorithm is given by Omega Ω(g(n)).
+
+# Big O Notation
+ The Big O notation defines the upper bound of any algorithm i.e. you algorithm can’t take more time than this time. In other words, we can say that the big O 
+ notation denotes the maximum time taken by an algorithm or the worst-case time complexity of an algorithm. So, big O notation is the most used notation for the 
+ time complexity of an algorithm. So, if a function is g(n), then the big O representation of g(n) is shown as O(g(n)) and the relation is shown as:
+```c
+ O(g(n)) = { f(n): there exist positive constants c and n0
+          such that 0 ≤ f(n) ≤ cg(n) for all n ≥ n0 }
+```
+![image](https://github.com/user-attachments/assets/75d76844-3564-4df7-9659-90bd3a2d251b)
+
+ 1. What is Big-O?
+
+• Big-O allows us to give an idea of the scalability of code.
+• It tells how long it takes to run an algorithm. 
+• As the number of elements increases how the number of operation increases determines algorithmic efficiency.
+• Big-O concerns with the number of operations taken to complete a task.
+
+2. Time Complexities of some common siniipets:
+-Big Os - https://www.bigocheatsheet.com/
+
+• O(1) Constant- no loops - Constant time – No matter how much the number of input increases the number of operations remains the same.
+
+• O(log N) Logarithmic- usually searching algorithms have log n if they are sorted (Binary Search) 
+
+• O(n) Linear- for loops, while loops through n items 
+
+• O(n log(n)) Log Linear- usually sorting operations 
+
+• O(n^2) Quadratic- every element in a collection needs to be compared to ever other element. Two nested loops 
+
+• O(2^n) Exponential- recursive algorithms that solves a problem of size N 
+
+• O(n!) Factorial- you are adding a loop for every element 
+
+• Iterating through half a collection is still O(n)
+ 
+• Two separate collections: O(a * b)
+
+• If loops are nested we multiply the Big-O = O (n * n) = O(n^2) = Quadratic times.
+
+• If 1 loop for each different array, then Big-O = O (a + b).
+
+• If 2 different inputs are nested, then Big-O = O (a * b).
+
+• If 3 different inputs are nested, then Big-O = O (a * b * c).
+
+• If 3 same inputs are nested, then Big-O = O (n * n * n).
+
+3. What can cause time in a function?
+
+• Operations (+, -, *, /)
+• Comparisons (, ==)
+• Looping (for, while)
+• Outside Function call (function())
+
+4. Rules for calculating Time Complexity.
+  a. Always consider for wrost case.
+  b. Remove constants.
+  c. Take care for differnt terms of inputs.
+  d. Drop Non Dominants.
+
+# 20. Describe sparse matrix. Find the address of A [2][1] if base address is 1024 for an integer array A[5][4] in row major order and word size is 2 byte.
+# Sparse Matrix
+# Definition:
+- A sparse matrix is a matrix in which most of the elements are zero. In contrast to a dense matrix where most elements are non-zero, sparse matrices are 
+ characterized by having a significant number of zero elements.
+
+### Address Calculation in Row-Major Order
+
+To find the address of an element in a two-dimensional array stored in row-major order, use the following formula:
+
+**Address Formula:**
+
+\[ \text{Address} = \text{Base Address} + \left[ (i \times \text{Number of Columns} + j) \times \text{Word Size} \right] \]
+
+Where:
+- \( i \) = Row index
+- \( j \) = Column index
+- Number of Columns = Number of columns in the array
+- Word Size = Size of each element in bytes
+
+**Example Calculation:**
+
+Given:
+- Base Address = 1024
+- Array Dimensions: `A[5][4]` (5 rows, 4 columns)
+- Word Size = 2 bytes
+- Element to Find: `A[2][1]`
+
+**Steps:**
+
+1. **Row index (\( i \))**: 2
+2. **Column index (\( j \))**: 1
+3. **Number of Columns**: 4
+4. **Word Size**: 2 bytes
+
+Substitute these values into the formula:
+
+\[ \text{Address} = 1024 + \left[ (2 \times 4 + 1) \times 2 \right] \]
+\[ \text{Address} = 1024 + \left[ (8 + 1) \times 2 \right] \]
+\[ \text{Address} = 1024 + \left[ 9 \times 2 \right] \]
+\[ \text{Address} = 1024 + 18 \]
+\[ \text{Address} = 1042 \]
+
+**Result:**
+The address of `A[2][1]` is **1042**.
+
