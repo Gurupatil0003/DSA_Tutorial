@@ -941,7 +941,7 @@ int main() {
 # 16. How does selection sort work? 
 ![image](https://github.com/user-attachments/assets/26bb193e-14a7-40e8-a71d-26211c8a7dff)
 
-# What is Selection Sort?
+# 17 What is Selection Sort?
 - Selection sort, also known as in-place comparison sort, is a simple sorting algorithm. It works on the idea of repeatedly finding the smallest element and 
  placing 
 - it at its correct sorted position.
@@ -961,7 +961,7 @@ int main() {
  sorted.
 8.End: End the process. The list is now sorted in ascending order.
 
-#17.Classify data structures with diagram. 
+# 17.Classify data structures with diagram. 
 
 ![image](https://github.com/user-attachments/assets/20970202-fe83-47a0-bfc6-ebcca9127048)
 
@@ -1114,4 +1114,391 @@ Substitute these values into the formula:
 
 **Result:**
 The address of `A[2][1]` is **1042**.
+
+# 21.Given a two dimensional array A1(1:8, 7:14) stored in row-major order with base address 
+ 100 and size of each element is 4 bytes, find address of the element A1(4, 12). 
+
+### Address Calculation in Row-Major Order
+
+To find the address of an element in a two-dimensional array stored in row-major order, use the following formula:
+
+**Address Formula:**
+
+\[ \text{Address} = \text{Base Address} + \left[ ((i - \text{Starting Row}) \times \text{Number of Columns} + (j - \text{Starting Column})) \times \text{Element Size} \right] \]
+
+Where:
+- \( i \) = Row index
+- \( j \) = Column index
+- Starting Row = 1
+- Starting Column = 7
+- Number of Columns = 8
+- Element Size = 4 bytes
+
+**Example Calculation:**
+
+Given:
+- Array: `A1(1:8, 7:14)`
+- Base Address = 100
+- Size of Each Element = 4 bytes
+- Element to Find: `A1(4, 12)`
+
+**Steps:**
+
+1. **Row Index (\( i \))**: 4
+2. **Column Index (\( j \))**: 12
+3. **Starting Row**: 1
+4. **Starting Column**: 7
+5. **Number of Columns**: 8
+6. **Element Size**: 4 bytes
+
+Substitute these values into the formula:
+
+\[ \text{Address} = 100 + \left[ ((4 - 1) \times 8 + (12 - 7)) \times 4 \right] \]
+
+Simplify:
+
+\[ \text{Address} = 100 + \left[ (3 \times 8 + 5) \times 4 \right] \]
+\[ \text{Address} = 100 + \left[ (24 + 5) \times 4 \right] \]
+\[ \text{Address} = 100 + \left[ 29 \times 4 \right] \]
+\[ \text{Address} = 100 + 116 \]
+\[ \text{Address} = 216 \]
+
+**Result:**
+The address of `A1(4, 12)` is **216**.
+
+# 22. Define dynamic memory allocation? 
+
+### Dynamic Memory Allocation
+
+**Definition:**
+
+Dynamic memory allocation refers to the process of allocating and deallocating memory at runtime, as needed by a program. Unlike static memory allocation, which reserves a fixed amount of memory at compile time, dynamic memory allocation allows a program to request memory during execution, making it possible to handle varying data sizes and structures efficiently.
+
+**Key Points:**
+
+1. **Runtime Allocation:**
+   - Memory is allocated during program execution rather than at compile time. This flexibility is useful for handling dynamic data structures that may change in size.
+
+2. **Common Functions (in C/C++):**
+   - **`malloc(size_t size)`**: Allocates a block of `size` bytes of memory and returns a pointer to it. The allocated memory is not initialized.
+   - **`calloc(size_t num, size_t size)`**: Allocates memory for an array of `num` elements, each of `size` bytes, and initializes all bytes to zero.
+   - **`realloc(void *ptr, size_t size)`**: Resizes the memory block pointed to by `ptr` to `size` bytes. It may move the block to a new location if necessary.
+   - **`free(void *ptr)`**: Deallocates the memory previously allocated by `malloc`, `calloc`, or `realloc`, making it available for future allocations.
+
+3. **Advantages:**
+   - **Flexibility**: Allows for the allocation of memory as needed, which is ideal for dynamic data structures like linked lists and dynamic arrays.
+   - **Efficient Use**: Memory is allocated only when needed, potentially reducing wasted space.
+
+4. **Disadvantages:**
+   - **Overhead**: Allocating and deallocating memory incurs overhead.
+   - **Memory Leaks**: If memory is not properly deallocated, it can lead to memory leaks.
+   - **Fragmentation**: Repeated allocation and deallocation can lead to fragmentation, which may impact performance.
+
+**Example in C:**
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    // Allocate memory for an integer
+    int *ptr = (int *)malloc(sizeof(int));
+    if (ptr == NULL) {
+        printf("Memory allocation failed\n");
+        return 1;
+    }
+    *ptr = 10; // Assign a value
+    printf("Value: %d\n", *ptr);
+
+    // Reallocate memory for an array of 5 integers
+    ptr = (int *)realloc(ptr, 5 * sizeof(int));
+    if (ptr == NULL) {
+        printf("Memory reallocation failed\n");
+        return 1;
+    }
+    for (int i = 0; i < 5; i++) {
+        ptr[i] = i + 1; // Assign values
+    }
+
+    // Print the values
+    for (int i = 0; i < 5; i++) {
+        printf("Value[%d]: %d\n", i, ptr[i]);
+    }
+
+    // Free the allocated memory
+    free(ptr);
+
+    return 0;
+}
+```
+# 23. Define referential structure? 
+
+![image](https://github.com/user-attachments/assets/27ea4fde-0b6b-4947-8a8c-7c0a51429f2a)
+
+### Self-Referential Structure in C
+
+A **self-referential structure** in C is a structure that includes a pointer to an instance of the same structure type. This is essential for creating complex data structures such as linked lists, trees, and graphs. The self-reference allows for the dynamic linking of elements within these structures.
+
+**Key Concept:**
+
+- **Pointer to Same Type:** The structure contains a member that is a pointer to its own type, facilitating the creation of linked elements.
+
+**Example of Self-Referential Structure:**
+
+A common example is a node in a singly linked list. Below is a C structure definition for such a node:
+
+```c
+typedef struct Node {
+    int data;              // Data part of the node
+    struct Node *next;    // Pointer to the next node (same type of structure)
+} Node;
+```
+
+# 24.Array is a heterogeneous data type. (True/False). Justify your answer.
+-ans: False
+
+# 25.A m*n matrix which contains very few non-zero elements. A matrix contains more number of ZERO values than NON-ZERO values. Such matrix is known as ? 
+- Sparse Matrix
+### Infix to Postfix and Prefix Conversions
+
+#### 1. Expression: `(A + B) / C - D * E`
+
+**Postfix Conversion:**
+
+1. **Infix:** `(A + B) / C - D * E`
+2. Convert `(A + B)` to postfix: `A B +`
+3. Combine with `/ C`: `A B + C /`
+4. Convert `D * E` to postfix: `D E *`
+5. Final postfix: `A B + C / D E * -`
+
+**Prefix Conversion:**
+
+1. **Infix:** `(A + B) / C - D * E`
+2. Convert `A + B` to prefix: `+ A B`
+3. Combine with `/ C`: `/ + A B C`
+4. Convert `D * E` to prefix: `* D E`
+5. Final prefix: `- / + A B C * D E`
+
+#### 2. Expression: `P ^ Q ^ R + S / T`
+
+**Postfix Conversion:**
+
+1. **Infix:** `P ^ Q ^ R + S / T`
+2. Convert `Q ^ R` to postfix: `Q R ^`
+3. Combine with `P ^ (Q ^ R)`: `P Q R ^ ^`
+4. Convert `S / T` to postfix: `S T /`
+5. Final postfix: `P Q R ^ ^ S T / +`
+
+**Prefix Conversion:**
+
+1. **Infix:** `P ^ Q ^ R + S / T`
+2. Convert `Q ^ R` to prefix: `^ Q R`
+3. Combine with `P ^ (Q ^ R)`: `^ P ^ Q R`
+4. Convert `S / T` to prefix: `/ S T`
+5. Final prefix: `+ ^ P ^ Q R / S T`
+
+#### 3. Expression: `A * B - (C / D + (E - F)) ^ G`
+
+**Postfix Conversion:**
+
+1. **Infix:** `A * B - (C / D + (E - F)) ^ G`
+2. Convert `E - F` to postfix: `E F -`
+3. Combine with `C / D`: `C D / E F - +`
+4. Combine with `^ G`: `C D / E F - + G ^`
+5. Combine with `A * B`: `A B *`
+6. Final postfix: `A B * C D / E F - + G ^ -`
+
+**Prefix Conversion:**
+
+1. **Infix:** `A * B - (C / D + (E - F)) ^ G`
+2. Convert `E - F` to prefix: `- E F`
+3. Combine with `C / D`: `/ C D`
+4. Combine with `+ (E - F)`: `+ / C D - E F`
+5. Combine with `^ G`: `^ + / C D - E F G`
+6. Combine with `A * B`: `* A B`
+7. Final prefix: `- * A B ^ + / C D - E F G`
+
+
+# 27. List applications of stack and Convert 2 * 3 / (2-1) + 5 * 3 infix expression into postfix format. Showing stacks status after every step in tabular form and evaluates that postfix notation. 
+
+### Applications of Stack
+
+Stacks are widely used in various computing scenarios:
+
+1. **Expression Evaluation**: Evaluating postfix expressions and converting between different notations (infix, postfix, prefix).
+2. **Function Call Management**: Managing function calls and returns in programming languages.
+3. **Undo Mechanism**: Implementing undo functionality in software applications.
+4. **Backtracking Algorithms**: Used in algorithms for solving problems like maze solving and puzzle solving.
+5. **Syntax Parsing**: Checking for balanced parentheses and parsing expressions.
+6. **Depth-First Search (DFS)**: Traversing graphs using stack-based algorithms.
+
+### Infix to Postfix Conversion
+
+**Infix Expression:** `2 * 3 / (2 - 1) + 5 * 3`
+
+**Conversion Steps:**
+
+| Step | Action                    | Stack           | Postfix Expression  |
+|------|---------------------------|------------------|---------------------|
+| 1    | Read `2`                   |                  | `2`                 |
+| 2    | Read `*`                   | `*`              | `2`                 |
+| 3    | Read `3`                   | `*`              | `2 3`               |
+| 4    | Process `*` (pop and append) |                  | `2 3 *`             |
+| 5    | Read `/`                   | `/`              | `2 3 *`             |
+| 6    | Read `(`                   | `/ (`            | `2 3 *`             |
+| 7    | Read `2`                   | `/ (`            | `2 3 * 2`           |
+| 8    | Read `-`                   | `/ ( -`          | `2 3 * 2`           |
+| 9    | Read `1`                   | `/ ( -`          | `2 3 * 2 1`         |
+| 10   | Process `-` (pop and append) | `/ (`            | `2 3 * 2 1 -`       |
+| 11   | Process `(` (pop and append) | `/`              | `2 3 * 2 1 -`       |
+| 12   | Process `/` (pop and append) |                  | `2 3 * 2 1 - /`     |
+| 13   | Read `+`                   | `+`              | `2 3 * 2 1 - /`     |
+| 14   | Read `5`                   | `+`              | `2 3 * 2 1 - / 5`   |
+| 15   | Read `*`                   | `+ *`            | `2 3 * 2 1 - / 5`   |
+| 16   | Read `3`                   | `+ *`            | `2 3 * 2 1 - / 5 3` |
+| 17   | Process `*` (pop and append) | `+`              | `2 3 * 2 1 - / 5 3 *` |
+| 18   | Process `+` (pop and append) |                  | `2 3 * 2 1 - / 5 3 * +` |
+
+**Postfix Expression:**
+`2 3 * 2 1 - / 5 3 * +`
+
+### Evaluation of Postfix Expression
+
+**Postfix Expression:** `2 3 * 2 1 - / 5 3 * +`
+
+**Evaluation Steps:**
+
+| Step | Action                    | Stack           | Result |
+|------|---------------------------|------------------|--------|
+| 1    | Push `2`                   | `2`              |        |
+| 2    | Push `3`                   | `2, 3`           |        |
+| 3    | Process `*` (pop `2` and `3`, push result `6`) | `6` |        |
+| 4    | Push `2`                   | `6, 2`           |        |
+| 5    | Push `1`                   | `6, 2, 1`        |        |
+| 6    | Process `-` (pop `1` and `2`, push result `1`) | `6, 1` |        |
+| 7    | Process `/` (pop `1` and `6`, push result `6`) | `6` |        |
+| 8    | Push `5`                   | `6, 5`           |        |
+| 9    | Push `3`                   | `6, 5, 3`        |        |
+| 10   | Process `*` (pop `3` and `5`, push result `15`) | `6, 15` |        |
+| 11   | Process `+` (pop `15` and `6`, push result `21`) | `21` | `21`   |
+
+**Final Result:** `21`
+
+# 28. Transform the following expression to postfix and evaluate postfix expression by assuming A=1,B=2,C=3,D=4,E=6,F=6,G=1,I=3 and J=3. INFIX- A + B – C * D / E + F * G / ( I + J ) 
+
+### Infix to Postfix Conversion and Evaluation
+
+**Infix Expression:** `A + B – C * D / E + F * G / ( I + J )`
+
+#### Conversion to Postfix
+
+**Conversion Steps:**
+
+| Step | Action                                    | Stack           | Postfix Expression  |
+|------|-------------------------------------------|------------------|---------------------|
+| 1    | Read `A`                                 |                  | `A`                 |
+| 2    | Read `+`                                 | `+`              | `A`                 |
+| 3    | Read `B`                                 | `+`              | `A B`               |
+| 4    | Process `+` (pop and append)              |                  | `A B +`             |
+| 5    | Read `–`                                 | `–`              | `A B +`             |
+| 6    | Read `C`                                 | `–`              | `A B + C`           |
+| 7    | Read `*`                                 | `– *`            | `A B + C`           |
+| 8    | Read `D`                                 | `– *`            | `A B + C D`         |
+| 9    | Process `*` (pop and append)              | `–`              | `A B + C D *`       |
+| 10   | Read `/`                                 | `– /`            | `A B + C D *`       |
+| 11   | Read `E`                                 | `– /`            | `A B + C D * E`     |
+| 12   | Process `/` (pop and append)              | `–`              | `A B + C D * E /`   |
+| 13   | Read `+`                                 | `+`              | `A B + C D * E / –` |
+| 14   | Read `F`                                 | `+`              | `A B + C D * E / – F` |
+| 15   | Read `*`                                 | `+ *`            | `A B + C D * E / – F` |
+| 16   | Read `G`                                 | `+ *`            | `A B + C D * E / – F G` |
+| 17   | Process `*` (pop and append)              | `+`              | `A B + C D * E / – F G *` |
+| 18   | Read `/`                                 | `+ /`            | `A B + C D * E / – F G *` |
+| 19   | Read `(`                                 | `+ / (`          | `A B + C D * E / – F G *` |
+| 20   | Read `I`                                 | `+ / (`          | `A B + C D * E / – F G * I` |
+| 21   | Read `+`                                 | `+ / (` +`       | `A B + C D * E / – F G * I` |
+| 22   | Read `J`                                 | `+ / (` +`       | `A B + C D * E / – F G * I J` |
+| 23   | Process `+` (pop and append)              | `+ /`            | `A B + C D * E / – F G * I J +` |
+| 24   | Process `/` (pop and append)              | `+`              | `A B + C D * E / – F G * I J + /` |
+| 25   | Process `+` (pop and append)              |                  | `A B + C D * E / – F G * I J + / +` |
+
+**Postfix Expression:** `A B + C D * E / – F G * I J + / +`
+
+#### Evaluation of Postfix Expression
+
+**Postfix Expression:** `A B + C D * E / – F G * I J + / +`
+
+**Variable Values:**
+- `A = 1`
+- `B = 2`
+- `C = 3`
+- `D = 4`
+- `E = 6`
+- `F = 6`
+- `G = 1`
+- `I = 3`
+- `J = 3`
+
+**Evaluation Steps:**
+
+| Step | Action                    | Stack           | Result |
+|------|---------------------------|------------------|--------|
+| 1    | Push `1` (A)               | `1`              |        |
+| 2    | Push `2` (B)               | `1, 2`           |        |
+| 3    | Process `+` (pop `2` and `1`, push result `3`) | `3` |        |
+| 4    | Push `3` (C)               | `3, 3`           |        |
+| 5    | Push `4` (D)               | `3, 3, 4`        |        |
+| 6    | Process `*` (pop `4` and `3`, push result `12`) | `3, 12` |        |
+| 7    | Push `6` (E)               | `3, 12, 6`       |        |
+| 8    | Process `/` (pop `6` and `12`, push result `2`) | `3, 2` |        |
+| 9    | Process `–` (pop `2` and `3`, push result `1`) | `1` |        |
+| 10   | Push `6` (F)               | `1, 6`           |        |
+| 11   | Push `1` (G)               | `1, 6, 1`        |        |
+| 12   | Process `*` (pop `1` and `6`, push result `6`) | `1, 6` |        |
+| 13   | Push `3` (I)               | `1, 6, 3`        |        |
+| 14   | Push `3` (J)               | `1, 6, 3, 3`     |        |
+| 15   | Process `+` (pop `3` and `3`, push result `6`) | `1, 6, 6` |        |
+| 16   | Process `/` (pop `6` and `6`, push result `1`) | `1, 1` |        |
+| 17   | Process `+` (pop `1` and `1`, push result `2`) | `2` | `2` |
+
+**Final Result:** `2`
+
+# 29. Differentiate between LIFO and FIFO access mechanism. 
+
+### LIFO vs FIFO Access Mechanism
+
+**LIFO (Last In, First Out)** and **FIFO (First In, First Out)** are two different mechanisms used for accessing data in data structures. Here's how they differ:
+
+| Feature                | LIFO (Last In, First Out)                  | FIFO (First In, First Out)              |
+|------------------------|---------------------------------------------|-----------------------------------------|
+| **Definition**         | The last element added is the first to be removed. | The first element added is the first to be removed. |
+| **Data Structure**     | Stack                                      | Queue                                    |
+| **Access Pattern**     | Last added item is accessed first.         | First added item is accessed first.     |
+| **Operations**         | - `Push` (add item) <br> - `Pop` (remove item) | - `Enqueue` (add item) <br> - `Dequeue` (remove item) |
+| **Example Use Case**   | Function call stack, undo mechanisms       | Scheduling tasks, buffering data        |
+| **Visual Representation** | ![LIFO](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Stack_data_structure.png/300px-Stack_data_structure.png) | ![FIFO](https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Queue_data_structure.png/300px-Queue_data_structure.png) |
+| **Order of Removal**   | Reverse of order of insertion.             | Same as order of insertion.             |
+
+#### Example:
+
+- **LIFO Stack Operations:**
+  - Push: [1] → [1, 2] → [1, 2, 3]
+  - Pop: Removes 3, resulting in [1, 2]
+
+- **FIFO Queue Operations:**
+  - Enqueue: [1] → [1, 2] → [1, 2, 3]
+  - Dequeue: Removes 1, resulting in [2, 3]
+
+#### Summary:
+
+- **LIFO**: Data is accessed in the reverse order of addition. Suitable for scenarios where the most recently added data should be processed first.
+- **FIFO**: Data is accessed in the same order as addition. Suitable for scenarios where the earliest added data should be processed first.
+
+
+
+
+
+
+
+
 
