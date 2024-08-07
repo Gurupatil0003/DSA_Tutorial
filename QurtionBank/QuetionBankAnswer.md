@@ -1716,7 +1716,7 @@ Bubble Sort is a simple comparison-based sorting algorithm that repeatedly steps
 
 #### Bubble Sort Algorithm (Pseudocode)
 
-```plaintext
+```c
 BubbleSort(array A)
     n = length(A)
     for i = 0 to n-1 do
@@ -1791,13 +1791,15 @@ Merge Sort is a divide-and-conquer algorithm that divides the array into smaller
 
 ## Merge Sort Algorithm (Pseudocode)
 
-```plaintext
+```c
 MergeSort(array A, left, right)
     if left < right then
         mid = (left + right) / 2
         MergeSort(A, left, mid)    // Recursively sort the left half
         MergeSort(A, mid + 1, right) // Recursively sort the right half
         Merge(A, left, mid, right) // Merge the sorted halves
+
+```
 ```c
 Merge(array A, left, mid, right)
     n1 = mid - left + 1
