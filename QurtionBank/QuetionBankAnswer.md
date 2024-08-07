@@ -1476,7 +1476,9 @@ Stacks are widely used in various computing scenarios:
 | **Access Pattern**     | Last added item is accessed first.         | First added item is accessed first.     |
 | **Operations**         | - `Push` (add item) <br> - `Pop` (remove item) | - `Enqueue` (add item) <br> - `Dequeue` (remove item) |
 | **Example Use Case**   | Function call stack, undo mechanisms       | Scheduling tasks, buffering data        |
-| **Visual Representation** | ![LIFO](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Stack_data_structure.png/300px-Stack_data_structure.png) | ![FIFO](https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Queue_data_structure.png/300px-Queue_data_structure.png) |
+| **Visual Representation** | ![LIFO]![image](https://github.com/user-attachments/assets/05eabec3-7fc2-41a4-a39f-d4dbbd565134)
+ | ![FIFO]![image](https://github.com/user-attachments/assets/85770284-392d-4e2c-be49-ea78b4bcdea8)
+ |
 | **Order of Removal**   | Reverse of order of insertion.             | Same as order of insertion.             |
 
 #### Example:
