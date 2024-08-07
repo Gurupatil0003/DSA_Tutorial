@@ -1782,8 +1782,7 @@ No further swaps needed, array is sorted.
 Final Sorted Array
 
 [1, 2, 3, 4, 5, 6, 7, 8]
-
-## 36. Write Merge Sort algorithm. Apply the algorithm to the following elements: 10,5,28, 7, 39, 310, 55,15,1
+### 36.Write Merge Sort algorithm. Apply the algorithm to the following elements: 10,5,28, 7, 39, 310, 55,15,1
 
 # Merge Sort Algorithm
 
