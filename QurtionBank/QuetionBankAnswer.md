@@ -1254,12 +1254,12 @@ typedef struct Node {
 } Node;
 ```
 
-### 24.Array is a heterogeneous data type. (True/False). Justify your answer.
--ans: False
+# 24.Array is a heterogeneous data type. (True/False). Justify your answer.
+ans: False
 
 # 25.A m*n matrix which contains very few non-zero elements. A matrix contains more number of ZERO values than NON-ZERO values. Such matrix is known as ? 
-- Sparse Matrix
-### Infix to Postfix and Prefix Conversions
+ans:- Sparse Matrix
+# 26. Infix to Postfix and Prefix Conversions
 
 #### 1. Expression: `(A + B) / C - D * E`
 
@@ -1319,7 +1319,7 @@ typedef struct Node {
 7. Final prefix: `- * A B ^ + / C D - E F G`
 
 
-### 27. List applications of stack and Convert 2 * 3 / (2-1) + 5 * 3 infix expression into postfix format. Showing stacks status after every step in tabular form and evaluates that postfix notation. 
+# 27. List applications of stack and Convert 2 * 3 / (2-1) + 5 * 3 infix expression into postfix format. Showing stacks status after every step in tabular form and evaluates that postfix notation. 
 
 ### Applications of Stack
 
@@ -1384,7 +1384,7 @@ Stacks are widely used in various computing scenarios:
 
 **Final Result:** `21`
 
-### 28. Transform the following expression to postfix and evaluate postfix expression by assuming A=1,B=2,C=3,D=4,E=6,F=6,G=1,I=3 and J=3. INFIX- A + B – C * D / E + F * G / ( I + J ) 
+# 28. Transform the following expression to postfix and evaluate postfix expression by assuming A=1,B=2,C=3,D=4,E=6,F=6,G=1,I=3 and J=3. INFIX- A + B – C * D / E + F * G / ( I + J ) 
 
 ### Infix to Postfix Conversion and Evaluation
 
@@ -1463,7 +1463,7 @@ Stacks are widely used in various computing scenarios:
 
 **Final Result:** `2`
 
-### 29. Differentiate between LIFO and FIFO access mechanism. 
+# 29. Differentiate between LIFO and FIFO access mechanism. 
 
 ### LIFO vs FIFO Access Mechanism
 
@@ -1476,7 +1476,7 @@ Stacks are widely used in various computing scenarios:
 | **Access Pattern**     | Last added item is accessed first.         | First added item is accessed first.     |
 | **Operations**         | - `Push` (add item) <br> - `Pop` (remove item) | - `Enqueue` (add item) <br> - `Dequeue` (remove item) |
 | **Example Use Case**   | Function call stack, undo mechanisms       | Scheduling tasks, buffering data        |
-| **Visual Representation** | ![LIFO]![image](https://github.com/user-attachments/assets/05eabec3-7fc2-41a4-a39f-d4dbbd565134)
+| **Visual Representation** | ![LIFO]![image](https://github.com/user-attachments/assets/05eabec3-7fc2-41a4-a39f-d4dbbd565134) |
  | ![FIFO]![image](https://github.com/user-attachments/assets/85770284-392d-4e2c-be49-ea78b4bcdea8)|
 | **Order of Removal**   | Reverse of order of insertion.             | Same as order of insertion.             |
 
@@ -1495,7 +1495,7 @@ Stacks are widely used in various computing scenarios:
 - **LIFO**: Data is accessed in the reverse order of addition. Suitable for scenarios where the most recently added data should be processed first.
 - **FIFO**: Data is accessed in the same order as addition. Suitable for scenarios where the earliest added data should be processed first.
 
-### 30. How linked list is better compared to stack, queue and array? Explain with concept of dynamic memory allocation. 
+# 30. How linked list is better compared to stack, queue and array? Explain with concept of dynamic memory allocation. 
 
 ### Comparison of Linked List with Stack, Queue, and Array
 
@@ -1553,7 +1553,7 @@ Stacks are widely used in various computing scenarios:
   - Efficiency and flexibility depend on the underlying implementation. Using linked lists for stacks and queues provides dynamic sizing and efficient memory 
  usage.
 
-### 31. In which type of scenario, linear queue ( simple queue ) is better than circular queue? 
+# 31. In which type of scenario, linear queue ( simple queue ) is better than circular queue? 
 ### Linear Queue vs. Circular Queue
 
 #### When Linear Queue (Simple Queue) is Better
@@ -1604,7 +1604,7 @@ a linear queue is preferable in scenarios where simplicity, fixed size, and non-
  situations requiring efficient space utilization and continuous processing.
 
 
-## 32. After evaluation of 3,5,4,*,+ result is ? 
+# 32. After evaluation of 3,5,4,*,+ result is ? 
 
 ### Evaluation of Postfix Expression
 
