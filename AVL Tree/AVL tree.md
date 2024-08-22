@@ -127,19 +127,46 @@ A left rotation is needed when a node's right child has become taller than its l
 
 Example Array: [10, 20, 30]
 
+ 10
+   \
+    20
+      \
+       30
+
+
 Right Rotation (Single Rotation)
 A right rotation is needed when a node's left child has become taller than its right child. This happens in a Left-Left (LL) case.
 
 Example Array: [30, 20, 10]
+
+     30
+    /
+   20
+   /
+ 10
+
+
 
 Left-Right (LR) Rotation
 An LR rotation is needed when a node's left subtree has become right-heavy. This is a double rotation: first a left rotation on the left child, followed by a right rotation on the original node.
 
 Example Array for LR Rotation: [30, 10, 20]
 
+  30
+ /
+10
+  \
+   20
+
 Let's delve into the Right-Left (RL) rotation, which is a double rotation used to rebalance an AVL tree when the right child of a node has become left-heavy
 
 Example Array for RL Rotation: [10, 30, 20]
+
+  10
+    \
+     30
+    /
+   20
 
 
 ```
