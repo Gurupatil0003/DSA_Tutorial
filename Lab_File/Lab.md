@@ -1272,11 +1272,254 @@ int main() {
     return 0;
 }
 
+```
 
+# Delete Opeartion With Inorder predecessor
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+// Definition of a TreeNode
+typedef struct TreeNode {
+    int value;
+    struct TreeNode* left;
+    struct TreeNode* right;
+} TreeNode;
+
+// Function to create a new node
+TreeNode* createNode(int value) {
+    TreeNode* newNode = (TreeNode*)malloc(sizeof(TreeNode));
+    newNode->value = value;
+    newNode->left = NULL;
+    newNode->right = NULL;
+    return newNode;
+}
+
+// Function to insert a value into the BST
+TreeNode* insert(TreeNode* root, int value) {
+    if (root == NULL) {
+        return createNode(value);
+    }
+    if (value < root->value) {
+        root->left = insert(root->left, value);
+    } else {
+        root->right = insert(root->right, value);
+    }
+    return root;
+}
+
+// Function to find the maximum value node in a subtree (Inorder Predecessor)
+TreeNode* findMax(TreeNode* root) {
+    while (root->right != NULL) {
+        root = root->right;
+    }
+    return root;
+}
+
+// Function to delete a node from the BST using Inorder Predecessor
+TreeNode* deleteNode(TreeNode* root, int value) {
+    if (root == NULL) {
+        return NULL;
+    }
+
+    // Searching for the node to delete
+    if (value < root->value) {
+        root->left = deleteNode(root->left, value);
+    } else if (value > root->value) {
+        root->right = deleteNode(root->right, value);
+    } else {
+        // Node to be deleted found
+
+        // Case 1: Node has no left child
+        if (root->left == NULL) {
+            TreeNode* temp = root->right;
+            free(root);
+            return temp;
+        }
+        // Case 2: Node has no right child
+        else if (root->right == NULL) {
+            TreeNode* temp = root->left;
+            free(root);
+            return temp;
+        }
+
+        // Case 3: Node has two children
+        // Find the Inorder Predecessor (largest node in the left subtree)
+        TreeNode* temp = findMax(root->left);
+
+        // Replace the node's value with the Inorder Predecessor's value
+        root->value = temp->value;
+
+        // Delete the Inorder Predecessor
+        root->left = deleteNode(root->left, temp->value);
+    }
+
+    return root;
+}
+
+// Function to perform in-order traversal
+void inorderTraversal(TreeNode* root) {
+    if (root != NULL) {
+        inorderTraversal(root->left);
+        printf("%d ", root->value);
+        inorderTraversal(root->right);
+    }
+}
+
+int main() {
+    TreeNode* root = NULL;
+
+    // Inserting values into the BST
+    root = insert(root, 50);
+    insert(root, 30);
+    insert(root, 70);
+    insert(root, 20);
+    insert(root, 40);
+    insert(root, 60);
+    insert(root, 80);
+
+    // Performing in-order traversal before deletion
+    printf("In-order traversal before deletion: ");
+    inorderTraversal(root);
+    printf("\n");
+
+    // Deleting the root node (50)
+    root = deleteNode(root, 50);
+
+    // Performing in-order traversal after deletion
+    printf("In-order traversal after deletion of 50: ");
+    inorderTraversal(root);
+    printf("\n");
+
+    return 0;
+}
 
 
 ```
+# Delete Opeartion With Inorder Successor
 
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+// Definition of a TreeNode
+typedef struct TreeNode {
+    int value;
+    struct TreeNode* left;
+    struct TreeNode* right;
+} TreeNode;
+
+// Function to create a new node
+TreeNode* createNode(int value) {
+    TreeNode* newNode = (TreeNode*)malloc(sizeof(TreeNode));
+    newNode->value = value;
+    newNode->left = NULL;
+    newNode->right = NULL;
+    return newNode;
+}
+
+// Function to insert a value into the BST
+TreeNode* insert(TreeNode* root, int value) {
+    if (root == NULL) {
+        return createNode(value);
+    }
+    if (value < root->value) {
+        root->left = insert(root->left, value);
+    } else {
+        root->right = insert(root->right, value);
+    }
+    return root;
+}
+
+// Function to find the minimum value node in a subtree (Inorder Successor)
+TreeNode* findMin(TreeNode* root) {
+    while (root->left != NULL) {
+        root = root->left;
+    }
+    return root;
+}
+
+// Function to delete a node from the BST using Inorder Successor
+TreeNode* deleteNode(TreeNode* root, int value) {
+    if (root == NULL) {
+        return NULL;
+    }
+
+    // Searching for the node to delete
+    if (value < root->value) {
+        root->left = deleteNode(root->left, value);
+    } else if (value > root->value) {
+        root->right = deleteNode(root->right, value);
+    } else {
+        // Node to be deleted found
+
+        // Case 1: Node has no left child
+        if (root->left == NULL) {
+            TreeNode* temp = root->right;
+            free(root);
+            return temp;
+        }
+        // Case 2: Node has no right child
+        else if (root->right == NULL) {
+            TreeNode* temp = root->left;
+            free(root);
+            return temp;
+        }
+
+        // Case 3: Node has two children
+        // Find the Inorder Successor (smallest node in the right subtree)
+        TreeNode* temp = findMin(root->right);
+
+        // Replace the node's value with the Inorder Successor's value
+        root->value = temp->value;
+
+        // Delete the Inorder Successor
+        root->right = deleteNode(root->right, temp->value);
+    }
+
+    return root;
+}
+
+// Function to perform in-order traversal
+void inorderTraversal(TreeNode* root) {
+    if (root != NULL) {
+        inorderTraversal(root->left);
+        printf("%d ", root->value);
+        inorderTraversal(root->right);
+    }
+}
+
+int main() {
+    TreeNode* root = NULL;
+
+    // Inserting values into the BST
+    root = insert(root, 50);
+    insert(root, 30);
+    insert(root, 70);
+    insert(root, 20);
+    insert(root, 40);
+    insert(root, 60);
+    insert(root, 80);
+
+    // Performing in-order traversal before deletion
+    printf("In-order traversal before deletion: ");
+    inorderTraversal(root);
+    printf("\n");
+
+    // Deleting the root node (50)
+    root = deleteNode(root, 50);
+
+    // Performing in-order traversal after deletion
+    printf("In-order traversal after deletion of 50: ");
+    inorderTraversal(root);
+    printf("\n");
+
+    return 0;
+}
+
+
+```
 # BST Travesrasl
 
 
