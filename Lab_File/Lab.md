@@ -1597,3 +1597,73 @@ int main() {
 
 
 ```
+
+```c
+#include <stdio.h>
+
+int bn(int arr[], int low, int high, int x) {
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        
+        if (arr[mid] == x) {
+            return mid;
+        }
+        
+        if (arr[mid] < x) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    return -1; // Element not found
+}
+
+int main() {
+    int arr[] = {1, 2, 43};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int x = 2;
+    
+    int result = bn(arr, 0, n - 1, x);
+    
+    printf("Element found at index: %d\n", result);
+    
+    return 0;
+}
+
+
+
+```
+# interpolation Search
+```c
+#include <stdio.h>
+
+int interpolationSearch(int arr[], int low, int high, int x) {
+    while (low <= high && x >= arr[low] && x <= arr[high]) {
+        // Calculate the position based on interpolation formula
+        int pos = low + ((double)(high - low) / (arr[high] - arr[low])) * (x - arr[low]);
+        
+        if (arr[pos] == x) {
+            return pos;
+        }
+        
+        if (arr[pos] < x) {
+            low = pos + 1;
+        } else {
+            high = pos - 1;
+        }
+    }
+    return -1; // Element not found
+}
+
+int main() {
+    int arr[] = {1, 2, 43,44,45,46};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int x = 46;
+    
+    int result = interpolationSearch(arr, 0, n - 1, x);
+    
+    printf("Element found at index: %d\n", result);
+    
+    return 0;
+}
+```
