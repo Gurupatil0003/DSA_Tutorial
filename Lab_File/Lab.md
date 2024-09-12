@@ -1667,3 +1667,161 @@ int main() {
     return 0;
 }
 ```
+# Bubble Sort
+
+```c
+
+#include <stdio.h>
+
+// Function to perform Bubble Sort on an array
+void bubbleSort(int arr[], int n) {
+    int i, j, temp;
+    
+    // Outer loop: runs n-1 times
+    for (i = 0; i < n-1; i++) {
+        // Inner loop: compare adjacent elements
+        for (j = 0; j < n-i-1; j++) {
+            // If the current element is greater than the next, swap them
+            if (arr[j] > arr[j+1]) {
+                temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+}
+
+// Function to print the elements of an array
+void printArray(int arr[], int size) {
+    int i;
+    // Loop through the array and print each element
+    for (i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n"); // Print a new line after printing all elements
+}
+
+// Main function to test the bubbleSort function
+int main() {
+    // Define an array of integers
+    int arr[] = {64, 34, 25, 12, 22, 11, 90};
+    // Calculate the number of elements in the array
+    int n = sizeof(arr)/sizeof(arr[0]);
+    
+    // Print the unsorted array
+    printf("Unsorted array: \n");
+    printArray(arr, n);
+    
+    // Call the bubbleSort function to sort the array
+    bubbleSort(arr, n);
+    
+    // Print the sorted array
+    printf("Sorted array: \n");
+    printArray(arr, n);
+    
+    return 0; // Return 0 to indicate successful execution
+}
+
+```
+#Selection Sort
+```c
+#include <stdio.h>
+
+// Function to perform selection sort
+void selectionSort(int arr[], int n) {
+    int i, j, minIndex, temp;
+
+    for (i = 0; i < n - 1; i++) {
+        // Assume the first element of the unsorted part is the minimum
+        minIndex = i;
+
+        // Find the index of the minimum element in the remaining unsorted part
+        for (j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+
+        // Swap the found minimum element with the first element
+        if (minIndex != i) {
+            temp = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
+        }
+    }
+}
+
+// Function to print an array
+void printArray(int arr[], int size) {
+    int i;
+    for (i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int arr[] = {64, 25, 12, 22, 11};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    printf("Original array: \n");
+    printArray(arr, n);
+
+    selectionSort(arr, n);
+
+    printf("Sorted array: \n");
+    printArray(arr, n);
+
+    return 0;
+}
+```
+
+# Insertion Sort
+```c
+
+#include <stdio.h>
+
+// Function to perform insertion sort
+void insertionSort(int arr[], int n) {
+    int i, key, j;
+
+    // Traverse from the second element to the end of the array
+    for (i = 1; i < n; i++) {
+        key = arr[i];
+        j = i - 1;
+
+        // Move elements of arr[0..i-1], that are greater than key,
+        // to one position ahead of their current position
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        arr[j + 1] = key;
+    }
+}
+
+// Function to print an array
+void printArray(int arr[], int size) {
+    int i;
+    for (i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int arr[] = {64, 25, 12, 22, 11};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    printf("Original array:\n");
+    printArray(arr, n);
+
+    insertionSort(arr, n);
+
+    printf("Sorted array:\n");
+    printArray(arr, n);
+
+    return 0;
+}
+
+
+```
