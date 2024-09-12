@@ -1825,3 +1825,46 @@ int main() {
 
 
 ```
+
+# Adjacency matrix
+```c
+#include <stdio.h>
+
+#define MAX_NODES 5
+
+// Function to add an edge to the adjacency matrix
+void addEdge(int graph[MAX_NODES][MAX_NODES], int start, int end) {
+    graph[start][end] = 1;
+    graph[end][start] = 1; // Because it's an undirected graph
+}
+
+// Function to print the adjacency matrix
+void printMatrix(int graph[MAX_NODES][MAX_NODES], int nodes) {
+    printf("Adjacency Matrix:\n");
+    for (int i = 0; i < nodes; i++) {
+        for (int j = 0; j < nodes; j++) {
+            printf("%d ", graph[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int graph[MAX_NODES][MAX_NODES] = {0}; // Initialize the matrix with zeros
+    int nodes = 5;
+
+
+    // Adding edges
+    addEdge(graph, 0, 1);
+    addEdge(graph, 0, 4);
+    addEdge(graph, 1, 2);
+    addEdge(graph, 1, 3);
+    addEdge(graph, 2, 3);
+    addEdge(graph, 3, 4);
+
+    // Print the adjacency matrix
+    printMatrix(graph, nodes);
+
+    return 0;
+}
+```
