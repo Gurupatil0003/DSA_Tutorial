@@ -1868,3 +1868,277 @@ int main() {
     return 0;
 }
 ```
+# Graph 
+```c
+
+0 -- 1 -- 2
+|    |
+4 -- 3
+```
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+#define V 5  // Number of vertices
+
+// Function to initialize the adjacency matrix
+void initMatrix(int matrix[V][V]) {
+    for (int i = 0; i < V; i++) {
+        for (int j = 0; j < V; j++) {
+            matrix[i][j] = 0;  // Initialize all edges to 0 (no edge)
+        }
+    }
+}
+
+// Function to add an edge to the adjacency matrix
+void addEdge(int matrix[V][V], int src, int dest) {
+    matrix[src][dest] = 1;  // For undirected graph, also set matrix[dest][src] = 1
+    matrix[dest][src] = 1;  // For directed graph, omit this line
+}
+
+// Function to print the adjacency matrix
+void printMatrix(int matrix[V][V]) {
+    for (int i = 0; i < V; i++) {
+        for (int j = 0; j < V; j++) {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+// BFS algorithm
+void bfs(int matrix[V][V], int start) {
+    bool visited[V] = {false};  // Array to keep track of visited nodes
+    int queue[V];  // Queue to hold the nodes to be explored
+    int front = 0, rear = 0;  // Pointers for the front and rear of the queue
+
+    // Start by visiting the initial node
+    visited[start] = true;
+    queue[rear++] = start;
+
+    printf("BFS starting from vertex %d:\n", start);
+
+    while (front < rear) {
+        int current = queue[front++];
+        printf("%d ", current);
+
+        // Explore all adjacent nodes
+        for (int i = 0; i < V; i++) {
+            if (matrix[current][i] == 1 && !visited[i]) {
+                visited[i] = true;
+                queue[rear++] = i;
+            }
+        }
+    }
+    printf("\n");
+}
+
+int main() {
+    int matrix[V][V];
+    
+    initMatrix(matrix);
+
+    addEdge(matrix, 0, 1);
+    addEdge(matrix, 0, 4);
+    addEdge(matrix, 1, 2);
+    addEdge(matrix, 1, 3);
+    addEdge(matrix, 2, 3);
+    addEdge(matrix, 3, 4);
+
+    printf("Adjacency Matrix:\n");
+    printMatrix(matrix);
+
+    // Perform BFS starting from vertex 0
+    bfs(matrix, 0);
+
+    return 0;
+}
+```
+
+
+# DFS 
+```c
+
+#include <stdio.h>
+#include <stdbool.h>
+
+#define MAX_NODES 5
+
+// Function to add an edge to the adjacency matrix
+void addEdge(int graph[MAX_NODES][MAX_NODES], int start, int end) {
+    graph[start][end] = 1;
+    graph[end][start] = 1; // Because it's an undirected graph
+}
+
+// Function to print the adjacency matrix
+void printMatrix(int graph[MAX_NODES][MAX_NODES], int nodes) {
+    printf("Adjacency Matrix:\n");
+    for (int i = 0; i < nodes; i++) {
+        for (int j = 0; j < nodes; j++) {
+            printf("%d ", graph[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+// Stack structure
+typedef struct {
+    int items[MAX_NODES];
+    int top;
+} Stack;
+
+// Initialize the stack
+void initStack(Stack* s) {
+    s->top = -1;
+}
+
+// Push an item onto the stack
+void push(Stack* s, int item) {
+    if (s->top < MAX_NODES - 1) {
+        s->items[++s->top] = item;
+    } else {
+        printf("Stack overflow\n");
+    }
+}
+
+// Pop an item from the stack
+int pop(Stack* s) {
+    if (s->top >= 0) {
+        return s->items[s->top--];
+    } else {
+        printf("Stack underflow\n");
+        return -1;  // Return an invalid value
+    }
+}
+
+// Check if the stack is empty
+int isEmpty(Stack* s) {
+    return s->top == -1;
+}
+
+// DFS algorithm using an explicit stack
+void dfs(int graph[MAX_NODES][MAX_NODES], int start, int nodes) {
+    bool visited[MAX_NODES] = {false};  // Array to keep track of visited nodes
+    Stack s;
+    initStack(&s);
+
+    // Push the start node onto the stack
+    push(&s, start);
+    printf("DFS starting from vertex %d:\n", start);
+
+    while (!isEmpty(&s)) {
+        int vertex = pop(&s);
+
+        // If the vertex has not been visited, visit it
+        if (!visited[vertex]) {
+            visited[vertex] = true;
+            printf("%d ", vertex);
+
+            // Push all adjacent unvisited nodes onto the stack
+            for (int i = nodes - 1; i >= 0; i--) {  // Push nodes in reverse order to maintain correct DFS order
+                if (graph[vertex][i] == 1 && !visited[i]) {
+                    push(&s, i);
+                }
+            }
+        }
+    }
+    printf("\n");
+}
+
+int main() {
+    int graph[MAX_NODES][MAX_NODES] = {0}; // Initialize the matrix with zeros
+    int nodes = 5;
+
+    // Adding edges
+    addEdge(graph, 0, 1);
+    addEdge(graph, 0, 4);
+    addEdge(graph, 1, 2);
+    addEdge(graph, 1, 3);
+    addEdge(graph, 2, 3);
+    addEdge(graph, 3, 4);
+
+    // Print the adjacency matrix
+    printMatrix(graph, nodes);
+
+    // Perform DFS using stack starting from vertex 0
+    dfs(graph, 0, nodes);
+
+    return 0;
+}
+
+
+```
+
+# Adjacency List 
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+// Node for adjacency list
+typedef struct Node {
+    int vertex;
+    struct Node* next;
+} Node;
+
+// Function to create a new adjacency list node
+Node* createNode(int vertex) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode->vertex = vertex;
+    newNode->next = NULL;
+    return newNode;
+}
+
+// Function to initialize the adjacency list
+void initList(Node* adjList[], int V) {
+    for (int i = 0; i < V; i++) {
+        adjList[i] = NULL;
+    }
+}
+
+// Function to add an edge to the adjacency list
+void addEdge(Node* adjList[], int src, int dest) {
+    // Add dest to src's list
+    Node* newNode = createNode(dest);
+    newNode->next = adjList[src];
+    adjList[src] = newNode;
+
+    // Add src to dest's list (for undirected graph)
+    newNode = createNode(src);
+    newNode->next = adjList[dest];
+    adjList[dest] = newNode;
+}
+
+// Function to print the adjacency list
+void printList(Node* adjList[], int V) {
+    for (int i = 0; i < V; i++) {
+        Node* temp = adjList[i];
+        printf("Vertex %d:", i);
+        while (temp) {
+            printf(" -> %d", temp->vertex);
+            temp = temp->next;
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int V = 5;  // Number of vertices
+    Node* adjList[V];
+
+    initList(adjList, V);
+
+    addEdge(adjList, 0, 1);
+    addEdge(adjList, 0, 4);
+    addEdge(adjList, 1, 2);
+    addEdge(adjList, 1, 3);
+    addEdge(adjList, 2, 3);
+    addEdge(adjList, 3, 4);
+
+    printf("Adjacency List:\n");
+    printList(adjList, V);
+
+    return 0;
+}
+```
