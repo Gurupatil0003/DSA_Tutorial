@@ -1878,40 +1878,31 @@ int main() {
 
 ```c
 #include <stdio.h>
-#include <stdlib.h>
 #include <stdbool.h>
 
-#define V 5  // Number of vertices
-
-// Function to initialize the adjacency matrix
-void initMatrix(int matrix[V][V]) {
-    for (int i = 0; i < V; i++) {
-        for (int j = 0; j < V; j++) {
-            matrix[i][j] = 0;  // Initialize all edges to 0 (no edge)
-        }
-    }
-}
+#define MAX_NODES 5
 
 // Function to add an edge to the adjacency matrix
-void addEdge(int matrix[V][V], int src, int dest) {
-    matrix[src][dest] = 1;  // For undirected graph, also set matrix[dest][src] = 1
-    matrix[dest][src] = 1;  // For directed graph, omit this line
+void addEdge(int graph[MAX_NODES][MAX_NODES], int start, int end) {
+    graph[start][end] = 1;
+    graph[end][start] = 1; // Because it's an undirected graph
 }
 
 // Function to print the adjacency matrix
-void printMatrix(int matrix[V][V]) {
-    for (int i = 0; i < V; i++) {
-        for (int j = 0; j < V; j++) {
-            printf("%d ", matrix[i][j]);
+void printMatrix(int graph[MAX_NODES][MAX_NODES], int nodes) {
+    printf("Adjacency Matrix:\n");
+    for (int i = 0; i < nodes; i++) {
+        for (int j = 0; j < nodes; j++) {
+            printf("%d ", graph[i][j]);
         }
         printf("\n");
     }
 }
 
-// BFS algorithm
-void bfs(int matrix[V][V], int start) {
-    bool visited[V] = {false};  // Array to keep track of visited nodes
-    int queue[V];  // Queue to hold the nodes to be explored
+// BFS algorithm implementation
+void bfs(int matrix[MAX_NODES][MAX_NODES], int start, int nodes) {
+    bool visited[MAX_NODES] = {false};  // Array to keep track of visited nodes
+    int queue[MAX_NODES];  // Queue to hold the nodes to be explored
     int front = 0, rear = 0;  // Pointers for the front and rear of the queue
 
     // Start by visiting the initial node
@@ -1921,14 +1912,14 @@ void bfs(int matrix[V][V], int start) {
     printf("BFS starting from vertex %d:\n", start);
 
     while (front < rear) {
-        int current = queue[front++];
+        int current = queue[front++]; // Dequeue the front node
         printf("%d ", current);
 
         // Explore all adjacent nodes
-        for (int i = 0; i < V; i++) {
+        for (int i = 0; i < nodes; i++) {
             if (matrix[current][i] == 1 && !visited[i]) {
                 visited[i] = true;
-                queue[rear++] = i;
+                queue[rear++] = i; // Enqueue the unvisited adjacent node
             }
         }
     }
@@ -1936,25 +1927,26 @@ void bfs(int matrix[V][V], int start) {
 }
 
 int main() {
-    int matrix[V][V];
-    
-    initMatrix(matrix);
+    int graph[MAX_NODES][MAX_NODES] = {0}; // Initialize the matrix with zeros
+    int nodes = MAX_NODES;
 
-    addEdge(matrix, 0, 1);
-    addEdge(matrix, 0, 4);
-    addEdge(matrix, 1, 2);
-    addEdge(matrix, 1, 3);
-    addEdge(matrix, 2, 3);
-    addEdge(matrix, 3, 4);
+    // Adding edges
+    addEdge(graph, 0, 1);
+    addEdge(graph, 0, 4);
+    addEdge(graph, 1, 2);
+    addEdge(graph, 1, 3);
+    addEdge(graph, 2, 3);
+    addEdge(graph, 3, 4);
 
-    printf("Adjacency Matrix:\n");
-    printMatrix(matrix);
+    // Print the adjacency matrix
+    printMatrix(graph, nodes);
 
     // Perform BFS starting from vertex 0
-    bfs(matrix, 0);
+    bfs(graph, 0, nodes);
 
     return 0;
 }
+
 ```
 
 
