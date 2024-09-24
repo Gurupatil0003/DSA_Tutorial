@@ -8,6 +8,25 @@
 
 ![image](https://github.com/user-attachments/assets/0d91029e-9e24-4244-ae1f-52c33e8b1bd8)
 
+
+
+![image](https://github.com/user-attachments/assets/f5428e59-7d57-4459-b968-46ab8b6fc5c1)
+
+
+The values of the stack in diff iteration inside while is as follows:
+```
+
+|  | |  | |  | |  | |  |
+|  | |  | |  | | 2| | 1|
+|  | |  | | 3| | 5| | 5|
+|  | | 6| | 9| | 9| | 9|
+|11| |16| |16| |16| |16|
+```
+Result:
+```c
+11 -> 6 -> 3 -> 2 -> 1 -> 5 -> 4 -> 9 -> 8 -> 7 -> 10 -> 16 -> 14 -> 13 -> 12 -> 15 -> 19 -> 18 -> 17 -> 20
+
+```
 # Depth-first, in action
 
 - When it comes to both breadth-first search and depth-first search, there are only two major points to keep in mind when initiating a graph traversal: first, we can choose any arbitrary node 
