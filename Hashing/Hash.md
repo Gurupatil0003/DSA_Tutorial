@@ -17,4 +17,3 @@ Hash functions play a crucial role in efficient data retrieval and storage withi
 Creating an effective hash function is crucial for even distribution of items across the hash table. Key considerations include:
 - The function should be quick and easy to compute.
 - Effective collision resolution strategies must be in place.
-
