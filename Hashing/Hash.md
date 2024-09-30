@@ -1,3 +1,122 @@
+## Types of Hash Functions
+Many hash functions use alphanumeric or numeric keys. The main hash functions cover -  
+
+1.Division Method.  
+2.Mid Square Method.  
+3.Folding Method.  
+4.Multiplication Method.  
+Let's examine these methods in more detail. 
+
+1. Division Method
+
+The division method is the simplest and easiest method used to generate a hash value. In this hash function, the value of k is divided by M and uses the remainder as obtained. 
+
+Formula - h(K) = k mod M 
+
+(where k = key value and M = the size of the hash table) 
+
+Advantages	Disadvantages
+This method works well for any value of M	This may lead to poor performance as consecutive keys are mapped to consecutive hash values in the hash table.
+The division approach is extremely quick because it only calls for one operation.	There are situations when choosing the value of M requires particular caution.
+ Example: 
+```c
+k = 1320 
+M = 11 
+h (1320) = 1320 mod 11 
+= 0
+```
+
+2. Mid-Square Method
+
+The steps involved in computing this hash method include the following - 
+
+Squaring the value of k ( like k*k) 
+Extract the hash value from the middle r digits. 
+Formula - h(K) = h(k x k)
+
+ (where k = key value ) 
+
+Advantages	Disadvantages
+Since most or all of the key value's digits contribute to the outcome, this strategy performs well. The middle digits of the squared result are produced by a process in which all of the essential digits participate.	One of this method's constraints is the size of the key; if the key is large, its square will have twice as many digits.
+The top or bottom digits of the original key value do not predominate in the outcome.	Chance of repeated collisions.
+ Example:
+
+Let's take the hash table with 200 memory locations and r = 2, as decided on the size of the mapping in the table.  
+```c
+k = 50 
+Therefore, 
+k = k x k 
+= 50 x 50 
+= 2500 
+Thus, 
+h(50) = 50
+```
+3. Folding Method
+
+There are two steps in this method:  
+
+The key-value k should be divided into a specific number of parts, such as k1, k2, k3,..., kn, each having the very same number of digits aside from the final component, which may have fewer digits than the remaining parts. 
+Add each component separately. The last carry, if any, is disregarded to determine the hash value. 
+
+Formula - k = k1, k2, k3, k4, ….., kn 
+
+s = k1+ k2 + k3 + k4 +….+ kn 
+
+h(K)= s
+
+(Where, s = addition of the parts of key k) 
+
+Advantages	Disadvantages
+Breaks up the key value into precise equal-sized segments for an easy hash value	Sometimes inefficient if there are too many collisions
+Independent of distribution in a hash table	
+Example:
+```c
+k = 54321 
+k1 = 54 ; k2 = 32 ; k3 = 1 
+Therefore, 
+s = k1 + k2 + k3 
+= 54 + 32+ 1 
+= 87 
+Thus, 
+h (k) = 87
+
+```
+4. Multiplication Method
+
+Steps to follow:
+
+Pick up a constant value A (where 0 < A < 1) 
+Multiply A with the key value 
+Take the fractional part of kA 
+Take the result of the previous step and multiply it by the size of the hash table, M. 
+Formula - h(K) = floor (M (kA mod 1)) 
+
+(Where, M = size of the hash table, k = key value and A = constant value) 
+
+Advantages	Disadvantages
+It may be applied to any number between 0 and 1, albeit some numbers tend to produce better results than others.	When the table size is a power of two, the multiplication technique is typically appropriate since multiplication hashing makes it possible to compute the index by key quickly.
+
+Example: 
+```c
+k = 1234 
+A = 0.35784 
+M = 100 
+So,  
+h (1234) = floor [ 100(1234 x 0.35784 mod 1)] 
+= floor [ 100 ( 441.57456 mod 1)] 
+= floor [100 ( 0. 57456)] 
+= floor [ 57.456] 
+= 57 
+Thus, 
+h (1234) = 57
+
+```
+C. Choosing a Good Hash Function  
+Creating an effective hash function that distributes the added item's index value evenly across the database is important. 
+Quick and easier to compute according to the requirements. 
+An approach to successfully resolve collisions in hash tables is essential for generating an index for a key whose hash index corresponds to an existing spot. 
+What is a Hash C
+
 # Hash Functions in Data Structures and Algorithms
 
 Hash functions play a crucial role in efficient data retrieval and storage within hash tables. This document outlines the main types of hash functions, their formulas, advantages, disadvantages, and examples.
