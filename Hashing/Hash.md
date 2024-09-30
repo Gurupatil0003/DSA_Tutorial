@@ -1,3 +1,111 @@
+# Hash Functions
+
+Hash functions are essential for efficient data storage and retrieval in hash tables. They transform input keys into hash values, which are used as indexes in a hash table. This document outlines several types of hash functions and their characteristics.
+
+## Types of Hash Functions
+
+### 1. Division Method
+
+The Division Method is one of the simplest and most common approaches to generating a hash value.
+
+**Formula:**  
+h(K) = k mod M  
+(where k = key value and M = size of the hash table)
+
+**Advantages:**
+- Simple and fast computation.
+- Works well for various values of M.
+
+**Disadvantages:**
+- Can lead to poor performance if consecutive keys map to consecutive hash values.
+- Choosing an appropriate M is critical for performance.
+
+**Example:**  
+For k = 1320 and M = 11:  
+h(1320) = 1320 mod 11 = 0
+
+---
+
+### 2. Mid-Square Method
+
+This method involves squaring the key and extracting the middle digits as the hash value.
+
+**Formula:**  
+h(K) = middle(k × k)  
+(where k = key value)
+
+**Advantages:**
+- Most digits of the key contribute to the hash value.
+- Reduces the impact of the first or last digits.
+
+**Disadvantages:**
+- Large keys can lead to excessively large hash values.
+- Potential for collisions.
+
+**Example:**  
+For a hash table with 200 memory locations and r = 2:  
+For k = 50:  
+50 × 50 = 2500  
+Thus, h(50) = 25 (extracting the middle two digits).
+
+---
+
+### 3. Folding Method
+
+This method involves breaking the key into parts and summing them to generate the hash value.
+
+**Formula:**  
+s = k₁ + k₂ + ... + kₙ  
+h(K) = s  
+(where s = sum of the parts of key k)
+
+**Advantages:**
+- Segments the key into manageable pieces for hashing.
+- Distribution of keys is independent of their order.
+
+**Disadvantages:**
+- May result in inefficiency if many collisions occur.
+
+**Example:**  
+For k = 54321:  
+Split into k₁ = 54, k₂ = 32, k₃ = 1:  
+s = 54 + 32 + 1 = 87  
+Thus, h(k) = 87.
+
+---
+
+### 4. Multiplication Method
+
+This method uses a constant to generate the hash value through multiplication.
+
+**Formula:**  
+h(K) = floor(M × (kA mod 1))  
+(where M = size of the hash table, k = key value, and A = constant value 0 < A < 1)
+
+**Advantages:**
+- Versatile and applicable for a range of values.
+- Efficient for tables where the size is a power of two.
+
+**Disadvantages:**
+- Requires careful selection of the constant A for optimal results.
+
+**Example:**  
+For k = 1234, A = 0.35784, M = 100:  
+h(1234) = floor[100(1234 × 0.35784 mod 1)]  
+Calculating:  
+= floor[100(0.57456)] = 57  
+Thus, h(1234) = 57.
+
+---
+
+## Choosing a Good Hash Function
+
+Creating an effective hash function is crucial for ensuring that keys are evenly distributed across the hash table. A good hash function should:
+- Be quick and easy to compute.
+- Effectively resolve collisions.
+- Ensure a uniform distribution of hash values.
+
+
 ## Types of Hash Functions
 Many hash functions use alphanumeric or numeric keys. The main hash functions cover -  
 
