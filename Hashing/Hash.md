@@ -1,3 +1,7 @@
+
+https://www.scaler.in/double-hashing/
+
+https://www.scaler.com/topics/quadratic-probing/
 # Hash Functions
 
 Hash functions are essential for efficient data storage and retrieval in hash tables. They transform input keys into hash values, which are used as indexes in a hash table. This document outlines several types of hash functions and their characteristics.
