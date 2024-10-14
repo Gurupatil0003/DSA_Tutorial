@@ -472,3 +472,8 @@ int main() {
 
 ![Uploading image.png…]()
 
+
+~~~c
+ Given a two dimensional array A1(1:8, 7:14) stored in row-major order with base address 100 and size of each element is 4 bytes, find address of the element A1(4, 12).
+
+~~~
